@@ -49,6 +49,8 @@ verify:jdk8:
 build:jdk8:
   stage: build
   script:
+    pwd
+    ls -al
     mvn compile -f ${CI_PROJECT_DIR}/unittest/pom.xml
 
 # To deploy packages from CI, create a ci_settings.xml file
