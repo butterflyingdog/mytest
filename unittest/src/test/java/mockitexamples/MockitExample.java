@@ -5,7 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
-
+import java.utils.List;
   
 public class MockitExample {
 
@@ -73,6 +73,9 @@ System.out.println(spy.size());
 verify(spy).add("one"); 
 verify(spy).add("two");
     }
+
+    
+    /*
 
     @Test
     public void testmockit2(){
@@ -311,5 +314,7 @@ verify(mockOne, never()).add("two");
 
 verifyZeroInteractions(mockTwo, mockThree); 
     }
+*/
+
 }
  
