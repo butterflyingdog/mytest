@@ -21,7 +21,7 @@ import static org.mockito.Mockito.*;
         return name; 
         }
 }
-
+/*
 
 class PersonService{
      private final PersonDao personDao; 
@@ -37,7 +37,7 @@ class PersonService{
         }
 }
 
-
+*/
 public class MockitExample {
 
     private PersonDao     mockDao;
