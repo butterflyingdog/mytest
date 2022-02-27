@@ -46,6 +46,15 @@ cache:
 verify:jdk8:
   <<: *verify
 
+
+build:jdk8:
+  stage: build
+  script:
+    - pwd
+    - ls -al
+  #  - mvn compile -f unittest/pom.xml
+
+
 # To deploy packages from CI, create a ci_settings.xml file
 # For deploying packages to GitLab's Maven Repository: See https://docs.gitlab.com/ee/user/packages/maven_repository/index.html#create-maven-packages-with-gitlab-cicd for more details.
 # Please note: The GitLab Maven Repository is currently only available in GitLab Premium / Ultimate.
