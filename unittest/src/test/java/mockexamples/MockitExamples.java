@@ -1,4 +1,12 @@
-package unittest.mockexmaples;
+package mockexmaples;
+ 
+ 
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
+
+ 
   class Person {
     private final int id; 
     private final String name; 
@@ -34,10 +42,6 @@ public interface PersonDao {
 }
 
 
-import org.junit.Before;
-import org.junit.Test;
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
 
 
 public class MockitExample {

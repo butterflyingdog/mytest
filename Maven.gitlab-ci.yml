@@ -48,11 +48,11 @@ verify:jdk8:
 
 
 build:jdk8:
-  stage: build
+  stage: test
   script:
     - pwd
     - ls -al
-    - mvn compile -f unittest/pom.xml
+    - mvn test -f unittest/pom.xml
 
 
 # To deploy packages from CI, create a ci_settings.xml file
