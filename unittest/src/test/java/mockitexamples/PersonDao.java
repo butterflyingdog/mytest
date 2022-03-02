@@ -1,4 +1,4 @@
-package mockitexmaples;
+package mockitexamples;
 
 
   class Person {

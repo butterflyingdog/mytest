@@ -1,4 +1,4 @@
-package mockitexmaples;
+package mockitexamples;
  
  
 import org.junit.Before;
@@ -6,7 +6,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 import java.util.*;
-  
+ 
 public class MockitExample {
 
     private PersonDao     mockDao;
@@ -40,6 +40,37 @@ public class MockitExample {
         verify(mockDao, times(1)).getPerson(eq(1));
         //验证是否执行过一次update
         verify(mockDao, never()).update(isA(Person.class));
+    }
+
+    @Test
+    public void testMockito(){
+//create mock
+List mockedList = mock(List.class);
+//use mock object
+mockedList.add("one");
+mockedList.clear();
+//验证add方法是否在前面被调用了一次，且参数为“one”。clear方法同样。
+verify(mockedList).add("one");
+verify(mockedList).clear();
+//下面的验证会失败。因为没有调用过add("two")。
+verify(mockedList).add("two");
+//stubbing。当get(0)被调用时，返回"first". 方法get(1)被调用时，抛异常。
+when(mockedList.get(0)).thenReturn("first");
+when(mockedList.get(1)).thenThrow(new RuntimeException());
+//重复stub，以最后一次为准，如下将返回"second"：
+when(mockedList.get(0)).thenReturn("first");
+when(mockedList.get(0)).thenReturn("second");
+//如下表示第一次调用时返回“first”，第二次调用时返回“second”。可以写n个。
+when(mockedList.get(0)).thenReturn("first").thenReturn("second");
+//如果实际调用的次数超过了stub过的次数，则返回最后一次stub的值。
+//例如第三次调用get(0)时，则会返回"second".
+//是否add("twice")被调用了两次。
+verify(mockedList, times(2)).add("twice");
+//验证add("twice")被调用了至少一次。以及其他。
+verify(mockedList, atLeastOnce()).add("twice");
+verify(mockedList, atLeast(2)).add("twice");
+verify(mockedList, atMost(5)).add("twice");
+verify(mockedList, never()).add("twice");
     }
 
     @Test
