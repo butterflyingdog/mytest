@@ -41,6 +41,12 @@ public class MockitExample {
         //验证是否执行过一次update
         verify(mockDao, never()).update(isA(Person.class));
     }
+    @Test
+    public void testMockito2(){
+        //create mock
+List mockedList = mock(List.class);
+System.out.println(mockedList);
+    }
 
     @Test
     public void testMockito(){

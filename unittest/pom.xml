@@ -7,10 +7,10 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.butterflyingdog</groupId>
-  <artifactId>mockitexample</artifactId>
+  <artifactId>mockexample</artifactId>
   <version>0.0.1-SNAPSHOT</version>
 
-  <name>t_optimization</name>
+  <name>mockexample</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
@@ -54,7 +54,7 @@
         </plugin>
         <plugin>
           <artifactId>maven-surefire-plugin</artifactId>
-          <version>2.20.1</version>
+          <version>2.22.2</version>
         </plugin>
         <plugin>
           <artifactId>maven-jar-plugin</artifactId>
