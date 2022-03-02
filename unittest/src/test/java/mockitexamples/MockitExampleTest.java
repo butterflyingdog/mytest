@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 import java.util.*;
  
-public class MockitExample {
+public class MockitExampleTest {
 
     private PersonDao     mockDao;
     private PersonService personService;
