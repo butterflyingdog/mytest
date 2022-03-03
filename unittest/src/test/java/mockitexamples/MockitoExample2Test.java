@@ -5,6 +5,8 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
+
+import java.lang.reflect.Array;
 import java.util.*;
 
 public class MockitoExample2Test {
@@ -13,24 +15,33 @@ public class MockitoExample2Test {
     @Test
     public void testMockito2(){
         //create mock
-List mockedList = mock(List.class);
-System.out.println(mockedList);
+        System.out.println("in testMockito2");
+        List mockedList1 = mock(List.class);
+
+        System.out.println("mockedList1= "+mockedList1);
+        List mockedList2 = new ArrayList();
+        System.out.println("mockedList2= "+mockedList2);
+
     }
 
     @Test
     public void testMockito(){
-//create mock
-List mockedList = mock(List.class);
-//use mock object
-mockedList.add("one");
-mockedList.clear();
-//验证add方法是否在前面被调用了一次，且参数为“one”。clear方法同样。
-verify(mockedList).add("one");
+    //create mock
+    List mockedList = mock(List.class);
+    //use mock object
+    mockedList.add("one");
+    mockedList.clear();
+    //验证add方法是否在前面被调用了一次，且参数为“one”。clear方法同样。
+    verify(mockedList).add("one");
+    System.out.println("when flag0");
 verify(mockedList).clear();
+System.out.println("flag1");
 //下面的验证会失败。因为没有调用过add("two")。
 verify(mockedList).add("two");
 //stubbing。当get(0)被调用时，返回"first". 方法get(1)被调用时，抛异常。
+System.out.println("when flag2");
 when(mockedList.get(0)).thenReturn("first");
+System.out.println("when flag3");
 when(mockedList.get(1)).thenThrow(new RuntimeException());
 //重复stub，以最后一次为准，如下将返回"second"：
 when(mockedList.get(0)).thenReturn("first");

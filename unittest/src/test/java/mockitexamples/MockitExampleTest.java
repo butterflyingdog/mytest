@@ -35,10 +35,14 @@ public class MockitExampleTest {
     @Test
     public void testUpdateNotFind() throws Exception {
         boolean result = personService.update(2, "new name");
+        System.out.println("MockitExample flag0");
         assertFalse("must true", result);
+        System.out.println("MockitExample flag1");
         //验证是否执行过一次getPerson(1)
         verify(mockDao, times(1)).getPerson(eq(1));
+        System.out.println("MockitExample flag2");
         //验证是否执行过一次update
         verify(mockDao, never()).update(isA(Person.class));
+        System.out.println("MockitExample flag3");
     }
 }
