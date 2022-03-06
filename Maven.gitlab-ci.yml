@@ -52,7 +52,7 @@ build:jdk8:
   script:
     - pwd
     - ls -al
-    - mvn test -f unittest/pom.xml
+    - mvn site -f unittest/pom.xml
 
 
 # To deploy packages from CI, create a ci_settings.xml file
