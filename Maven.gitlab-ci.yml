@@ -59,8 +59,8 @@ build:jdk8:
   only:
   - master
 
-after_script:
-  - mv unittest/target/site/* public
+#after_script:
+#  - mv unittest/target/site/* public
 
 
 #pages:
