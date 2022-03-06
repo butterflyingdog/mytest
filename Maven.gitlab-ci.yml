@@ -54,10 +54,14 @@ build:jdk8:
     - mkdir public
     - mvn site -f unittest/pom.xml
   artifacts:
+    when: always
     paths:
-      - unittest/target/site/
-  only:
-  - main
+      - unittest/target/site/*
+    reports:
+      junit:
+        - unittest/target/surefire-reports/*
+        - unittest/target/failsafe-reports/*
+
 
 after_script:
   - mv unittest/target/site/* public
