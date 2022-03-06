@@ -57,10 +57,10 @@ build:jdk8:
     paths:
       - unittest/target/site/
   only:
-  - master
+  - main
 
-#after_script:
-#  - mv unittest/target/site/* public
+after_script:
+  - mv unittest/target/site/* public
 
 
 #pages:
