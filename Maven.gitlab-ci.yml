@@ -51,16 +51,16 @@ build:jdk8:
   stage: test
   script:
     - pwd
-    - ls -al
+    - mkdir public
     - mvn site -f unittest/pom.xml
   artifacts:
     paths:
-      - build/reports/tests/test/
+      - unittest/target/site/
   only:
   - master
 
 after_script:
-  - mv build/reports/tests/test/* public
+  - mv unittest/target/site/* public
 
 
 pages:
@@ -69,7 +69,7 @@ pages:
      - build:jdk8
   script:
    - mkdir public
-   - mv build/reports/tests/test/* public
+   - mv unittest/target/site/* public
   artifacts:
      paths:
       - public
