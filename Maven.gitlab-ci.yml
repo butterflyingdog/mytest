@@ -66,7 +66,7 @@ after_script:
 pages:
   stage: deploy
   dependencies:
-     - test
+     - build:jdk8
   script:
    - mkdir public
    - mv build/reports/tests/test/* public
