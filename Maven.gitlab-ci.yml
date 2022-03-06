@@ -53,8 +53,28 @@ build:jdk8:
     - pwd
     - ls -al
     - mvn site -f unittest/pom.xml
+  artifacts:
+    paths:
+      - build/reports/tests/test/
+  only:
+  - master
+
+after_script:
+  - mv build/reports/tests/test/* public
 
 
+pages:
+  stage: deploy
+  dependencies:
+     - test
+  script:
+   - mkdir public
+   - mv build/reports/tests/test/* public
+  artifacts:
+     paths:
+      - public
+  only:
+    - master
 # To deploy packages from CI, create a ci_settings.xml file
 # For deploying packages to GitLab's Maven Repository: See https://docs.gitlab.com/ee/user/packages/maven_repository/index.html#create-maven-packages-with-gitlab-cicd for more details.
 # Please note: The GitLab Maven Repository is currently only available in GitLab Premium / Ultimate.
