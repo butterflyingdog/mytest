@@ -65,7 +65,7 @@ build:jdk8:
 
 after_script:
   - ls -al unittest/target/surefire-reports/
-  - mv unittest/target/surefire-reports/* public
+ # - mv unittest/target/surefire-reports/* public
 
 
 #pages:
