@@ -52,6 +52,7 @@ springbootdemo-build:jdk8:
   script:
     - pwd
     - cd mySpringBootDemo
+    - chmod 777 mvnw
     - mvnw
     #- mvn  test -f mySpringBootDemo/pom.xml
   artifacts:
