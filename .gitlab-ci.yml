@@ -21,7 +21,10 @@ stages:          # List of stages for jobs, and their order of execution
 
     
 include: 
-  local: 'Maven.gitlab-ci.yml'
+  local: 
+    - 'springboot.gitlab-ci.yml'
+  # - 'unittest.gitlab-ci.yml'
+
 
 #include:
 #  - template: Terraform.latest.gitlab-ci.yml
