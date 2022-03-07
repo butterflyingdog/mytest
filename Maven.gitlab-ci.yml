@@ -56,17 +56,15 @@ build:jdk8:
   artifacts:
     when: always
     paths:
-      - unittest/target/site/*
-      - unittest/target/surefire-reports/*
-      - unittest/target/failsafe-reports/*
+      - unittest/target/surefire-reports/*.xml  
     reports:
       junit:
-        - unittest/target/surefire-reports/*
-        - unittest/target/failsafe-reports/*
+        - unittest/target/surefire-reports/*.xml
+ 
 
 
 after_script:
-  - mv unittest/target/site/* public
+  - mv unittest/target/surefire-reports/* public
 
 
 #pages:
