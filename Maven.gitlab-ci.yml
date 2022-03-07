@@ -52,7 +52,7 @@ build:jdk8:
   script:
     - pwd
     - mkdir public
-    - mvn site -f unittest/pom.xml
+    - mvn test -f unittest/pom.xml
   artifacts:
     when: always
     paths:
