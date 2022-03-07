@@ -54,7 +54,8 @@ springbootdemo-build:jdk8:
     - cd mySpringBootDemo
     - chmod 777 mvnw
     - ls -al
-    - mvnw
+    - mvn clean test 
+    - ./mvnw clean test
     #- mvn  test -f mySpringBootDemo/pom.xml
   artifacts:
     when: always
