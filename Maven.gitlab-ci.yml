@@ -57,6 +57,8 @@ build:jdk8:
     when: always
     paths:
       - unittest/target/site/*
+      - unittest/target/surefire-reports/*
+      - unittest/target/failsafe-reports/*
     reports:
       junit:
         - unittest/target/surefire-reports/*
