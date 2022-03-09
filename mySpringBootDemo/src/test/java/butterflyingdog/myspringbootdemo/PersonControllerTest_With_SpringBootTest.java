@@ -22,6 +22,11 @@ public class PersonControllerTest_With_SpringBootTest {
     @Test
     public void testShow(){
         String context = testRestTemplate.getForObject("/user/show?id=100",String.class);
-        Assertions.assertEquals("show10",context);
+        Assertions.assertEquals("show100",context);
+    }
+    @Test
+    public void testAddPerson(){
+        String context = testRestTemplate.getForObject("/user/add",String.class);
+        Assertions.assertEquals("1",context);
     }
 }

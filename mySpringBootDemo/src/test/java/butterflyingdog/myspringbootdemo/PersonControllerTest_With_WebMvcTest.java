@@ -29,4 +29,10 @@ public class PersonControllerTest_With_WebMvcTest {
         mockMvc.perform(MockMvcRequestBuilders.get("/user/show").param("id", "400")).andExpect(MockMvcResultMatchers.status().isOk());
         mockMvc.perform(MockMvcRequestBuilders.get("/user/show").param("id", "400")).andExpect(MockMvcResultMatchers.status().isOk()).andExpect(MockMvcResultMatchers.content().string("show400"));
     }
+    @Test
+    public void testAddPerson() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.get("/user/add") ).andExpect(MockMvcResultMatchers.status().isOk());
+        mockMvc.perform(MockMvcRequestBuilders.get("/user/add") ).andExpect(MockMvcResultMatchers.status().isOk()).andExpect(MockMvcResultMatchers.content().string("1"));
+    }
+
 }
