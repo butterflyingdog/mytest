@@ -1,4 +1,4 @@
-package butterflyingdog.mySpringBootDemo;
+package butterflyingdog.myspringbootdemo;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.BDDMockito;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
-import butterflyingdog.mySpringBootDemo.Dao.PersonDao;
+import butterflyingdog.myspringbootdemo.dao.PersonDao;
 
 public class PersonDaoTest {
 

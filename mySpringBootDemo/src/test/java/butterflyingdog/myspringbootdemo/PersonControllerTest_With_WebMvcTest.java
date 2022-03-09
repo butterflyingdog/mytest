@@ -1,4 +1,4 @@
-package butterflyingdog.mySpringBootDemo;
+package butterflyingdog.myspringbootdemo;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +10,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-import butterflyingdog.mySpringBootDemo.Controller.PersonController;
+import butterflyingdog.myspringbootdemo.controller.PersonController;
 
 @WebMvcTest(controllers = PersonController.class)
 public class PersonControllerTest_With_WebMvcTest {

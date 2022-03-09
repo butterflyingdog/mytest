@@ -1,4 +1,4 @@
-package butterflyingdog.mySpringBootDemo.Controller;
+package butterflyingdog.myspringbootdemo.controller;
 
 
 import org.springframework.web.bind.annotation.GetMapping;

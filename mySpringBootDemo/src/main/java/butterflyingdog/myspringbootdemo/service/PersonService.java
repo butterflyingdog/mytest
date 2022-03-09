@@ -1,4 +1,4 @@
-package butterflyingdog.mySpringBootDemo.Service;
+package butterflyingdog.myspringbootdemo.service;
 
 import org.springframework.aop.support.annotation.*;
 import org.springframework.stereotype.Service;

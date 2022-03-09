@@ -1,4 +1,4 @@
-package butterflyingdog.mySpringBootDemo;
+package butterflyingdog.myspringbootdemo;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
