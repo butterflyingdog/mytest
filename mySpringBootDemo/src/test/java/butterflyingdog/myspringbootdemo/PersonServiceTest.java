@@ -9,7 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import butterflyingdog.myspringbootdemo.service.PersonService;
  
-//@RunWith(SpringRunner.class)
+ 
 @SpringBootTest
 public class PersonServiceTest {
 
