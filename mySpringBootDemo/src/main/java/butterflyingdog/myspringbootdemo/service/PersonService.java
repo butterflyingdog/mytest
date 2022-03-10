@@ -9,14 +9,16 @@ import butterflyingdog.myspringbootdemo.dao.PersonDao;
 @Service
 public class PersonService {
 
-    //@Autowired
-    //private PersonDao personDao;
+    @Autowired
+    private PersonDao personDao;
     
     public Integer addUser(String username){
         System.out.println("user dao adduser [username="+username+"]");
         if(username == null){
             return 0;
+        }else{
+           return personDao.createUser(username);
         }
-        return 1;
+         
     }
 }
