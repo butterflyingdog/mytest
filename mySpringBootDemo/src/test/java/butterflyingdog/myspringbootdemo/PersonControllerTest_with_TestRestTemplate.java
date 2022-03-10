@@ -7,7 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class PersonControllerTest_With_SpringBootTest {
+public class PersonControllerTest_with_TestRestTemplate {
 
     //这个对象是运行在web环境的时候加载到spring容器中
     @Autowired
