@@ -5,14 +5,15 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 
 import myspringbootdemo.personmng.dao.PersonDao;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(classes={myspringbootdemo.MySpringBootDemoApplication.class}, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class PersonControllerTest_with_TestRestTemplate {
 
-    @Mock
+    @MockBean
     PersonDao personDao;
 
     //这个对象是运行在web环境的时候加载到spring容器中

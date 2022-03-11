@@ -10,7 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import myspringbootdemo.personmng.service.PersonService;
  
  
-@SpringBootTest
+@SpringBootTest()
 public class PersonServiceTest {
 
     @Autowired
