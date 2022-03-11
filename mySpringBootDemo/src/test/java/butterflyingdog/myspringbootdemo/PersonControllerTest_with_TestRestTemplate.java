@@ -2,12 +2,18 @@ package butterflyingdog.myspringbootdemo;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 
+import butterflyingdog.myspringbootdemo.dao.PersonDao;
+
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class PersonControllerTest_with_TestRestTemplate {
+
+    @Mock
+    PersonDao personDao;
 
     //这个对象是运行在web环境的时候加载到spring容器中
     @Autowired
