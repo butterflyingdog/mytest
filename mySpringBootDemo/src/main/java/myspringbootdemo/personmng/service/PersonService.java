@@ -1,11 +1,11 @@
-package butterflyingdog.myspringbootdemo.service;
+package myspringbootdemo.personmng.service;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
 
-import butterflyingdog.myspringbootdemo.dao.PersonDao;
+import myspringbootdemo.personmng.dao.PersonDao;
 
 @Service
 public class PersonService {
@@ -23,7 +23,7 @@ public class PersonService {
             return 0;
         }else{
            int result =  personDao.createUser(username);
-            publisher.publishEvent(username);
+            publisher.publishEvent(new PersonEvent());
            return result;
         }
          

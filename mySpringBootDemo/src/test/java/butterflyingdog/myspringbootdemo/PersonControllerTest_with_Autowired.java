@@ -8,7 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import butterflyingdog.myspringbootdemo.controller.PersonController;
+import myspringbootdemo.personmng.controller.PersonController;
  
 
 @ExtendWith(SpringExtension.class)

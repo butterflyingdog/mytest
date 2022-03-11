@@ -10,7 +10,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-import butterflyingdog.myspringbootdemo.controller.PersonController;
+import myspringbootdemo.personmng.controller.PersonController;
 
 @WebMvcTest(controllers = PersonController.class)
 public class PersonControllerTest_with_WebMvcTest {

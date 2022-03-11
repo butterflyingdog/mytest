@@ -1,4 +1,4 @@
-package butterflyingdog.myspringbootdemo.entity;
+package myspringbootdemo.personmng.entity;
 
 
 public class PersonEntity {

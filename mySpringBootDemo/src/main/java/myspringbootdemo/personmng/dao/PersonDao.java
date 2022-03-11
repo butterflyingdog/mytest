@@ -1,4 +1,4 @@
-package butterflyingdog.myspringbootdemo.dao;
+package myspringbootdemo.personmng.dao;
 
 import org.apache.ibatis.annotations.Mapper;
 

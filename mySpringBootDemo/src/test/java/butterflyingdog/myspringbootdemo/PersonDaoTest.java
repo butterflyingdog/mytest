@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.BDDMockito;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
-import butterflyingdog.myspringbootdemo.dao.PersonDao;
+import myspringbootdemo.personmng.dao.PersonDao;
 
 public class PersonDaoTest {
 
