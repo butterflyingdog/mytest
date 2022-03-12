@@ -20,6 +20,7 @@ public class PersonServiceTest {
     public void addUser() throws Exception {
         Assertions.assertEquals(Integer.valueOf(1),userService.addUser("zhihao.miao"));
         Assertions.assertEquals(Integer.valueOf(0),userService.addUser(null));
+      
     }
 
 }

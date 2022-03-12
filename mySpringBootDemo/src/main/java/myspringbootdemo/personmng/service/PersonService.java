@@ -23,7 +23,7 @@ public class PersonService {
             return 0;
         }else{
            int result =  personDao.createUser(username);
-            publisher.publishEvent(new PersonEvent());
+            publisher.publishEvent(new PersonAddedEvent());
            return result;
         }
          

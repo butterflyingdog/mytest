@@ -1,5 +1,5 @@
 package myspringbootdemo.personmng.service;
 
-public class PersonEvent {
+public class PersonDeletedEvent {
     
 }
