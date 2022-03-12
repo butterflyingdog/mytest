@@ -1,17 +1,19 @@
 package mockitexamples;
 
 public class PersonFacade {
-    private PersonService personService;
+    private PersonService mPersonService;
 
-    public PersonService getPersonService() {
-        return personService;
+    public PersonFacade(PersonService personService) {
+        this.mPersonService = personService;
     }
 
+
+
     public void setPersonService(PersonService personService) {
-        this.personService = personService;
+        this.mPersonService = personService;
     }
 
     public Person getPerson(int id){
-        return personService.getPerson(id);
+        return mPersonService.getPerson(id);
     }
 }

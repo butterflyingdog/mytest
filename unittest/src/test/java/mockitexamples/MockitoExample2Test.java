@@ -10,7 +10,7 @@ import java.lang.reflect.Array;
 import java.util.*;
 
 public class MockitoExample2Test {
-    
+    /*
 
     @Test
     public void testMockito2(){
@@ -57,7 +57,7 @@ verify(mockedList, atLeastOnce()).add("twice");
 verify(mockedList, atLeast(2)).add("twice");
 verify(mockedList, atMost(5)).add("twice");
 verify(mockedList, never()).add("twice");
-    }
+    }*/
 
     @Test
     public void testmockit(){

@@ -1,19 +1,19 @@
 package mockitexamples;
 
 public class PersonService {
-    private final PersonDao personDao; 
+    private final PersonDao mPersonDao; 
     public PersonService(PersonDao personDao) { 
-        this.personDao = personDao; 
+        this.mPersonDao = personDao; 
         } 
     public boolean update(int id, String name) { 
-        Person person = personDao.getPerson(id); 
+        Person person = mPersonDao.getPerson(id); 
         if (person == null) 
         { return false; } 
         Person personUpdate = new Person(person.getId(), name); 
-        return personDao.update(personUpdate); 
+        return mPersonDao.update(personUpdate); 
     }
 
     public Person getPerson(int id){
-        return personDao.getPerson(id);
+        return mPersonDao.getPerson(id);
     }
 }
