@@ -1,4 +1,4 @@
-package MyIOCAndMyAop.bean;
+package myaopdemo.bean;
 
 public class Student {
     

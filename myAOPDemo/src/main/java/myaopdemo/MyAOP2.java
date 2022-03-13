@@ -1,9 +1,11 @@
-package MyIOCAndMyAop;
+package myaopdemo;
 
 import java.util.Map;
+
+import myaopdemo.annotations.*;
+import myaopdemo.bean.*;
+
 import java.lang.reflect.*;
-import  MyIOCAndMyAop.bean.*;
-import MyIOCAndMyAop.Annotations.*;
 
 public class MyAOP2 {
     public static void main(String[] args) {

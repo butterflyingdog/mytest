@@ -1,5 +1,5 @@
 
-package MyIOCAndMyAop.Annotations;
+package myaopdemo.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

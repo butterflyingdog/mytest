@@ -1,10 +1,10 @@
-package MyIOCAndMyAop.bean;
+package myaopdemo.bean;
 
 
 
-import MyIOCAndMyAop.Annotations.InOutLog;
-import MyIOCAndMyAop.Annotations.MyAutowired;
-import MyIOCAndMyAop.Annotations.MyComponent;
+import myaopdemo.annotations.InOutLog;
+import myaopdemo.annotations.MyAutowired;
+import myaopdemo.annotations.MyComponent;
 
 /**
  * 被代理类
