@@ -20,4 +20,4 @@ public class Person implements Subject{
         System.out.println(this + ".test() : " + student);
     }
 }   
-}
+

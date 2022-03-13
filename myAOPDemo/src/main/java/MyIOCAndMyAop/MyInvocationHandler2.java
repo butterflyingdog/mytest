@@ -1,5 +1,8 @@
 package MyIOCAndMyAop;
 
+import java.lang.reflect.*;
+import MyIOCAndMyAop.Annotations.*;
+
 public class MyInvocationHandler2 implements InvocationHandler{
     private Object object;//被代理类
     private Object invoke;

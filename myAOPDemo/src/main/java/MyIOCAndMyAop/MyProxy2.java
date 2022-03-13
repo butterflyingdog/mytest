@@ -1,5 +1,7 @@
 package MyIOCAndMyAop;
 
+import java.lang.reflect.*;
+
 public class MyProxy2 {
     
     /**
