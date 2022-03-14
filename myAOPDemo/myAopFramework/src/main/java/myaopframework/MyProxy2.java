@@ -1,4 +1,4 @@
-package myaopdemo;
+package myaopframework;
 
 import java.lang.reflect.*;
 

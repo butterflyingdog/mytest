@@ -1,8 +1,8 @@
-package myaopdemo;
+package myaopframework;
 
 import java.lang.reflect.*;
 
-import myaopdemo.annotations.*;
+import myaopframework.annotations.*;
 
 public class MyInvocationHandler2 implements InvocationHandler{
     private Object object;//被代理类

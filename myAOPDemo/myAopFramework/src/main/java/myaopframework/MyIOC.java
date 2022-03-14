@@ -1,4 +1,4 @@
- package myaopdemo;
+ package myaopframework;
  
  import java.io.File;
  import java.lang.annotation.Annotation;
@@ -12,8 +12,8 @@
  import java.util.HashMap;
  import java.util.Map;
 
-import myaopdemo.annotations.MyAutowired;
-import myaopdemo.annotations.MyComponent;
+import myaopframework.annotations.MyAutowired;
+import myaopframework.annotations.MyComponent;
  
  public class MyIOC {
  

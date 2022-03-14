@@ -1,4 +1,4 @@
-package myaopdemo.bean;
+package myaopapp.bean;
 
 public class Student {
     

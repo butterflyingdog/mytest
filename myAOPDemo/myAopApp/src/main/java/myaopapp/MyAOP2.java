@@ -1,11 +1,13 @@
-package myaopdemo;
+package myaopapp;
 
 import java.util.Map;
-
-import myaopdemo.annotations.*;
-import myaopdemo.bean.*;
-
 import java.lang.reflect.*;
+import myaopframework.annotations.*;
+import myaopframework.*;
+
+
+
+import myaopapp.bean.*;
 
 public class MyAOP2 {
     public static void main(String[] args) {

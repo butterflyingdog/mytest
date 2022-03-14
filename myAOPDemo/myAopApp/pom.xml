@@ -4,17 +4,19 @@
 	<modelVersion>4.0.0</modelVersion>
 	 
 	<groupId>butterflyingdog</groupId>
-	<artifactId>myAOPDemo</artifactId>
+	<artifactId>myAopApp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>myAOPDemo</name>
-	<description>myAOPDemo project for Spring Boot</description>
-	<packaging>pom</packaging>
-	<modules>
-		<module>myAopFramework</module>
-		<module>myAopApp</module>
-	</modules>
+	<name>myAopApp</name>
+	<description>myAopApp project</description>
+	<packaging>jar</packaging>
+	 <dependencies>
 	 
-
+<dependency>
+   <groupId>butterflyingdog</groupId>
+   <artifactId>myAopFramework</artifactId>
+   <version>0.0.1-SNAPSHOT</version>
+  </dependency>
+   </dependencies>
 	<build>
 		<plugins>
 			<plugin>
