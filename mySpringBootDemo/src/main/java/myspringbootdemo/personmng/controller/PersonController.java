@@ -16,6 +16,12 @@ public class PersonController {
     @Autowired
     private PersonService personService;
 
+    private PersonService createdPersonService;
+
+    public void PersonController(){
+        createdPersonService = new PersonService();
+    }
+
     @GetMapping("/user/home")
     public String home(){
        // logger.info("user home");
@@ -25,7 +31,7 @@ public class PersonController {
     public int addPerson(){
        // logger.info("user home");
       
-      return personService.addUser("");
+      return personService.addUser("wangwu");
           
     }
     @GetMapping("/user/show")
@@ -33,4 +39,13 @@ public class PersonController {
       //  logger.info("book show");
         return "show"+id;
     }
+
+    @GetMapping("/user/addbyrealservice")
+    public int addPersonByRealService(){
+       // logger.info("user home");
+      
+      return createdPersonService.addUser("zhangsan");
+          
+    }
+
 }
