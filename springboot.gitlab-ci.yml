@@ -67,9 +67,9 @@ springbootdemo-build:jdk8:
  
 
 
-after_script:
-  - ls -al mySpringBootDemo/target/surefire-reports/
- # - mv unittest/target/surefire-reports/* public
+# after_script:
+#  - ls -al mySpringBootDemo/target/surefire-reports/
+#  - mv unittest/target/surefire-reports/* public
 
 
 #pages:
