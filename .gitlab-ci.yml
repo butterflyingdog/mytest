@@ -19,6 +19,8 @@ stages:          # List of stages for jobs, and their order of execution
   - deploy
 
 
+
+
     
 include: 
   - local: 'springboot.gitlab-ci.yml'
