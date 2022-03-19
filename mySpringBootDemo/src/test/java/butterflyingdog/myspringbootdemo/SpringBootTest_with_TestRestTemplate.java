@@ -2,6 +2,7 @@ package butterflyingdog.myspringbootdemo;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
@@ -10,12 +11,13 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
 import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+ 
 
 import myspringbootdemo.personmng.dao.PersonDao;
-
+@ExtendWith(SpringExtension.class)
 @SpringBootTest(classes={myspringbootdemo.MySpringBootDemoApplication.class}, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class PersonControllerTest_with_TestRestTemplate {
+public class SpringBootTest_with_TestRestTemplate {
 
     @MockBean
     PersonDao personDao;
@@ -25,7 +27,7 @@ public class PersonControllerTest_with_TestRestTemplate {
     @Autowired
     private TestRestTemplate testRestTemplate;
 
-    @BeforeAll
+    @BeforeEach
     public void setup(){
         Mockito.when(personDao.createUser("ning")).thenReturn( Integer.valueOf(1));
     }

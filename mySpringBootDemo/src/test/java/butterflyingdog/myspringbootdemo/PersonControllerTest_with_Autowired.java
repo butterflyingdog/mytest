@@ -12,7 +12,7 @@ import myspringbootdemo.personmng.controller.PersonController;
  
 
 @ExtendWith(SpringExtension.class)
-@SpringBootTest
+@SpringBootTest(classes={myspringbootdemo.MySpringBootDemoApplication.class}, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class PersonControllerTest_with_Autowired {
     
     @Autowired
