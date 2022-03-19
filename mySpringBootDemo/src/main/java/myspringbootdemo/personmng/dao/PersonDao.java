@@ -4,5 +4,5 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface PersonDao {
-    Integer createUser(String userName);
+    public  Integer createUser(String userName);
 }
