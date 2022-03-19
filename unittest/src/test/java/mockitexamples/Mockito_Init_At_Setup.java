@@ -50,7 +50,7 @@ public class Mockito_Init_At_Setup {
         assertNull("result should be null", personService.getPerson(3));
         System.out.println("Mockito_Init_At_Setup.noMockedMethodDemo flag1");
         //验证是否执行过一次getPerson(1)
-        Mockito.verify(mockDao, Mockito.times(1)).getPerson(Mockito.eq(1));
+        Mockito.verify(mockDao, Mockito.times(1)).getPerson(Mockito.eq(3));
         System.out.println("Mockito_Init_At_Setup.noMockedMethodDemo flag2");
         //验证是否执行过一次update
         Mockito.verify(mockDao, Mockito.never()).update(Mockito.isA(Person.class));
