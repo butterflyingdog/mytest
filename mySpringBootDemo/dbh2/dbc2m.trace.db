@@ -1,0 +1,6 @@
+2022-03-19 13:50:26 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USER_INF" already exists; SQL statement:
+create TABLE USER_INF(person_id INTEGER PRIMARY KEY, person_name VARCHAR(100), person_sex VARCHAR(2)) [42101-210]
+2022-03-19 14:15:39 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "create TABLE USER_INF [*]if not exist( person_id INTEGER PRIMARY KEY, person_name VARCHAR(100), person_sex VARCHAR(2) )"; SQL statement:
+create TABLE USER_INF if not exist( person_id INTEGER PRIMARY KEY, person_name VARCHAR(100), person_sex VARCHAR(2) ) [42000-210]
