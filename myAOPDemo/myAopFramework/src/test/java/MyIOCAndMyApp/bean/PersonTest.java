@@ -1,4 +1,4 @@
-package MyIOCAndMyAop.bean;
+package MyIOCAndMyApp.bean;
 public class PersonTest {
     
 }
