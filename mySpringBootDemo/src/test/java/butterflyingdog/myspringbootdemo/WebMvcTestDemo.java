@@ -13,7 +13,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import myspringbootdemo.personmng.controller.PersonController;
 
 @WebMvcTest(controllers = PersonController.class)
-public class PersonControllerTest_with_WebMvcTest {
+public class WebMvcTestDemo {
 
     @Autowired
     public MockMvc mockMvc;
