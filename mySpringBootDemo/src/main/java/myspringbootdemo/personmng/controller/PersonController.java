@@ -16,10 +16,10 @@ public class PersonController {
     @Autowired
     private PersonService personService;
 
-    private PersonService createdPersonService;
+    private PersonService noAutowiredPersonService;
 
     public void PersonController(){
-        createdPersonService = new PersonService();
+        noAutowiredPersonService = new PersonService();
     }
 
     @GetMapping("/user/home")
@@ -44,7 +44,7 @@ public class PersonController {
     public int addPersonByRealService(){
        // logger.info("user home");
       
-      return createdPersonService.addUser("zhangsan");
+      return noAutowiredPersonService.addUser("zhangsan");
           
     }
 
