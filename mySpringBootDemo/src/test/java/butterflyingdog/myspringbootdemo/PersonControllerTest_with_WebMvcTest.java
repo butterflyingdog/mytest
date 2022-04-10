@@ -20,8 +20,12 @@ public class PersonControllerTest_with_WebMvcTest {
 
     @Test
     public void testHome() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/user/home")).andExpect(MockMvcResultMatchers.status().isOk());
-        mockMvc.perform(MockMvcRequestBuilders.get("/user/home")).andExpect(MockMvcResultMatchers.status().isOk()).andExpect(MockMvcResultMatchers.content().string("user home"));
+        mockMvc.perform(MockMvcRequestBuilders.get("/user/home"))
+               .andExpect(MockMvcResultMatchers.status().isOk());
+               
+        mockMvc.perform(MockMvcRequestBuilders.get("/user/home"))
+               .andExpect(MockMvcResultMatchers.status().isOk())
+               .andExpect(MockMvcResultMatchers.content().string("user home"));
     }
 
     @Test
