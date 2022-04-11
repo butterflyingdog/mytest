@@ -19,7 +19,7 @@ public class PersonControllerTest_with_Autowired {
     private   PersonController personController;
 
     @Test
-    public void testAddPerson(){
+    public void testInvokeAutowiredService(){
         int context = personController.invokeAutowiredService("wangwu" );
         Assertions.assertEquals(1, context);
       
