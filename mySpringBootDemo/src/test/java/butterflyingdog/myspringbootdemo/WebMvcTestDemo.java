@@ -5,12 +5,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mockito;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
+import myspringbootdemo.MySpringBootDemoApplication;
 import myspringbootdemo.personmng.controller.PersonController;
+import myspringbootdemo.personmng.service.PersonService;
 
 
 /**
@@ -21,31 +28,36 @@ import myspringbootdemo.personmng.controller.PersonController;
 * 默认搜索@SpringBootConfiguration注解的类作为配置类。（这里坑最多）
 */
 
+@ExtendWith(SpringExtension.class)
 @WebMvcTest(controllers = PersonController.class)
+@ContextConfiguration(classes={MySpringBootDemoApplication.class})
 public class WebMvcTestDemo {
 
     @Autowired
     public MockMvc mockMvc;
 
+    @MockBean
+    private PersonService personService;
+
     @Test
-    public void testHome() throws Exception {
+    public void testNotExistUrl() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/user/home"))
-               .andExpect(MockMvcResultMatchers.status().isOk());
-               
-        mockMvc.perform(MockMvcRequestBuilders.get("/user/home"))
-               .andExpect(MockMvcResultMatchers.status().isOk())
-               .andExpect(MockMvcResultMatchers.content().string("user home"));
+               .andExpect(MockMvcResultMatchers.status().isNotFound() );
     }
 
     @Test
-    public void testShow() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/user/show").param("id", "400")).andExpect(MockMvcResultMatchers.status().isOk());
-        mockMvc.perform(MockMvcRequestBuilders.get("/user/show").param("id", "400")).andExpect(MockMvcResultMatchers.status().isOk()).andExpect(MockMvcResultMatchers.content().string("show400"));
+    public void testController_InvokeAutowiredService() throws Exception {
+        Mockito.when(personService.addUser("400")).thenReturn(1);
+
+       mockMvc.perform(MockMvcRequestBuilders.get("/invokeAutowiredService").param("param1", "400"))
+               .andExpect(MockMvcResultMatchers.status().isOk())
+               .andExpect(MockMvcResultMatchers.content().string("1"));
     }
     @Test
-    public void testAddPerson() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/user/add") ).andExpect(MockMvcResultMatchers.status().isOk());
-        mockMvc.perform(MockMvcRequestBuilders.get("/user/add") ).andExpect(MockMvcResultMatchers.status().isOk()).andExpect(MockMvcResultMatchers.content().string("1"));
+    public void testController_InvokeNotAutowiredService() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.get("/invokeNotAutowiredService").param("param1", "zhangsan") )
+               .andExpect(MockMvcResultMatchers.status().isOk())
+               .andExpect(MockMvcResultMatchers.content().string("1"));
     }
 
 }

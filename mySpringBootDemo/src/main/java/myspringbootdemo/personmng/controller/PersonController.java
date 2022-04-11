@@ -22,29 +22,18 @@ public class PersonController {
         notAutowiredService = new PersonService();
     }
 
-    @GetMapping("/user/home")
-    public String home(){
-       // logger.info("user home");
-        return "user home";
-    }
     @GetMapping("/invokeAutowiredService")
-    public int invokeAutowiredService(){
-       // logger.info("user home");
-      
-      return autoWiredService.addUser("wangwu");
-          
-    }
-    @GetMapping("/user/show")
-    public String show(@RequestParam("id") String id){
-      //  logger.info("book show");
-        return "show"+id;
+    public int invokeAutowiredService(@RequestParam("param1") String param1){
+      return autoWiredService.addUser(param1);
     }
 
+
+
     @GetMapping("/invokeNotAutowiredService")
-    public int invokeNotAutowiredService(){
+    public int invokeNotAutowiredService(@RequestParam("param1") String param1){
        // logger.info("user home");
       
-      return notAutowiredService.addUser("zhangsan");
+      return notAutowiredService.addUser(param1);
           
     }
 
