@@ -12,6 +12,15 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import myspringbootdemo.personmng.controller.PersonController;
 
+
+/**
+ * @WebMvcTest注解简介
+* Spring框架提供了@WebMvcTest这一注解来配置Controller的上下文环境，以帮助实现对Controller层的测试。从中可以看出，
+* 只实例化Controller。默认实例化所有的Controller，也可以指定只实例化某一到多个Controller。
+* 会实例化一个MockMvc的bean，用于模拟收发http请求和响应。
+* 默认搜索@SpringBootConfiguration注解的类作为配置类。（这里坑最多）
+*/
+
 @WebMvcTest(controllers = PersonController.class)
 public class WebMvcTestDemo {
 
