@@ -30,7 +30,7 @@ import myspringbootdemo.personmng.service.PersonService;
 
 @ExtendWith(SpringExtension.class)
 @WebMvcTest(controllers = PersonController.class)
-//@ContextConfiguration(classes={MySpringBootDemoApplication.class}) //调用与被测Application不再同一层级
+@ContextConfiguration(classes={MySpringBootDemoApplication.class}) //调用与被测Application不再同一层级
 public class WebMvcTestDemo {
 
     @Autowired
