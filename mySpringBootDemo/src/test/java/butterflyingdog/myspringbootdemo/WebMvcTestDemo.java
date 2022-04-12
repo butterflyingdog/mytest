@@ -8,7 +8,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
@@ -22,16 +24,19 @@ import myspringbootdemo.personmng.service.PersonService;
 
 /**
  * @WebMvcTest注解简介
- * Spring框架提供了@WebMvcTest这一注解来配置Controller的上下文环境，以帮助实现对Controller层的测试。从中可以看出，
- * 只实例化Controller。默认实例化所有的Controller，也可以指定只实例化某一到多个Controller。
+ * Spring框架提供了@WebMvcTest这一注解来配置Controller的上下文环境，以帮助实现对Controller层的测试。
+ * 从中可以看出，只实例化Controller。默认实例化所有的Controller，也可以指定只实例化某一到多个Controller。
  * 会实例化一个MockMvc的bean，用于模拟收发http请求和响应, 但不会产生真实的网络流量的
+ * 不加载SpringBoot整个框架，对于Controller中依赖的其他Service，一般使用 @MockBean 将其Mock掉
  * 默认搜索@SpringBootConfiguration注解的类作为配置类。（这里坑最多）
  */
 
 @ExtendWith(SpringExtension.class)
 @WebMvcTest(controllers = PersonController.class)
+//@SpringBootTest //( classes={myspringbootdemo.MySpringBootDemoApplication.class})
 @ContextConfiguration(classes={MySpringBootDemoApplication.class}) //调用与被测Application不再同一层级
-public class WebMvcTestDemo {
+
+class WebMvcTestDemo {
 
     @Autowired
     public MockMvc mockMvc;
@@ -46,10 +51,10 @@ public class WebMvcTestDemo {
     }
 
     @Test
-    public void testController_InvokeAutowiredService() throws Exception {
+    public void testController_InvokeAutowiredPersonService() throws Exception {
       Mockito.when(personService.addUser("wangwu")).thenReturn(1);
 
-       mockMvc.perform(MockMvcRequestBuilders.get("/addUserByAutowiredPersonService").param("param1", "wangwu"))
+       mockMvc.perform(MockMvcRequestBuilders.get("/PersonController/addUserByAutowiredPersonService").param("param1", "wangwu"))
                .andExpect(MockMvcResultMatchers.status().isOk())
                .andExpect(MockMvcResultMatchers.content().string("1"));
     }
@@ -57,12 +62,16 @@ public class WebMvcTestDemo {
     /** 
      * PersonController 中的notAutowiredPersonService 不能被mock，
      * 这个方法需要配置@ContextConfiguration(classes={MySpringBootDemoApplication.class})
+     * notAutowiredPersonService中依赖的ApplicationEventPublisher 没有被mock，将为NULL，
      */
     @Test
-    public void testController_InvokeNotAutowiredService() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/addUserByNotAutowiredPersonService").param("param1", "zhangsan") )
+    public void testController_InvokeNotAutowiredPersonService() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.get("/PersonController/addUserByNotAutowiredPersonService").param("param1", "zhangsan") )
                .andExpect(MockMvcResultMatchers.status().isOk())
                .andExpect(MockMvcResultMatchers.content().string("1"));
     }
 
 }
+
+
+ 
