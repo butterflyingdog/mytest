@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch MySpringBootDemoApplication",
+            "request": "launch",
+            "mainClass": "myspringbootdemo.MySpringBootDemoApplication",
+            "projectName": "mySpringBootDemo"
+        },
+        {
+            "type": "java",
             "name": "Launch Current File",
             "request": "launch",
             "mainClass": "${file}"

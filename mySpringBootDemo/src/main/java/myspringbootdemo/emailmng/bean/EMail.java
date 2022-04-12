@@ -11,12 +11,12 @@ import org.springframework.data.annotation.Id;
 import lombok.Data;
 
 @Entity
-@Table(name = "email")
+//@Table(name = "email")
 @Data
 public class EMail {
  
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long emailId;
  
     private String emailSubject;
