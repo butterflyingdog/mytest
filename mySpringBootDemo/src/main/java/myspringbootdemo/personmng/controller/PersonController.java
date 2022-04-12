@@ -18,7 +18,7 @@ public class PersonController {
 
     private PersonService notAutowiredPersonService;
 
-    public void PersonController(){
+    public  PersonController(){
         notAutowiredPersonService = new PersonService();
     }
 
