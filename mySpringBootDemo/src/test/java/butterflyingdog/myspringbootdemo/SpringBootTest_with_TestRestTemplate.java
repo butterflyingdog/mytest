@@ -15,7 +15,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
  
 
 import myspringbootdemo.personmng.dao.PersonDao;
-@ExtendWith(SpringExtension.class)
+
 @SpringBootTest(classes={myspringbootdemo.MySpringBootDemoApplication.class}, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class SpringBootTest_with_TestRestTemplate {
 
@@ -38,13 +38,13 @@ public class SpringBootTest_with_TestRestTemplate {
     }
 
     @Test
-    public void testShow(){
-        String context = testRestTemplate.getForObject("/user/show?id=100",String.class);
+    public void testController_InvokeAutowiredPersonService(){
+        String context = testRestTemplate.getForObject("/PersonController/addUserByAutowiredPersonService",String.class);
         Assertions.assertEquals("show100",context);
     }
     @Test
-    public void testAddPerson(){
-        String context = testRestTemplate.getForObject("/user/add",String.class);
+    public void testController_InvokeNotAutowiredPersonService(){
+        String context = testRestTemplate.getForObject("/PersonController/addUserByNotAutowiredPersonService",String.class);
         Assertions.assertEquals("1",context);
     }
 }

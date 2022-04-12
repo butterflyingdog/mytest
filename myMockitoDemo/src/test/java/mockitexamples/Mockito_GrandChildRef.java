@@ -16,7 +16,9 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
  
 
-
+/**
+ * PersonFacade 依赖 PersonService, PersonServie 依赖 PersonDao
+ */
  
 public class Mockito_GrandChildRef {
     @Mock

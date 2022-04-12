@@ -25,9 +25,11 @@ import myspringbootdemo.personmng.service.PersonService;
 /**
  * @WebMvcTest注解简介
  * Spring框架提供了@WebMvcTest这一注解来配置Controller的上下文环境，以帮助实现对Controller层的测试。
- * 从中可以看出，只实例化Controller。默认实例化所有的Controller，也可以指定只实例化某一到多个Controller。
+
+ * 只实例化Controller。默认实例化所有的Controller，也可以指定只实例化某一到多个Controller。
  * 会实例化一个MockMvc的bean，用于模拟收发http请求和响应, 但不会产生真实的网络流量的
- * 不加载SpringBoot整个框架，对于Controller中依赖的其他Service，一般使用 @MockBean 将其Mock掉
+ * Spring Boot instantiates only the web layer rather than the whole context.
+ * 对于Controller中依赖的其他Service，一般使用 @MockBean 将其Mock掉
  * 默认搜索@SpringBootConfiguration注解的类作为配置类。（这里坑最多）
  */
 
@@ -40,6 +42,11 @@ class WebMvcTestDemo {
 
     @Autowired
     public MockMvc mockMvc;
+
+    /** 
+     * 必须Mock掉PersonController 中的 autowiredPersonService，否则autowiredPersonService将为NULL
+     * notAutowiredPersonService中依赖的ApplicationEventPublisher 没有被mock，将为NULL
+     */
 
     @MockBean
     private PersonService personService;
