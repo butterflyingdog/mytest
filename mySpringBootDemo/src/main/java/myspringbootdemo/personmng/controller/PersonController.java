@@ -14,26 +14,26 @@ public class PersonController {
 
     //private Logger logger = LoggerFactory.getLogger(getClass());
     @Autowired
-    private PersonService autoWiredService;
+    private PersonService autoWiredPersonService;
 
-    private PersonService notAutowiredService;
+    private PersonService notAutowiredPersonService;
 
     public void PersonController(){
-        notAutowiredService = new PersonService();
+        notAutowiredPersonService = new PersonService();
     }
 
-    @GetMapping("/invokeAutowiredService")
-    public int invokeAutowiredService(@RequestParam("param1") String param1){
-      return autoWiredService.addUser(param1);
+    @GetMapping("/addUserByAutowiredPersonService")
+    public int addUserByAutowiredPersonService(@RequestParam("param1") String param1){
+      return autoWiredPersonService.addUser(param1);
     }
 
 
 
-    @GetMapping("/invokeNotAutowiredService")
-    public int invokeNotAutowiredService(@RequestParam("param1") String param1){
+    @GetMapping("/addUserByNotAutowiredPersonService")
+    public int addUserByNotAutowiredPersonService(@RequestParam("param1") String param1){
        // logger.info("user home");
       
-      return notAutowiredService.addUser(param1);
+      return notAutowiredPersonService.addUser(param1);
           
     }
 

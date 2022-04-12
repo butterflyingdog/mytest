@@ -47,19 +47,20 @@ public class WebMvcTestDemo {
 
     @Test
     public void testController_InvokeAutowiredService() throws Exception {
-        Mockito.when(personService.addUser("wangwu")).thenReturn(1);
+      Mockito.when(personService.addUser("wangwu")).thenReturn(1);
 
-       mockMvc.perform(MockMvcRequestBuilders.get("/invokeAutowiredService").param("param1", "wangwu"))
+       mockMvc.perform(MockMvcRequestBuilders.get("/addUserByAutowiredPersonService").param("param1", "wangwu"))
                .andExpect(MockMvcResultMatchers.status().isOk())
                .andExpect(MockMvcResultMatchers.content().string("1"));
     }
 
     /** 
+     * PersonController 中的notAutowiredPersonService 不能被mock，
      * 这个方法需要配置@ContextConfiguration(classes={MySpringBootDemoApplication.class})
      */
     @Test
     public void testController_InvokeNotAutowiredService() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/invokeNotAutowiredService").param("param1", "zhangsan") )
+        mockMvc.perform(MockMvcRequestBuilders.get("/addUserByNotAutowiredPersonService").param("param1", "zhangsan") )
                .andExpect(MockMvcResultMatchers.status().isOk())
                .andExpect(MockMvcResultMatchers.content().string("1"));
     }
