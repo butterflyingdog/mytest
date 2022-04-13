@@ -32,7 +32,7 @@ public class SpringBootTest_with_TestRestTemplate {
         Mockito.when(personDao.createUser("ning")).thenReturn( Integer.valueOf(1));
     }
     @Test
-    public void testHome(){
+    public void testNotExistUrl(){
         String context = testRestTemplate.getForObject("/user/home",String.class);
         Assertions.assertEquals("user home",context);
     }
