@@ -39,12 +39,12 @@ public class SpringBootTest_with_TestRestTemplate {
 
     @Test
     public void testController_InvokeAutowiredPersonService(){
-        String context = testRestTemplate.getForObject("/PersonController/addUserByAutowiredPersonService",String.class);
-        Assertions.assertEquals("show100",context);
+        String context = testRestTemplate.getForObject("/PersonController/addUserByAutowiredPersonService?param1=zhangsan",String.class);
+        Assertions.assertEquals("1",context);
     }
     @Test
     public void testController_InvokeNotAutowiredPersonService(){
-        String context = testRestTemplate.getForObject("/PersonController/addUserByNotAutowiredPersonService",String.class);
+        String context = testRestTemplate.getForObject("/PersonController/addUserByNotAutowiredPersonService?param1=zhangsan",String.class);
         Assertions.assertEquals("1",context);
     }
 }
