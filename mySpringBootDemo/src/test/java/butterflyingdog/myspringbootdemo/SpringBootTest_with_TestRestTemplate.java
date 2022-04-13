@@ -34,7 +34,7 @@ public class SpringBootTest_with_TestRestTemplate {
     @Test
     public void testNotExistUrl(){
         String context = testRestTemplate.getForObject("/user/home",String.class);
-        Assertions.assertEquals("user home",context);
+        Assertions.assertThat(context).contains("400") ;
     }
 
     @Test
