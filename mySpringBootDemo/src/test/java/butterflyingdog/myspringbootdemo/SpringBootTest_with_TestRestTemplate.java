@@ -38,13 +38,19 @@ public class SpringBootTest_with_TestRestTemplate {
     }
 
     @Test
-    public void testController_InvokeAutowiredPersonService(){
-        String context = testRestTemplate.getForObject("/PersonController/addUserByAutowiredPersonService?param1=zhangsan",String.class);
+    public void testController_InvokeAutowiredService(){
+        String context = testRestTemplate.getForObject("/MyController1/invokeAutowiredService?param1=zhangsan",String.class);
         Assertions.assertEquals("1",context);
     }
     @Test
-    public void testController_InvokeNotAutowiredPersonService(){
-        String context = testRestTemplate.getForObject("/PersonController/addUserByNotAutowiredPersonService?param1=zhangsan",String.class);
+    public void testController_invoke_NotAutowiredService_with_notInitializedDomain(){
+        String context = testRestTemplate.getForObject("/MyController1/invoke_NotAutowiredService_with_notInitializedDomain?param1=zhangsan",String.class);
+        Assertions.assertEquals("1",context);
+    }
+
+    @Test
+    public void testController_invoke_NotAutowiredService_with_InitializedDomain(){
+        String context = testRestTemplate.getForObject("/MyController1/invoke_NotAutowiredService_with_InitializedDomain?param1=zhangsan",String.class);
         Assertions.assertEquals("1",context);
     }
 }

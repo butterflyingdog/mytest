@@ -61,7 +61,7 @@ class WebMvcTestDemo {
     public void testController_InvokeAutowiredPersonService() throws Exception {
       Mockito.when(personService.addUser("wangwu")).thenReturn(1);
 
-       mockMvc.perform(MockMvcRequestBuilders.get("/PersonController/addUserByAutowiredPersonService").param("param1", "wangwu"))
+       mockMvc.perform(MockMvcRequestBuilders.get("/MyController1/invokeAutowiredService").param("param1", "wangwu"))
                .andExpect(MockMvcResultMatchers.status().isOk())
                .andExpect(MockMvcResultMatchers.content().string("1"));
     }
@@ -72,12 +72,23 @@ class WebMvcTestDemo {
      * notAutowiredPersonService中依赖的ApplicationEventPublisher 没有被mock，将为NULL，
      */
     @Test
-    public void testController_InvokeNotAutowiredPersonService() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/PersonController/addUserByNotAutowiredPersonService").param("param1", "zhangsan") )
+    public void testController_invoke_NotAutowiredService_with_notInitializedDomain() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.get("/MyController1/invoke_NotAutowiredService_with_notInitializedDomain").param("param1", "zhangsan") )
                .andExpect(MockMvcResultMatchers.status().isOk())
                .andExpect(MockMvcResultMatchers.content().string("1"));
     }
 
+     /** 
+     * PersonController 中的notAutowiredPersonService 不能被mock，
+     * 这个方法需要配置@ContextConfiguration(classes={MySpringBootDemoApplication.class})
+     * notAutowiredService中依赖的ApplicationEventPublisher 没有被mock，将为NULL，
+     */
+    @Test
+    public void testController_invoke_NotAutowiredService_with_InitializedDomain() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.get("/MyController1/invoke_NotAutowiredService_with_InitializedDomain").param("param1", "zhangsan") )
+               .andExpect(MockMvcResultMatchers.status().isOk())
+               .andExpect(MockMvcResultMatchers.content().string("1"));
+    }
 }
 
 

@@ -11,51 +11,52 @@ import org.springframework.web.bind.annotation.RestController;
 import myspringbootdemo.personmng.dao.PersonDao;
 import myspringbootdemo.personmng.service.PersonService;
 @RestController
-@RequestMapping("/PersonController")
+@RequestMapping("/MyController1")
 public class PersonController {
     
  
 
     //private Logger logger = LoggerFactory.getLogger(getClass());
     @Autowired
-    private PersonService autoWiredPersonService;
+    private PersonService autoWiredService;
 
-    private PersonService notAutowiredPersonService;
+    private PersonService notAutowiredService_with_notInitializedDomain;
 
+    private PersonService notAutowiredService_with_InitializedDomain;
     @Autowired
-    private ApplicationEventPublisher publisherUsedbyNotAutowiredPersonService;
+    private ApplicationEventPublisher initializedDomain;
 
     public  PersonController(){
-        notAutowiredPersonService = new PersonService(    publisherUsedbyNotAutowiredPersonService);
-    }
-
-    @GetMapping("/addUserByAutowiredPersonService")
-    public int addUserByAutowiredPersonService(@RequestParam("param1") String param1){
-      return autoWiredPersonService.addUser(param1);
-    }
-
-
-
-    @GetMapping("/addUserByNotAutowiredPersonService")
-    public int addUserByNotAutowiredPersonService(@RequestParam("param1") String param1){
-       // logger.info("user home");
       
-      return notAutowiredPersonService.addUser(param1);
+    }
+
+    @GetMapping("/invokeAutowiredService")
+    public int invokeAutowiredService(@RequestParam("param1") String param1){
+      return autoWiredService.addUser(param1);
+    }
+
+
+
+    @GetMapping("/invoke_NotAutowiredService_with_notInitializedDomain")
+    public int invoke_NotAutowiredService_with_notInitializedDomain(@RequestParam("param1") String param1){
+       // logger.info("user home");
+      notAutowiredService_with_notInitializedDomain = new PersonService( );
+      return notAutowiredService_with_notInitializedDomain.addUser(param1);
           
     }
 
-    @GetMapping("/notAutowiredServiceWithInitializedDomain")
-    public int notAutowiredServiceWithInitializedDomain( ){
+    @GetMapping("/invoke_NotAutowiredService_with_InitializedDomain")
+    public int notAutowiredService_With_InitializedDomain( @RequestParam("param1") String param1 ){
        // logger.info("user home");
-      
-      return notAutowiredPersonService.invokeEventPublisher() ;
+      notAutowiredService_with_InitializedDomain = new PersonService( initializedDomain);
+      return notAutowiredService_with_InitializedDomain.addUser(param1) ;
           
     }
-    @GetMapping("/notAutowiredServiceWithInitializedDomain")
-    public int not_Autowired_Service_With_Not_Initialized_Domain( ){
+    @GetMapping("/notAutowiredService_With_InitializedDomain")
+    public int notAutowiredService_With_NotInitializedDomain( ){
        // logger.info("user home");
       
-      return autowiredPersonService.invokeEventPublisher() ;
+      return notAutowiredService_with_notInitializedDomain.invokeEventPublisher() ;
           
     }
 }
