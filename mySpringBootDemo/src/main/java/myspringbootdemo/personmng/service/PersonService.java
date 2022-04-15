@@ -17,6 +17,13 @@ public class PersonService {
     @Autowired
     ApplicationEventPublisher publisher;
 
+    public PersonService(){}
+    
+    public PersonService( ApplicationEventPublisher publisher){
+      
+        this.publisher = publisher;
+    }
+
     public Integer addUser(String username){
         System.out.println("user dao adduser [username="+username+"]");
         if(username == null){
@@ -26,6 +33,14 @@ public class PersonService {
             publisher.publishEvent(new PersonAddedEvent());
             return 1;
         }
+         
+    }
+    public Integer invokeEventPublisher( ){
+        
+           //int result =  personDao.createUser(username);
+            publisher.publishEvent(new PersonAddedEvent());
+            return 1;
+      
          
     }
 }
