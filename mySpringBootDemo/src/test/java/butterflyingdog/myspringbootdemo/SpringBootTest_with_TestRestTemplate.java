@@ -32,24 +32,24 @@ public class SpringBootTest_with_TestRestTemplate {
         Mockito.when(personDao.createUser("ning")).thenReturn( Integer.valueOf(1));
     }
     @Test
-    public void testNotExistUrl(){
+    public void testNotExistUrl_should_404(){
         String context = testRestTemplate.getForObject("/user/home",String.class);
         Assertions.assertTrue(context.contains("404") );
     }
 
     @Test
-    public void testController_InvokeAutowiredService(){
+    public void testController_InvokeAutowiredService_should_Sucess(){
         String context = testRestTemplate.getForObject("/MyController1/invokeAutowiredService?param1=zhangsan",String.class);
         Assertions.assertEquals("domain process zhangsan",context);
     }
     @Test
-    public void testController_invoke_NotAutowiredService_with_notInitializedDomain(){
+    public void testController_invoke_NotAutowiredServiceWithNotInitializedDomain_should_Fail(){
         String context = testRestTemplate.getForObject("/MyController1/invoke_NotAutowiredService_with_notInitializedDomain?param1=zhangsan",String.class);
         Assertions.assertTrue( context.contains("\"status\":500"));
     }
 
     @Test
-    public void testController_invoke_NotAutowiredService_with_InitializedDomain(){
+    public void testController_invoke_NotAutowiredServiceWithInitializedDomain_should_Success(){
         String context = testRestTemplate.getForObject("/MyController1/invoke_NotAutowiredService_with_InitializedDomain?param1=zhangsan",String.class);
         Assertions.assertEquals("domain process zhangsan",context);
     }
