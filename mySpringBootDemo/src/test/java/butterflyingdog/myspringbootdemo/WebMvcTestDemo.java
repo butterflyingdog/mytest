@@ -88,7 +88,9 @@ class WebMvcTestDemo {
         Exception exception =  Assertions.assertThrows(org.springframework.web.util.NestedServletException.class,  ()->{ 
         mockMvc.perform(MockMvcRequestBuilders.get("/MyController1/invoke_NotAutowiredService_with_notInitializedDomain").param("param1", "zhangsan") )
                .andExpect(MockMvcResultMatchers.status().isOk())
-               .andExpect(MockMvcResultMatchers.content().string("1"));
+               .andExpect(MockMvcResultMatchers.content().string("1"))
+               //.andDo(print())
+               ;
         });
         Assertions.assertTrue(  exception.getMessage().contains("NullPointerException"));
     }
