@@ -71,14 +71,9 @@ public class PersonController {
     public String notAutowiredService_With_InitializedDomain( @RequestParam("param1") String param1 ){
 
       notAutowiredService_with_InitializedDomain.setDomainProcessor( initializedDomain);
-      return notAutowiredService_with_InitializedDomain.invokeDomainDoSth(param1) ;
+      String ret = notAutowiredService_with_InitializedDomain.invokeDomainDoSth(param1) ;
+      return ret;
           
     }
-    @GetMapping("/notAutowiredService_With_InitializedDomain")
-    public int notAutowiredService_With_NotInitializedDomain( ){
-       // logger.info("user home");
-      
-      return notAutowiredService_with_notInitializedDomain.invokeEventPublisher() ;
-          
-    }
+    
 }

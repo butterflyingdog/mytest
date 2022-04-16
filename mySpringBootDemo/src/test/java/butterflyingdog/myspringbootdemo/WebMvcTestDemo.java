@@ -2,8 +2,7 @@ package butterflyingdog.myspringbootdemo;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-
-
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
@@ -36,7 +35,7 @@ import myspringbootdemo.personmng.service.PersonService;
 
 @ExtendWith(SpringExtension.class)
 @WebMvcTest(controllers = PersonController.class)
-//@SpringBootTest //( classes={myspringbootdemo.MySpringBootDemoApplication.class})
+
 @ContextConfiguration(classes={MySpringBootDemoApplication.class}) //调用与被测Application不再同一层级
 
 class WebMvcTestDemo {
@@ -45,25 +44,33 @@ class WebMvcTestDemo {
     public MockMvc mockMvc;
 
     /** 
-     * PersonController 中用@autowired注解的 autoWiredService 和 initializedDomain 必须被Mock
-     * 否则二者将为NULL
-     * notAutowiredPersonService中依赖的ApplicationEventPublisher 没有被mock，将为NULL
+     * 由于 WebMvcTest 模式并不会初始化完整的Spring框架 Context，
+     * PersonController 中用@autowired注解的 PersonService 和 MyDomain 对象必须被Mock
+     * 否则二者将无法被初始化，报“java.lang.IllegalStateException: Failed to load ApplicationContext”
      */
 
     @MockBean
     private PersonService personService;
 
     @MockBean
-    private MyDomain initializedDomain;
+    private MyDomain mockedDomain;
 
     @Test
     public void testNotExistUrl() throws Exception {
+        
         mockMvc.perform(MockMvcRequestBuilders.get("/user/home"))
                .andExpect(MockMvcResultMatchers.status().isNotFound() );
+
     }
 
+    /** 
+     * 调用PersonController 中的 autowiredService  对象, 
+     * autowiredService 中依赖的 personService 对象被 Mock
+     * 应当返回成功数据 
+     */
+
     @Test
-    public void testController_InvokeAutowiredPersonService() throws Exception {
+    public void testController_InvokeAutowiredPersonService__should_Success()   throws Exception {
       Mockito.when(personService.invokeDomainDoSth("wangwu")).thenReturn("domain process wangwu");
 
        mockMvc.perform(MockMvcRequestBuilders.get("/MyController1/invokeAutowiredService").param("param1", "wangwu"))
@@ -71,32 +78,34 @@ class WebMvcTestDemo {
                .andExpect(MockMvcResultMatchers.content().string("domain process wangwu"));
     }
 
-    /** 
-     * PersonController 中的notAutowiredPersonService 不能被mock，
-     * 这个方法需要配置@ContextConfiguration(classes={MySpringBootDemoApplication.class})
-     * notAutowiredPersonService中依赖的ApplicationEventPublisher 没有被mock，将为NULL，
+     /** 
+     * 调用PersonController 中的 notAutowiredService_with_notInitializedDomain 对象, 
+     * notAutowiredService_with_notInitializedDomain 依赖的 MyDomain 对象无法被 Mock
+     * 应当抛出异常 
      */
     @Test
-    public void testController_invoke_NotAutowiredService_with_notInitializedDomain() throws Exception {
+    public void testController_invoke_NotAutowiredService_with_notInitializedDomain_should_ThrowException()  throws Exception  {
+        Exception exception =  Assertions.assertThrows(org.springframework.web.util.NestedServletException.class,  ()->{ 
         mockMvc.perform(MockMvcRequestBuilders.get("/MyController1/invoke_NotAutowiredService_with_notInitializedDomain").param("param1", "zhangsan") )
                .andExpect(MockMvcResultMatchers.status().isOk())
                .andExpect(MockMvcResultMatchers.content().string("1"));
+        });
+        Assertions.assertTrue(  exception.getMessage().contains("NullPointerException"));
     }
 
      /** 
-     * PersonController 中的notAutowiredPersonService 不能被mock，
-     * 这个方法需要配置@ContextConfiguration(classes={MySpringBootDemoApplication.class})
-     * notAutowiredService中依赖的ApplicationEventPublisher 没有被mock，将为NULL，
+     * 调用PersonController 中 notAutowiredService_with_InitializedDomain 依赖的 MyDomain 对象, 
+     * 需要将 MyDomain 对象 Mock
+     * 返回成功 
      */
     @Test
-    public void testController_invoke_NotAutowiredService_with_InitializedDomain() throws Exception {
-        Mockito.when(personService.invokeDomainDoSth("wangwu")).thenReturn("domain process wangwu");
+    public void testController_invoke_NotAutowiredService_with_InitializedDomain_should_Success() throws Exception {
+        Mockito.when(mockedDomain.doSomething("zhangsan")).thenReturn("domain process zhangsan");
 
         mockMvc.perform(MockMvcRequestBuilders.get("/MyController1/invoke_NotAutowiredService_with_InitializedDomain").param("param1", "zhangsan") )
                .andExpect(MockMvcResultMatchers.status().isOk())
-               .andExpect(MockMvcResultMatchers.content().string("domain process wangwu"));
+               .andExpect(MockMvcResultMatchers.content().string("domain process zhangsan"));
     }
 }
 
 
- 
