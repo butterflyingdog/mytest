@@ -33,7 +33,6 @@ import myspringbootdemo.personmng.service.PersonService;
  * 默认搜索@SpringBootConfiguration注解的类作为配置类。（这里坑最多）
  */
 
-@ExtendWith(SpringExtension.class)
 @WebMvcTest(controllers = PersonController.class)
 
 @ContextConfiguration(classes={MySpringBootDemoApplication.class}) //调用与被测Application不再同一层级

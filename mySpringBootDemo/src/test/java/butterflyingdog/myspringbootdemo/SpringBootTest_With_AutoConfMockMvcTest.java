@@ -14,7 +14,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 /**
- *  the full Spring application context is started but without the server
+ *  @SpringBootTest 意味着the full Spring application context is started but without the server
  */
 @SpringBootTest(classes={myspringbootdemo.MySpringBootDemoApplication.class},webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 //@ContextConfiguration(classes={myspringbootdemo.MySpringBootDemoApplication.class})
