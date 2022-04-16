@@ -1,5 +1,7 @@
 package butterflyingdog.myspringbootdemo;
 
+import   org.mockito.Mockito;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -14,6 +16,7 @@ import org.springframework.context.annotation.Import;
 
 
 import myspringbootdemo.personmng.controller.PersonController;
+import myspringbootdemo.personmng.domain.MyDomain;
 import myspringbootdemo.personmng.service.PersonService;
  
 
@@ -24,15 +27,18 @@ class TestPersonController_by_SpringExtension  {
 
     @MockBean
     private PersonService personService;
-
+    @MockBean
+    private MyDomain initializedDomain;
+    
     @Autowired
     private   PersonController personController;
 
     
     @Test
     public void testInvokeAutowiredService(){
+        Mockito.when(personService.invokeDomainDoSth("wangwu")).thenReturn("wangwu"); 
         String context = personController.invokeAutowiredService("wangwu" );
-        Assertions.assertEquals(1, context);
+        Assertions.assertEquals("wangwu", context);
     }
 
     @Configuration
