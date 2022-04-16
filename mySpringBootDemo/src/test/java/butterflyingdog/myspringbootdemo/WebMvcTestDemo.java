@@ -19,6 +19,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import myspringbootdemo.MySpringBootDemoApplication;
 import myspringbootdemo.personmng.controller.PersonController;
+import myspringbootdemo.personmng.domain.MyDomain;
 import myspringbootdemo.personmng.service.PersonService;
 
 
@@ -44,12 +45,16 @@ class WebMvcTestDemo {
     public MockMvc mockMvc;
 
     /** 
-     * 必须Mock掉PersonController 中的 autowiredPersonService，否则autowiredPersonService将为NULL
+     * PersonController 中用@autowired注解的 autoWiredService 和 initializedDomain 必须被Mock
+     * 否则二者将为NULL
      * notAutowiredPersonService中依赖的ApplicationEventPublisher 没有被mock，将为NULL
      */
 
     @MockBean
     private PersonService personService;
+
+    @MockBean
+    private MyDomain initializedDomain;
 
     @Test
     public void testNotExistUrl() throws Exception {
@@ -59,11 +64,11 @@ class WebMvcTestDemo {
 
     @Test
     public void testController_InvokeAutowiredPersonService() throws Exception {
-      Mockito.when(personService.addUser("wangwu")).thenReturn(1);
+      Mockito.when(personService.invokeDomainDoSth("wangwu")).thenReturn("domain process wangwu");
 
        mockMvc.perform(MockMvcRequestBuilders.get("/MyController1/invokeAutowiredService").param("param1", "wangwu"))
                .andExpect(MockMvcResultMatchers.status().isOk())
-               .andExpect(MockMvcResultMatchers.content().string("1"));
+               .andExpect(MockMvcResultMatchers.content().string("domain process wangwu"));
     }
 
     /** 
@@ -85,9 +90,11 @@ class WebMvcTestDemo {
      */
     @Test
     public void testController_invoke_NotAutowiredService_with_InitializedDomain() throws Exception {
+        Mockito.when(personService.invokeDomainDoSth("wangwu")).thenReturn("domain process wangwu");
+
         mockMvc.perform(MockMvcRequestBuilders.get("/MyController1/invoke_NotAutowiredService_with_InitializedDomain").param("param1", "zhangsan") )
                .andExpect(MockMvcResultMatchers.status().isOk())
-               .andExpect(MockMvcResultMatchers.content().string("1"));
+               .andExpect(MockMvcResultMatchers.content().string("domain process wangwu"));
     }
 }
 

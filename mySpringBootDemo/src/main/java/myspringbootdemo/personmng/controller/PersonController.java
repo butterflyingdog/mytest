@@ -40,7 +40,11 @@ public class PersonController {
      */
     @GetMapping("/invokeAutowiredService")
     public String invokeAutowiredService(@RequestParam("param1") String param1){
-      return autoWiredService.invokeDomainDoSth(param1);
+      String ret =  autoWiredService.invokeDomainDoSth(param1);
+      if(ret.equalsIgnoreCase("domain failed"))
+        return "controller failed";
+      else 
+        return ret;
     }
 
 
