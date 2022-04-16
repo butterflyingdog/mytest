@@ -2,8 +2,7 @@ package butterflyingdog.myspringbootdemo;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-
-
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import org.springframework.boot.test.context.SpringBootTest;
@@ -20,7 +19,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 @SpringBootTest(classes={myspringbootdemo.MySpringBootDemoApplication.class},webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 //@ContextConfiguration(classes={myspringbootdemo.MySpringBootDemoApplication.class})
 @AutoConfigureMockMvc
-public class SpringBootTest_With_AutoConfMockMvcTest {
+  class SpringBootTest_With_AutoConfMockMvcTest {
 
     @Autowired
     private MockMvc mvc;
@@ -35,21 +34,45 @@ public class SpringBootTest_With_AutoConfMockMvcTest {
     @Test
     public void testController_InvokeAutowiredPersonService() throws Exception {
 
-        mvc.perform(MockMvcRequestBuilders.get("/PersonController/addUserByAutowiredPersonService").param("param1", "wangwu"))
+        mvc.perform(MockMvcRequestBuilders.get("/MyController1/invokeAutowiredService").param("param1", "wangwu"))
                .andExpect(MockMvcResultMatchers.status().isOk())
-               .andExpect(MockMvcResultMatchers.content().string("1"));
+               .andExpect(MockMvcResultMatchers.content().string("domain process wangwu"));
     }
 
+
+    @Test( )
+      void testController_invoke_NotAutowiredService_with_InitializedDomain() throws Exception {
+
+     //   Exception exception =  Assertions.assertThrows(org.springframework.web.util.NestedServletException.class,  ()->{ 
+            
+            mvc.perform(MockMvcRequestBuilders.get("/MyController1/invoke_NotAutowiredService_with_InitializedDomain").param("param1", "zhangsan") )
+            .andExpect(MockMvcResultMatchers.status().isOk())
+            .andExpect(MockMvcResultMatchers.content().string("domain process zhangsan"));
+
+     //   }) ;
+      //  Assertions.assertTrue(  exception.getMessage().contains("NullPointerException"));
+
+    }
     /** 
      * PersonController 中的notAutowiredPersonService 不能被mock，
      * 这个方法需要配置@ContextConfiguration(classes={MySpringBootDemoApplication.class})
      * notAutowiredPersonService中依赖的ApplicationEventPublisher 没有被mock，将为NULL，
      */
-    @Test
-    public void testController_InvokeNotAutowiredPersonService() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.get("/PersonController/addUserByNotAutowiredPersonService").param("param1", "zhangsan") )
-               .andExpect(MockMvcResultMatchers.status().isOk())
-               .andExpect(MockMvcResultMatchers.content().string("1"));
+ 
+    @Test( )
+      void testController_invoke_NotAutowiredService_with_notInitializedDomain() throws Exception {
+       
+ 
+       
+ 
+        Exception exception =  Assertions.assertThrows(org.springframework.web.util.NestedServletException.class,  ()->{ 
+            
+            mvc.perform(MockMvcRequestBuilders.get("/MyController1/invoke_NotAutowiredService_with_notInitializedDomain").param("param1", "zhangsan") )
+            .andExpect(MockMvcResultMatchers.status().isOk())
+            .andExpect(MockMvcResultMatchers.content().string("domain process zhangsan"));
+
+        }) ;
+        Assertions.assertTrue(  exception.getMessage().contains("NullPointerException"));
     }
 
 }
