@@ -22,11 +22,17 @@ import myspringbootdemo.personmng.service.PersonService;
 @ExtendWith(SpringExtension.class)
 class TestPersonService_by_SpringExtension {
     
+    /**
+     *  使用@MockBean将被依赖的对象Mock
+     */
     @MockBean
     private PersonDao personDao;
     @MockBean
     private MyDomain domainProcessor;
 
+    /**
+     * 被测对象用@Autowired注入
+     */
     @Autowired
     private PersonService userService;
 
@@ -39,8 +45,12 @@ class TestPersonService_by_SpringExtension {
      //   Assertions.assertEquals(Integer.valueOf(0),userService.invokeDomainDoSth(null));
       
     }
+    
+    /**
+     * 必须加上如下代码，否则报错
+     */
     @Configuration
     @Import(PersonService.class) // A @Component injected with ExampleService
     static class Config {
-    }
+    } 
 }
