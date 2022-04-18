@@ -1,4 +1,4 @@
-package myspringbootdemo.personmng.dao;
+package myspringbootdemo.personmngt.dao;
 
 import org.apache.ibatis.annotations.Mapper;
 

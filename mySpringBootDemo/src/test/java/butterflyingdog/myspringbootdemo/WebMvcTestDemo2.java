@@ -17,13 +17,13 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import myspringbootdemo.MySpringBootDemoApplication;
-import myspringbootdemo.personmng.controller.PersonController;
-import myspringbootdemo.personmng.service.PersonService;
+import myspringbootdemo.servicemng.controller.MyController;
+import myspringbootdemo.servicemng.service.MyAppService;
 
 
 
 //@ExtendWith(SpringExtension.class)
-@WebMvcTest(controllers = PersonController.class)
+@WebMvcTest(controllers = MyController.class)
 @SpringBootTest ( classes={myspringbootdemo.MySpringBootDemoApplication.class})
 //@ContextConfiguration(classes={MySpringBootDemoApplication.class}) //调用与被测Application不再同一层级
 

@@ -34,7 +34,7 @@ class SpringBootTest_With_AutoConfMockMvcTest {
     @Test
     void testController_invoke_AutowiredPersonService_should_Sucess() throws Exception {
 
-        mvc.perform(MockMvcRequestBuilders.get("/MyController1/invokeAutowiredService").param("param1", "wangwu"))
+        mvc.perform(MockMvcRequestBuilders.get("/MyController/invokeAutowiredService").param("param1", "wangwu"))
                .andExpect(MockMvcResultMatchers.status().isOk())
                .andExpect(MockMvcResultMatchers.content().string("domain process wangwu"));
     }
@@ -43,7 +43,7 @@ class SpringBootTest_With_AutoConfMockMvcTest {
     @Test( )
     void testController_invoke_NotAutowiredServiceWithInitializedDomain_should_Sucess() throws Exception {
 
-            mvc.perform(MockMvcRequestBuilders.get("/MyController1/invoke_NotAutowiredService_with_InitializedDomain").param("param1", "zhangsan") )
+            mvc.perform(MockMvcRequestBuilders.get("/MyController/invoke_NotAutowiredService_with_InitializedDomain").param("param1", "zhangsan") )
             .andExpect(MockMvcResultMatchers.status().isOk())
             .andExpect(MockMvcResultMatchers.content().string("domain process zhangsan"));
 
@@ -58,7 +58,7 @@ class SpringBootTest_With_AutoConfMockMvcTest {
       void testController_invoke_NotAutowiredServiceWithNotInitializedDomain_should_ThrowException() throws Exception {
         Exception exception =  Assertions.assertThrows(org.springframework.web.util.NestedServletException.class,  ()->{ 
             
-            mvc.perform(MockMvcRequestBuilders.get("/MyController1/invoke_NotAutowiredService_with_notInitializedDomain").param("param1", "zhangsan") )
+            mvc.perform(MockMvcRequestBuilders.get("/MyController/invoke_NotAutowiredService_with_notInitializedDomain").param("param1", "zhangsan") )
             .andExpect(MockMvcResultMatchers.status().isOk())
             .andExpect(MockMvcResultMatchers.content().string("domain process zhangsan"));
 

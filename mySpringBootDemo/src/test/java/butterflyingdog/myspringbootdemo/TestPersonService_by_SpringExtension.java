@@ -13,9 +13,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import myspringbootdemo.personmng.dao.PersonDao;
-import myspringbootdemo.personmng.domain.MyDomain;
-import myspringbootdemo.personmng.service.PersonService;
+import myspringbootdemo.personmngt.dao.PersonDao;
+import myspringbootdemo.servicemng.domain.MyDomain;
+import myspringbootdemo.servicemng.service.MyAppService;
  
  
 
@@ -34,7 +34,7 @@ class TestPersonService_by_SpringExtension {
      * 被测对象用@Autowired注入
      */
     @Autowired
-    private PersonService userService;
+    private MyAppService userService;
 
     @Test
     public void doSomething() throws Exception {
@@ -50,7 +50,7 @@ class TestPersonService_by_SpringExtension {
      * 必须加上如下代码，否则报错
      */
     @Configuration
-    @Import(PersonService.class) // A @Component injected with ExampleService
+    @Import(MyAppService.class) // A @Component injected with ExampleService
     static class Config {
     } 
 }

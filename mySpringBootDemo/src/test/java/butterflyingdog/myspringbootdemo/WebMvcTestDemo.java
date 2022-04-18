@@ -17,9 +17,9 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import myspringbootdemo.MySpringBootDemoApplication;
-import myspringbootdemo.personmng.controller.PersonController;
-import myspringbootdemo.personmng.domain.MyDomain;
-import myspringbootdemo.personmng.service.PersonService;
+import myspringbootdemo.servicemng.controller.MyController;
+import myspringbootdemo.servicemng.domain.MyDomain;
+import myspringbootdemo.servicemng.service.MyAppService;
 
 
 /**
@@ -33,7 +33,7 @@ import myspringbootdemo.personmng.service.PersonService;
  * 默认搜索@SpringBootConfiguration注解的类作为配置类。（这里坑最多）
  */
 
-@WebMvcTest(controllers = PersonController.class)
+@WebMvcTest(controllers = MyController.class)
 
 @ContextConfiguration(classes={MySpringBootDemoApplication.class}) //调用与被测Application不再同一层级
 
@@ -49,7 +49,7 @@ class WebMvcTestDemo {
      */
 
     @MockBean
-    private PersonService personService;
+    private MyAppService personService;
 
     @MockBean
     private MyDomain mockedDomain;
@@ -72,7 +72,7 @@ class WebMvcTestDemo {
     public void testController_InvokeAutowiredPersonService__should_Success()   throws Exception {
       Mockito.when(personService.invokeDomainDoSth("wangwu")).thenReturn("domain process wangwu");
 
-       mockMvc.perform(MockMvcRequestBuilders.get("/MyController1/invokeAutowiredService").param("param1", "wangwu"))
+       mockMvc.perform(MockMvcRequestBuilders.get("/MyController/invokeAutowiredService").param("param1", "wangwu"))
                .andExpect(MockMvcResultMatchers.status().isOk())
                .andExpect(MockMvcResultMatchers.content().string("domain process wangwu"));
     }
@@ -85,7 +85,7 @@ class WebMvcTestDemo {
     @Test
     public void testController_invoke_NotAutowiredService_with_notInitializedDomain_should_ThrowException()  throws Exception  {
         Exception exception =  Assertions.assertThrows(org.springframework.web.util.NestedServletException.class,  ()->{ 
-        mockMvc.perform(MockMvcRequestBuilders.get("/MyController1/invoke_NotAutowiredService_with_notInitializedDomain").param("param1", "zhangsan") )
+        mockMvc.perform(MockMvcRequestBuilders.get("/MyController/invoke_NotAutowiredService_with_notInitializedDomain").param("param1", "zhangsan") )
                .andExpect(MockMvcResultMatchers.status().isOk())
                .andExpect(MockMvcResultMatchers.content().string("1"))
                //.andDo(print())
@@ -103,7 +103,7 @@ class WebMvcTestDemo {
     public void testController_invoke_NotAutowiredService_with_InitializedDomain_should_Success() throws Exception {
         Mockito.when(mockedDomain.doSomething("zhangsan")).thenReturn("domain process zhangsan");
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/MyController1/invoke_NotAutowiredService_with_InitializedDomain").param("param1", "zhangsan") )
+        mockMvc.perform(MockMvcRequestBuilders.get("/MyController/invoke_NotAutowiredService_with_InitializedDomain").param("param1", "zhangsan") )
                .andExpect(MockMvcResultMatchers.status().isOk())
                .andExpect(MockMvcResultMatchers.content().string("domain process zhangsan"));
     }

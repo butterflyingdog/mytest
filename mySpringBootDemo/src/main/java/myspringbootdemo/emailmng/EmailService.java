@@ -2,8 +2,8 @@ package myspringbootdemo.emailmng;
 
 import org.springframework.context.event.EventListener;
 
-import myspringbootdemo.personmng.service.PersonAddedEvent;
-import myspringbootdemo.personmng.service.PersonDeletedEvent;
+import myspringbootdemo.personmngt.service.PersonAddedEvent;
+import myspringbootdemo.personmngt.service.PersonDeletedEvent;
 
 public class EmailService {
     @EventListener

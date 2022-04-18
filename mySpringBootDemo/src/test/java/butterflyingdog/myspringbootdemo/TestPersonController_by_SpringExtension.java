@@ -11,13 +11,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import myspringbootdemo.servicemng.controller.MyController;
+import myspringbootdemo.servicemng.domain.MyDomain;
+import myspringbootdemo.servicemng.service.MyAppService;
+
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
-
-
-import myspringbootdemo.personmng.controller.PersonController;
-import myspringbootdemo.personmng.domain.MyDomain;
-import myspringbootdemo.personmng.service.PersonService;
  
 
 @ExtendWith(SpringExtension.class)
@@ -26,12 +25,12 @@ class TestPersonController_by_SpringExtension  {
     
 
     @MockBean
-    private PersonService personService;
+    private MyAppService personService;
     @MockBean
     private MyDomain initializedDomain;
     
     @Autowired
-    private   PersonController personController;
+    private   MyController personController;
 
     
     @Test
@@ -42,7 +41,7 @@ class TestPersonController_by_SpringExtension  {
     }
 
     @Configuration
-    @Import(PersonController.class) // A @Component injected with ExampleService
+    @Import(MyController.class) // A @Component injected with ExampleService
     static class Config {
     }
 }

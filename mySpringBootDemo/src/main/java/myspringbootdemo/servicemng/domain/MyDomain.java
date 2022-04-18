@@ -1,4 +1,4 @@
-package myspringbootdemo.personmng.domain;
+package myspringbootdemo.servicemng.domain;
  
 
 import org.springframework.stereotype.Component;

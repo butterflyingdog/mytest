@@ -1,10 +1,10 @@
 package butterflyingdog.myspringbootdemo;
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
+
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -12,9 +12,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 
 import org.springframework.boot.test.web.client.TestRestTemplate;
 
- 
-
-import myspringbootdemo.personmng.dao.PersonDao;
+import myspringbootdemo.personmngt.dao.PersonDao;
 
 @SpringBootTest(classes={myspringbootdemo.MySpringBootDemoApplication.class}, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class SpringBootTest_with_TestRestTemplate {
@@ -39,18 +37,18 @@ public class SpringBootTest_with_TestRestTemplate {
 
     @Test
     public void testController_InvokeAutowiredService_should_Sucess(){
-        String context = testRestTemplate.getForObject("/MyController1/invokeAutowiredService?param1=zhangsan",String.class);
+        String context = testRestTemplate.getForObject("/MyController/invokeAutowiredService?param1=zhangsan",String.class);
         Assertions.assertEquals("domain process zhangsan",context);
     }
     @Test
     public void testController_invoke_NotAutowiredServiceWithNotInitializedDomain_should_Fail(){
-        String context = testRestTemplate.getForObject("/MyController1/invoke_NotAutowiredService_with_notInitializedDomain?param1=zhangsan",String.class);
+        String context = testRestTemplate.getForObject("/MyController/invoke_NotAutowiredService_with_notInitializedDomain?param1=zhangsan",String.class);
         Assertions.assertTrue( context.contains("\"status\":500"));
     }
 
     @Test
     public void testController_invoke_NotAutowiredServiceWithInitializedDomain_should_Success(){
-        String context = testRestTemplate.getForObject("/MyController1/invoke_NotAutowiredService_with_InitializedDomain?param1=zhangsan",String.class);
+        String context = testRestTemplate.getForObject("/MyController/invoke_NotAutowiredService_with_InitializedDomain?param1=zhangsan",String.class);
         Assertions.assertEquals("domain process zhangsan",context);
     }
 }

@@ -1,4 +1,4 @@
-package myspringbootdemo.personmng.entity;
+package myspringbootdemo.personmngt.entity;
 
 
 public class PersonEntity {

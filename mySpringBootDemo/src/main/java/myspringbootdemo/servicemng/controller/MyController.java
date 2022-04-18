@@ -1,36 +1,36 @@
-package myspringbootdemo.personmng.controller;
+package myspringbootdemo.servicemng.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationEventPublisher;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import myspringbootdemo.personmng.dao.PersonDao;
-import myspringbootdemo.personmng.domain.MyDomain;
-import myspringbootdemo.personmng.service.PersonService;
+
+import myspringbootdemo.servicemng.domain.MyDomain;
+import myspringbootdemo.servicemng.service.MyAppService;
 @RestController
-@RequestMapping("/MyController1")
-public class PersonController {
+@RequestMapping("/MyController")
+public class MyController {
     
  
 
     //private Logger logger = LoggerFactory.getLogger(getClass());
     @Autowired
-    private PersonService autoWiredService;
+    private MyAppService autoWiredService;
 
-    private PersonService notAutowiredService_with_notInitializedDomain;
+    private MyAppService notAutowiredService_with_notInitializedDomain;
 
-    private PersonService notAutowiredService_with_InitializedDomain;
+    private MyAppService notAutowiredService_with_InitializedDomain;
     
     @Autowired
     private MyDomain initializedDomain;
 
-    public  PersonController(){
-      notAutowiredService_with_InitializedDomain = new PersonService( );
-      notAutowiredService_with_notInitializedDomain = new PersonService();
+    public  MyController(){
+      notAutowiredService_with_InitializedDomain = new MyAppService( );
+      notAutowiredService_with_notInitializedDomain = new MyAppService();
     }
 
     /**  
