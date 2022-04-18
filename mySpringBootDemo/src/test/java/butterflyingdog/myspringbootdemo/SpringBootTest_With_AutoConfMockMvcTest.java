@@ -66,4 +66,13 @@ class SpringBootTest_With_AutoConfMockMvcTest {
         Assertions.assertTrue(  exception.getMessage().contains("NullPointerException"));
     }
 
+    @Test( )
+    void testController_invoke_NotAutowiredServiceWithDIedDomain_should_Sucess() throws Exception {
+
+            mvc.perform(MockMvcRequestBuilders.get("/MyController/invoke_NotAutowiredService_with_DIedDomain").param("param1", "zhangsan") )
+            .andExpect(MockMvcResultMatchers.status().isOk())
+            .andExpect(MockMvcResultMatchers.content().string("domain process zhangsan"));
+
+    }
+
 }

@@ -24,13 +24,21 @@ public class MyController {
     private MyAppService notAutowiredService_with_notInitializedDomain;
 
     private MyAppService notAutowiredService_with_InitializedDomain;
+
+    private MyAppService notAutowiredService_with_DIedDomain;
     
     @Autowired
     private MyDomain initializedDomain;
 
-    public  MyController(){
-      notAutowiredService_with_InitializedDomain = new MyAppService( );
-      notAutowiredService_with_notInitializedDomain = new MyAppService();
+    
+    public  MyController(MyAppService service1){
+      this.notAutowiredService_with_InitializedDomain = new MyAppService( );
+      this.notAutowiredService_with_notInitializedDomain =  new MyAppService();
+     
+    /**
+      * service1 通过DI生成，
+      */
+      this.notAutowiredService_with_DIedDomain = service1; //
     }
 
     /**  
@@ -74,6 +82,17 @@ public class MyController {
       String ret = notAutowiredService_with_InitializedDomain.invokeDomainDoSth(param1) ;
       return ret;
           
+    }
+
+     /**  
+     * 1、设置notAutowiredService_with_InitializedDomain中的DomainProcessor
+     * 2、调用notAutowiredService_with_InitializedDomain中的invokeDomainDoSth
+     * 3、应该返回正确结果
+     */
+    @GetMapping("/invoke_NotAutowiredService_with_DIedDomain")
+    public String invoke_NotAutowiredService_with_DIedDomain( @RequestParam("param1") String param1 ){
+      String ret = notAutowiredService_with_DIedDomain.invokeDomainDoSth(param1) ;
+      return ret;    
     }
     
 }

@@ -77,7 +77,23 @@ class WebMvcTestDemo {
                .andExpect(MockMvcResultMatchers.content().string("domain process wangwu"));
     }
 
+
+
      /** 
+     * 调用PersonController 中 notAutowiredService_with_InitializedDomain 依赖的 MyDomain 对象, 
+     * 需要将 MyDomain 对象 Mock
+     * 返回成功 
+     */
+    @Test
+    public void testController_invoke_NotAutowiredService_with_InitializedDomain_should_Success() throws Exception {
+        Mockito.when(mockedDomain.doSomething("zhangsan")).thenReturn("domain process zhangsan");
+
+        mockMvc.perform(MockMvcRequestBuilders.get("/MyController/invoke_NotAutowiredService_with_InitializedDomain").param("param1", "zhangsan") )
+               .andExpect(MockMvcResultMatchers.status().isOk())
+               .andExpect(MockMvcResultMatchers.content().string("domain process zhangsan"));
+    }
+
+         /** 
      * 调用PersonController 中的 notAutowiredService_with_notInitializedDomain 对象, 
      * notAutowiredService_with_notInitializedDomain 依赖的 MyDomain 对象无法被 Mock
      * 应当抛出异常 
@@ -93,20 +109,7 @@ class WebMvcTestDemo {
         });
         Assertions.assertTrue(  exception.getMessage().contains("NullPointerException"));
     }
-
-     /** 
-     * 调用PersonController 中 notAutowiredService_with_InitializedDomain 依赖的 MyDomain 对象, 
-     * 需要将 MyDomain 对象 Mock
-     * 返回成功 
-     */
-    @Test
-    public void testController_invoke_NotAutowiredService_with_InitializedDomain_should_Success() throws Exception {
-        Mockito.when(mockedDomain.doSomething("zhangsan")).thenReturn("domain process zhangsan");
-
-        mockMvc.perform(MockMvcRequestBuilders.get("/MyController/invoke_NotAutowiredService_with_InitializedDomain").param("param1", "zhangsan") )
-               .andExpect(MockMvcResultMatchers.status().isOk())
-               .andExpect(MockMvcResultMatchers.content().string("domain process zhangsan"));
-    }
+    
 }
 
 
