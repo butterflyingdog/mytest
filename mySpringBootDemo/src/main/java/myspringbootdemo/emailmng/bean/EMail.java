@@ -1,5 +1,5 @@
 package myspringbootdemo.emailmng.bean;
-
+/*
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Table;
@@ -31,5 +31,5 @@ public class EMail {
                 ", emailContent='" + emailContent + '\'' +
                 '}';
     }
-}
+}*/
  
