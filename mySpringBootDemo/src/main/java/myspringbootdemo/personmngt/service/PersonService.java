@@ -22,7 +22,7 @@ public class PersonService {
     @Autowired
     MyDomain domainProcessor;
 
-    public MyAppService(){}
+    public PersonService(){}
     
    // public PersonService(PersonDao personDao){
    //     this.personDao = personDao;
