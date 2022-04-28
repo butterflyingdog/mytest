@@ -18,7 +18,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
  *  需要配套使用 @SpringBootTest, 
  *  
  */
-//@SpringBootTest(classes={myspringbootdemo.MySpringBootDemoApplication.class},webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(classes={myspringbootdemo.MySpringBootDemoApplication.class},webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 //@ContextConfiguration(classes={myspringbootdemo.MySpringBootDemoApplication.class})
 @AutoConfigureMockMvc
 class SpringBootTest_With_AutoConfMockMvcTest {
