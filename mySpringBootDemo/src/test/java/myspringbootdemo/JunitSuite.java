@@ -1,4 +1,4 @@
-package butterflyingdog.myspringbootdemo;
+package myspringbootdemo;
 
 import org.junit.jupiter.api.extension.ExtendWith;
 

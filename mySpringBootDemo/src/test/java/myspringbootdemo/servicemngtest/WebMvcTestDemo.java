@@ -1,4 +1,4 @@
-package butterflyingdog.myspringbootdemo;
+package myspringbootdemo.servicemngtest;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
