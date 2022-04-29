@@ -15,7 +15,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 /**
  *  @AutoConfigureMockMvc 意味着the full Spring application context is started but without the server
- *  需要配套使用 @SpringBootTest, 否则MockMvc的实例mvc对象会为NULL;
+ *  需要配套使用 @SpringBootTest, 否则使用@Autowired注解的mvc（MockMvc的实例对象）会为NULL;
  *  
  */
 @SpringBootTest(classes={myspringbootdemo.MySpringBootDemoApplication.class},webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -24,9 +24,11 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 class SpringBootTest_With_AutoConfMockMvcTest {
 
     /**
-     * 需要配套使用 @SpringBootTest, 否则MockMvc的实例mvc对象会为NULL;
+     * 需要配套使用 @SpringBootTest, 
+     * 否则使用@Autowired注解的mvc（MockMvc的实例对象）会为NULL;
      */ 
-     @Autowired
+    
+    @Autowired
     private MockMvc mvc;
 
     @Test
