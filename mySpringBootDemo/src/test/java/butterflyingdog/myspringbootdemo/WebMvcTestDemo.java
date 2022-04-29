@@ -35,7 +35,8 @@ import myspringbootdemo.servicemng.service.MyAppService;
 
 @WebMvcTest(controllers = MyController.class)
 
-@ContextConfiguration(classes={MySpringBootDemoApplication.class}) //调用与被测Application不再同一层级
+//测试类与被测Application不再同一包，需要使用@ContextConfiguration指定被测Application
+@ContextConfiguration(classes={myspringbootdemo.MySpringBootDemoApplication.class}) 
 
 class WebMvcTestDemo {
 
