@@ -1,3 +1,6 @@
 *.bak
 *.class
 target
+
+.project
+.settings
