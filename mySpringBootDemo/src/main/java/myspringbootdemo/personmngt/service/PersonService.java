@@ -11,8 +11,8 @@ import myspringbootdemo.servicemng.domain.MyDomain;
 @Service
 public class PersonService {
 
-    //@Autowired
-    //private PersonDao personDao;
+    @Autowired
+    private PersonDao personDao;
     
 
   //  @Autowired
@@ -37,15 +37,13 @@ public class PersonService {
         if(username == null){
             return 0;
         }else{
-           //int result =  personDao.createUser(username);
+           int result =  personDao.createUser(username);
             //publisher.publishEvent(new PersonAddedEvent());
             return 1;
         }
          
     }
-    public String invokeDomainDoSth(String param){
-        return   domainProcessor.doSomething(param);     
-    }
+ 
 /*
     public Integer invokeEventPublisher( ){
         
