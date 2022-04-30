@@ -6,7 +6,7 @@ import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
 
 import myspringbootdemo.personmngt.dao.PersonDao;
-import myspringbootdemo.servicemng.domain.MyDomain;
+
 
 @Service
 public class PersonService {
@@ -19,8 +19,6 @@ public class PersonService {
   //  ApplicationEventPublisher publisher;
 
 
-    @Autowired
-    MyDomain domainProcessor;
 
     public PersonService(){}
     
@@ -28,9 +26,7 @@ public class PersonService {
    //     this.personDao = personDao;
    // }
 
-    public void setDomainProcessor(MyDomain domainProcessor){
-        this.domainProcessor = domainProcessor;
-    }
+
 
     public Integer addUser(String username){
         System.out.println("user dao adduser [username="+username+"]");
