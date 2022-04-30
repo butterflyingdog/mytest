@@ -1,4 +1,4 @@
-package myspringbootdemo.servicemngtest;
+package myspringbootdemo.personmngttest;
 
 import org.junit.jupiter.api.Assertions;
 
