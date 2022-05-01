@@ -1,4 +1,4 @@
-drop TABLE USER_INF if exists;  
+drop TABLE USER_INFOMATION if exists;  
 create TABLE USER_INFOMATION --if not exists
 (
     person_id INTEGER PRIMARY KEY,
