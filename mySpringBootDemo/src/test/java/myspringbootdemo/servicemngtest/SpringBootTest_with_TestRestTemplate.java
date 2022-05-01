@@ -17,8 +17,8 @@ import myspringbootdemo.personmngt.dao.PersonDao;
 @SpringBootTest(classes={myspringbootdemo.MySpringBootDemoApplication.class}, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class SpringBootTest_with_TestRestTemplate {
 
-    @MockBean
-    PersonDao personDao;
+    //@MockBean
+    //PersonDao personDao;
 
 
     //这个对象是运行在web环境的时候加载到spring容器中
@@ -27,7 +27,7 @@ public class SpringBootTest_with_TestRestTemplate {
 
     @BeforeEach
     public void setup(){
-        Mockito.when(personDao.createUser("ning")).thenReturn( Integer.valueOf(1));
+   //     Mockito.when(personDao.createUser("ning")).thenReturn( Integer.valueOf(1));
     }
     @Test
     public void testNotExistUrl_should_404(){

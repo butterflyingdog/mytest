@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -46,7 +47,7 @@ public class PersonMngController {
       if(ret == 0)
         return "controller failed";
       else 
-      System.out.println("RequestBOdy=" + JsonString);
+      System.out.println("RequestBOdy=" + jsonString);
         return "Success";
     }
 
