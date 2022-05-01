@@ -9,7 +9,11 @@
         "**/.hg": true,
         "**/CVS": true,
         "**/.DS_Store": true,
-        "**/.theia": true
+        "**/.theia": true,
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
     },
     "editor.autoSave": "on",
     "markdown-preview-enhanced.automaticallyShowPreviewOfMarkdownBeingEdited": true,
