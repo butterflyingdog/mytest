@@ -39,7 +39,7 @@ public class PersonMngController {
      * 2、调用 autoWiredService 中的 invokeDomainDoSth
      * 3、返回正确结果
      */
-    @PostMapping("/addUser/{personname}")
+    @PostMapping("/addUser")
  
     public String addUser( @RequestParam("personname") String personname, @RequestBody String jsonString){
  
