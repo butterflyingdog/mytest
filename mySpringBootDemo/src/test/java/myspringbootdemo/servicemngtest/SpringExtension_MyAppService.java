@@ -20,13 +20,13 @@ import myspringbootdemo.servicemng.service.MyAppService;
  
 
 @ExtendWith(SpringExtension.class)
-class TestPersonService_by_SpringExtension {
+class SpringExtension_MyAppService {
     
     /**
      *  使用@MockBean将被依赖的对象Mock
      */
-    @MockBean
-    private PersonDao personDao;
+    //@MockBean
+    //private PersonDao personDao;
     @MockBean
     private MyDomain domainProcessor;
 

@@ -21,7 +21,7 @@ import org.springframework.context.annotation.Import;
 
 @ExtendWith(SpringExtension.class)
 
-class TestPersonController_by_SpringExtension  {
+class SpringExtension_MyController  {
     
 
     @MockBean
