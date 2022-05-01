@@ -39,11 +39,12 @@ public class PersonMngController {
      * 3、返回正确结果
      */
     @PostMapping("/addUser/{personname}")
-    public String addUser(@RequestParam("personname") String personname){
+    public String addUser( @RequestParam("personname") String personname, ,@RequestBody String jsonString){
       int ret =  PersonService.addUser(personname);//.invokeDomainDoSth(param1);
       if(ret == 0)
         return "controller failed";
       else 
+      System.out.println("RequestBOdy=" + JsonString);
         return "Success";
     }
 
