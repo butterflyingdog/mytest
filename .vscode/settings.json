@@ -17,5 +17,6 @@
     },
     "editor.autoSave": "on",
     "markdown-preview-enhanced.automaticallyShowPreviewOfMarkdownBeingEdited": true,
-    "terminal.integrated.shell.linux": "/bin/bash"
+    "terminal.integrated.shell.linux": "/bin/bash",
+    "java.dependency.packagePresentation": "hierarchical"
 }

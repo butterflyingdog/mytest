@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.alibaba.fastjson.JSONObject;
+//import org.json.JSONObject;
 
 @RestController
 @RequestMapping("/RequestBodyController")
@@ -13,7 +14,8 @@ import com.alibaba.fastjson.JSONObject;
 public class RequestBodyController {
     @RequestMapping(value = "/json", method = RequestMethod.POST)
     public String postByJsonObj(@RequestBody JSONObject jsonRequest) {
-        if (jsonRequest == null || jsonRequest.isEmpty()) {
+        if (jsonRequest == null )//|| jsonRequest..isEmpty()) 
+        {
             return "FAIL";
         }
         return "SUCCESS:" + jsonRequest.toString();
