@@ -11,6 +11,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
  
 /**
  *  传输RequestObject、Map、Json，本质都是发送一个json
@@ -30,8 +33,7 @@ public class RequestBodyControllerTest {
         request.setName("小芳");
         request.setAddress("广东深圳");
 
-        String result = restTemplate.postForObject(url, request, String.class);
-        Assertions.assertEquals("SUCCESS:{\"address\":\"广东深圳\",\"name\":\"小芳\",\"age\":18}",result);
+        executeInvoke(request);     
     }
 
     @Test
@@ -41,11 +43,9 @@ public class RequestBodyControllerTest {
         hashMap.put("name", "小芳");
         hashMap.put("address", "广东深圳");
 
-        
-        String result = restTemplate.postForObject(url, hashMap, String.class);
-        Assertions.assertEquals("SUCCESS:{\"address\":\"广东深圳\",\"name\":\"小芳\",\"age\":18}",result);
+        executeInvoke(hashMap);
     }
-
+    
     @Test
     public void testJson() {
         JSONObject json = new JSONObject();
@@ -53,10 +53,18 @@ public class RequestBodyControllerTest {
         json.put("name", "小芳");
         json.put("address", "广东深圳");
 
-        String result = restTemplate.postForObject(url, json, String.class);
-        Assertions.assertEquals("SUCCESS:{\"address\":\"广东深圳\",\"name\":\"小芳\",\"age\":18}",result);
-        //System.out.println(result);
+        executeInvoke(json);
     } 
+    private void executeInvoke(Object body){
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+         
+        HttpEntity<HashMap<String, Object>> request = new HttpEntity(body, headers);
+        String result = restTemplate.postForObject(url, request, String.class);
+        Assertions.assertEquals("SUCCESS:{\"address\":\"广东深圳\",\"name\":\"小芳\",\"age\":18}",result);
+
+    }
 }
 
  
