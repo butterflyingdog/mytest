@@ -1,18 +1,17 @@
-package myspringbootdemo.servicemngtest;
-import java.nio.charset.Charset;
+package myspringbootdemo.requestbodytest;
+ 
 import java.util.HashMap;
 import java.util.Map;
 
 import com.alibaba.fastjson.JSONObject;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.http.converter.StringHttpMessageConverter;
-
-import org.springframework.web.client.RestTemplate;
+ 
 
 @SpringBootTest(classes={myspringbootdemo.MySpringBootDemoApplication.class},webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class RequestBodyControllerTest {
@@ -29,7 +28,7 @@ public class RequestBodyControllerTest {
         request.setAddress("广东深圳");
 
         String result = restTemplate.postForObject(url, request, String.class);
-        System.out.println(result);
+        Assertions.assertEquals("SUCCESS:{\"address\":\"广东深圳\",\"name\":\"小芳\",\"age\":18}",result);
     }
 
     @Test
@@ -41,7 +40,7 @@ public class RequestBodyControllerTest {
 
         
         String result = restTemplate.postForObject(url, hashMap, String.class);
-        System.out.println(result);
+        Assertions.assertEquals("SUCCESS:{\"address\":\"广东深圳\",\"name\":\"小芳\",\"age\":18}",result);
     }
 
     @Test
@@ -52,27 +51,12 @@ public class RequestBodyControllerTest {
         json.put("address", "广东深圳");
 
         String result = restTemplate.postForObject(url, json, String.class);
-        System.out.println(result);
+        Assertions.assertEquals("SUCCESS:{\"address\":\"广东深圳\",\"name\":\"小芳\",\"age\":18}",result);
+        //System.out.println(result);
     } 
 }
 
-
-class RestTemplateUtil {
-
-
-    /**
-     * 创建指定字符集的RestTemplate
-     *
-     * @param charset
-     * @return
-     */
-    public static RestTemplate getInstance(String charset) {
-        RestTemplate restTemplate = new RestTemplate();
-        restTemplate.getMessageConverters().add(new StringHttpMessageConverter(Charset.forName(charset)));
-        return restTemplate;
-    }
-
-} 
+ 
 
 class RequestObject {
     private int age;

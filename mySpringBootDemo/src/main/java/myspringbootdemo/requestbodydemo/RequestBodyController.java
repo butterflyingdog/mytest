@@ -1,4 +1,4 @@
-package myspringbootdemo.servicemng.controller;
+package myspringbootdemo.requestbodydemo;
 
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
