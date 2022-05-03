@@ -65,7 +65,9 @@ public class RequestBodyControllerTest {
         Assertions.assertEquals("SUCCESS:{\"address\":\"广东深圳\",\"name\":\"小芳\",\"age\":18}",result);
 
     }
-}
+
+
+ 
 
  
 
@@ -96,3 +98,22 @@ class RequestObject {
         return "RequestObject [age=" + age + ", name=" + name + ", address=" + address + "]";
     }
 } 
+
+}
+
+@SpringBootTest(classes={myspringbootdemo.MySpringBootDemoApplication.class},webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+
+class RequestGetTest {
+
+
+    @Autowired
+    private TestRestTemplate restTemplate;
+    private static final String url = "/RequestBodyController/invokewithparam/ning";
+
+@Test
+public void testGetByPathVarial() {
+    String result = restTemplate.getForObject(url,String.class);
+    System.out.println(result);
+} 
+
+}

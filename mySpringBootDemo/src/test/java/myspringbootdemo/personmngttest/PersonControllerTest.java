@@ -27,7 +27,7 @@ public class PersonControllerTest {
     //这个对象是运行在web环境的时候加载到spring容器中
     @Autowired
     private TestRestTemplate testRestTemplate;
-    @Test
+    //@Test
     public void testController_InvokeAutowiredService_should_Sucess(){
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
