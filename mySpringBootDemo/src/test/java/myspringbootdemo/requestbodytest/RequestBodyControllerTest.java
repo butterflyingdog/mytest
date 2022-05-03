@@ -28,6 +28,36 @@ public class RequestBodyControllerTest {
     
     @Test
     public void testJavaObj() {
+
+class RequestObject {
+    private int age;
+    private String name;
+    private String address;
+    public int getAge() {
+        return age;
+    }
+    public void setAge(int age) {
+        this.age = age;
+    }
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public String getAddress() {
+        return address;
+    }
+    public void setAddress(String address) {
+        this.address = address;
+    }
+    @Override
+    public String toString() {
+        return "RequestObject [age=" + age + ", name=" + name + ", address=" + address + "]";
+    }
+} 
+
+
         RequestObject request = new RequestObject();
         request.setAge(18);
         request.setName("小芳");
@@ -67,53 +97,13 @@ public class RequestBodyControllerTest {
     }
 
 
- 
+    @Test
+    public void testGetByPathVarial() {
+        String actual = restTemplate.getForObject("/RequestBodyController/getByPathParam/ning",String.class);
+        Assertions.assertEquals("SUCCESS:ning",actual);
+    } 
 
  
 
-class RequestObject {
-    private int age;
-    private String name;
-    private String address;
-    public int getAge() {
-        return age;
-    }
-    public void setAge(int age) {
-        this.age = age;
-    }
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
-        this.name = name;
-    }
-    public String getAddress() {
-        return address;
-    }
-    public void setAddress(String address) {
-        this.address = address;
-    }
-    @Override
-    public String toString() {
-        return "RequestObject [age=" + age + ", name=" + name + ", address=" + address + "]";
-    }
-} 
-
 }
-
-@SpringBootTest(classes={myspringbootdemo.MySpringBootDemoApplication.class},webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-
-class RequestGetTest {
-
-
-    @Autowired
-    private TestRestTemplate restTemplate;
-    private static final String url = "/RequestBodyController/invokewithparam/ning";
-
-@Test
-public void testGetByPathVarial() {
-    String result = restTemplate.getForObject(url,String.class);
-    System.out.println(result);
-} 
-
-}
+ 

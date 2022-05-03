@@ -31,7 +31,7 @@ public class SwaggerTest {
          
         HttpEntity<HashMap<String, Object>> request = new HttpEntity(body, headers);
         String result = restTemplate.getForObject(url ,String.class  );
-        System.out.println(result);
+        System.out.println("result =" + result);
         //Assertions.assertEquals("SUCCESS:{\"address\":\"广东深圳\",\"name\":\"小芳\",\"age\":18}",result);
 
     }

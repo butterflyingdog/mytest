@@ -27,21 +27,19 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse; 
 
  
+//@Tag( name = "usgeeeer", description = "the RequestBodyController Demo" )
+
 @RestController
 @RequestMapping("/PersonMngController")
-
-
-@Tag( name = "usgeeeer", description = "the RequestBodyController Demo" )
-
 public class PersonMngController {
     
 
     @Autowired
     private PersonService PersonService;
 
-    @PostMapping("/addUser")
     @Operation(summary = "Create user", description = "This can only be done by the logged in user.", tags = { "user" })
     //@ApiResponses(value = { @ApiResponse(description = "successful operation", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = User.class)), @Content(mediaType = "application/xml", schema = @Schema(implementation = User.class)) }) })
+    @PostMapping("/addUser")
     public String addUser( @RequestParam("personname") String personname, @RequestBody String jsonString){
  
       int ret =  PersonService.addUser(personname);//.invokeDomainDoSth(param1);
