@@ -26,7 +26,7 @@ import com.alibaba.fastjson.JSONObject;
 @RequestMapping("/RequestBodyController")
 
 
-@Tag( name = "usger", description = "the RequestBodyController Demo" )
+@Tag( name = "RequestBodyController", description = "the RequestBodyController Demo" )
 public class RequestBodyController {
     
  
