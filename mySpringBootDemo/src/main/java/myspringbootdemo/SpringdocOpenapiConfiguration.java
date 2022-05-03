@@ -29,6 +29,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/*
+
 @Configuration
 public class SpringdocOpenapiConfiguration implements WebMvcConfigurer {
 
@@ -72,9 +74,9 @@ public class SpringdocOpenapiConfiguration implements WebMvcConfigurer {
                 );
     }
 
-    /**
-     * 添加全局的请求头参数
-     */
+    // 
+   //  添加全局的请求头参数
+    //  
     @Bean
     public OpenApiCustomiser customerGlobalHeaderOpenApiCustomiser() {
         return openApi -> openApi.getPaths().values().stream().flatMap(pathItem -> pathItem.readOperations().stream())
@@ -83,9 +85,9 @@ public class SpringdocOpenapiConfiguration implements WebMvcConfigurer {
                 });
     }
 
-    /**
-     * 通用拦截器排除设置，所有拦截器都会自动加springdoc-opapi相关的资源排除信息，不用在应用程序自身拦截器定义的地方去添加，算是良心解耦实现。
-     */
+ 
+    //  通用拦截器排除设置，所有拦截器都会自动加springdoc-opapi相关的资源排除信息，不用在应用程序自身拦截器定义的地方去添加，算是良心解耦实现。
+   
     @SuppressWarnings("unchecked")
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
@@ -94,7 +96,7 @@ public class SpringdocOpenapiConfiguration implements WebMvcConfigurer {
             List<InterceptorRegistration> registrations = (List<InterceptorRegistration>) ReflectionUtils.getField(registrationsField, registry);
             if (registrations != null) {
                 for (InterceptorRegistration interceptorRegistration : registrations) {
-                    interceptorRegistration.excludePathPatterns("/springdoc**/**");
+                    //interceptorRegistration.excludePathPatterns("/springdoc\\*\/**");
                 }
             }
         } catch (Exception e) {
@@ -103,28 +105,26 @@ public class SpringdocOpenapiConfiguration implements WebMvcConfigurer {
     }
 
 } 
+*/
+/*
 
 @Component
 @ConfigurationProperties("swagger")
 class SwaggerProperties {
-    /**
-     * 项目应用名
-     */
+     
     private String applicationName;
 
-    /**
-     * 项目版本信息
-     */
+    
     private String applicationVersion;
 
-    /**
-     * 项目描述信息
-     */
+    
+    //项目描述信息
+     
     private String applicationDescription;
 
-    /**
-     * 接口调试地址
-     */
+    
+     // 接口调试地址
+     
     private String tryHost;
 
     public String getApplicationName() {
@@ -159,3 +159,5 @@ class SwaggerProperties {
         this.tryHost = tryHost;
     }
 } 
+
+*/
