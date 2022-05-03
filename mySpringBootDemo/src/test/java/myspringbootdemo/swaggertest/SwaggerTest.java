@@ -24,12 +24,12 @@ public class SwaggerTest {
  
 
     @Test
-    private void executeInvoke(Object body){
-
+    public void executeInvoke( ){
+       
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
          
-        HttpEntity<HashMap<String, Object>> request = new HttpEntity(body, headers);
+       // HttpEntity<HashMap<String, Object>> request = new HttpEntity(body, headers);
         String result = restTemplate.getForObject("/v3/api-docs" ,String.class  );
         System.out.println("result =" + result);
         //Assertions.assertEquals("SUCCESS:{\"address\":\"广东深圳\",\"name\":\"小芳\",\"age\":18}",result);

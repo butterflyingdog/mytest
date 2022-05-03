@@ -44,7 +44,7 @@ public class RequestBodyController {
         return "SUCCESS:" + jsonRequest.toString();
     } 
 
-    @Operation(summary = "getByPathParam", description = "getByPathParam", tags = { "useppr" })
+    @Operation(summary = "getByPathParam", description = "getByPathParam", tags = { "RequestBodyController" })
     @RequestMapping(value = "/getByPathParam/{param}", method = RequestMethod.GET)
     public String getByPathParam (@PathVariable String param) {
         if (param == null ||  param.isEmpty()) 
