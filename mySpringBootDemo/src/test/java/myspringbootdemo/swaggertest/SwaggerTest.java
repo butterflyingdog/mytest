@@ -19,7 +19,7 @@ import org.springframework.http.MediaType;
 public class SwaggerTest {
     @Autowired
     private TestRestTemplate restTemplate;
-    private static final String url = "/v3/api-docs";
+  
 
  
 
@@ -30,7 +30,7 @@ public class SwaggerTest {
         headers.setContentType(MediaType.APPLICATION_JSON);
          
         HttpEntity<HashMap<String, Object>> request = new HttpEntity(body, headers);
-        String result = restTemplate.getForObject(url ,String.class  );
+        String result = restTemplate.getForObject("/v3/api-docs" ,String.class  );
         System.out.println("result =" + result);
         //Assertions.assertEquals("SUCCESS:{\"address\":\"广东深圳\",\"name\":\"小芳\",\"age\":18}",result);
 
