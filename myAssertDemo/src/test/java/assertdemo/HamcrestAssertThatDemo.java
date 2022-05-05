@@ -1,6 +1,8 @@
 package assertdemo;
 
 import java.util.*; 
+import java.math.Integer;
+import java.math.Double;
 
 import static org.junit.Assert.assertEquals;
  
@@ -12,7 +14,7 @@ import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.Matchers.*;
 import static org.hamcrest.MatcherAssert.assertThat; 
 
-import org.junit.jupiter.api.Test; 
+//import org.junit.jupiter.api.Test; 
 
 class HamcrestAssertionDemo { 
 
@@ -34,7 +36,7 @@ class HamcrestAssertionDemo {
  /*
        * 一般匹配符
        */
-     Integer  testedNumber = Integer.valueof("89.4");
+     Integer  testedNumber = Integer.valueof("89");
 // allOf匹配符表明如果记下来的所有条件必须都成立测试才能通过，相当于“与”（&&）
 assertThat( testedNumber , allOf( greaterThan(8) , lessThan(16) ));
 // anyOf匹配符表名如果接下来的条件只要有一个成立，则测试通过，相当于“或”（||）
@@ -59,7 +61,7 @@ assertThat( testedString , endsWith( "developerWorks" ) );
 // startsWith匹配符表明如果测试的字符串testedString以子字符串“developerWorks”开始,则测试通过
 assertThat( testedString , startsWith( "developerWorks" ) );
 // equalTo匹配符表明如果测试的testedValue等于expectedValue，则测试通过，equalTo可以测试数值之间，字符串之间和对象之间是否相等，相当于Object的equals方法
-assertThat( testedString , equalTo( expectedValue ));
+assertThat( testedString , equalTo( "developerWorks" ));
 // equalToIgnoringCase匹配符表明如果测试的字符串testedString在忽略大小写的情况下等于“developerWorks”,则测试通过
 assertThat( testedString , equalToIgnoringCase( "developerWorks" ) );
 // equalToIgnoringWhiteCase匹配符表明如果测试的字符串testedString在忽略头尾的任意空格的情况下等于“developerWorks”,则测试通过，注意：字符串中间的空格不能被忽略
