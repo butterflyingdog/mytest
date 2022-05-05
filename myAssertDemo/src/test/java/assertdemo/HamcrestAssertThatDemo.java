@@ -10,8 +10,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
  
-import static org.hamcrest.CoreMatchers.*; 
-//import static org.hamcrest.Matchers.*;
+//import static org.hamcrest.CoreMatchers.*; 
+import static org.hamcrest.Matchers.*;
 import static org.hamcrest.MatcherAssert.assertThat; 
 
 //import org.junit.jupiter.api.Test; 
@@ -29,14 +29,14 @@ class HamcrestAssertionDemo {
         map.put("string", 1);
  
  assertThat(list, hasItem("string"));
- assertThat(map, Matchers.hasEntry("string", 1));
- assertThat(map, Matchers.hasKey("string")); 
+ assertThat(map, hasEntry("string", 1));
+ assertThat(map, hasKey("string")); 
  
  
  /*
        * 一般匹配符
        */
-     Integer  testedNumber = Integer.valueof("89");
+     Integer  testedNumber = Integer.valueOf("89");
 // allOf匹配符表明如果记下来的所有条件必须都成立测试才能通过，相当于“与”（&&）
 assertThat( testedNumber , allOf( greaterThan(8) , lessThan(16) ));
 // anyOf匹配符表名如果接下来的条件只要有一个成立，则测试通过，相当于“或”（||）
@@ -70,7 +70,7 @@ assertThat( testedString , equalToIgnoringWhiteCase( "developerWorks") );
 /*
  * 数值相关匹配符
  */
-Double d = Double.valueOf("83.4");
+Double testedDouble = Double.valueOf("83.4");
 // 测试的浮点型数testedDouble在20±0.5
 assertThat( testedDouble , closeTo( 20. , 0.5 ));
 // 测试的浮点型数testedDouble > 16.0
