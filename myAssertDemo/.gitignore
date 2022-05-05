@@ -2,4 +2,5 @@
 *.class
 target
 
- 
+.project
+.settings
