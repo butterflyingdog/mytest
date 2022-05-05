@@ -18,5 +18,8 @@
     "editor.autoSave": "on",
     "markdown-preview-enhanced.automaticallyShowPreviewOfMarkdownBeingEdited": true,
     "terminal.integrated.shell.linux": "/bin/bash",
-    "java.dependency.packagePresentation": "hierarchical"
+    "java.dependency.packagePresentation": "hierarchical",
+    "java.project.sourcePaths": [
+        "myAssertDemo/src/test/java"
+    ]
 }

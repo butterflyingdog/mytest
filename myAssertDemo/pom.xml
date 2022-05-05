@@ -7,10 +7,10 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.butterflyingdog</groupId>
-  <artifactId>mockeitoDemo</artifactId>
+  <artifactId>myAssertDemo</artifactId>
   <version>0.0.1-SNAPSHOT</version>
 
-  <name>mockeitoDemo</name>
+  <name>myAssertDemo</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
