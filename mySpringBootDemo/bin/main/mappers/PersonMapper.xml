@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapper namespace="butterflyingdog.myspringbootdemo.dao.PersonDao">
+
+    <insert id="addPersonSql" parameterType="myspringbootdemo.personmngt.entity.PersonEntity">
+        insert into USER_INF(person_id,person_name) values(${personId}, ${personName})
+    </insert>
+</mapper>
