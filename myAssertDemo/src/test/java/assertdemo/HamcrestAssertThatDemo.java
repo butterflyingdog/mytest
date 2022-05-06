@@ -1,15 +1,10 @@
 package assertdemo;
 
 import java.util.*; 
-//import java.math.Integer;
-//import java.math.Double;
+
 
 import static org.junit.Assert.assertEquals;
- 
- 
-//import org.junit.Test;
- 
- 
+  
 import   org.hamcrest.CoreMatchers; 
 import static org.hamcrest.Matchers.*;
  
@@ -18,10 +13,16 @@ import   org.hamcrest.text.IsEqualIgnoringWhiteSpace;
 import static org.hamcrest.MatcherAssert.assertThat; 
 
 import org.junit.jupiter.api.Test; 
+ 
+import org.assertj.core.api.JUnitSoftAssertions;
 
 import org.assertj.core.api.SoftAssertions;
 
 public class HamcrestAssertThatDemo { 
+
+
+ //   @Rule
+ SoftAssertions mJUnitSoftAssertions = new SoftAssertions();
 
     @Test 
     public void assertWithHamcrestMatcher() { 
@@ -124,6 +125,6 @@ assertThat( mapObject , Matchers.hasValue( "value" ) );
  // 联合匹配符anyOf和containsString表示“包含任意一个子字符串”
  assertThat(something , anyOf(containsString("developer") , containsString("Worker")));
  
-// SoftAssertions.assertAll();
+ mJUnitSoftAssertions.assertAll();
     } 
 } 
