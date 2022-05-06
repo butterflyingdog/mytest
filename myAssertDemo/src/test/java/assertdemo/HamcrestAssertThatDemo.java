@@ -10,8 +10,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
  
-//import static org.hamcrest.CoreMatchers.*; 
+import   org.hamcrest.CoreMatchers; 
 import static org.hamcrest.Matchers.*;
+import   org.hamcrest.Matchers;
 import   org.hamcrest.text.IsEqualIgnoringWhiteSpace;
 import static org.hamcrest.MatcherAssert.assertThat; 
 
@@ -65,13 +66,13 @@ assertThat( testedString , startsWith( "developerWorks" ) );
 assertThat( testedString , equalTo( "developerWorks" ));
 // equalToIgnoringCase匹配符表明如果测试的字符串testedString在忽略大小写的情况下等于“developerWorks”,则测试通过
 assertThat( testedString , equalToIgnoringCase( "developerWorks" ) );
-// equalToIgnoringWhiteCase匹配符表明如果测试的字符串testedString在忽略头尾的任意空格的情况下等于“developerWorks”,则测试通过，注意：字符串中间的空格不能被忽略
-assertThat( testedString , IsEqualIgnoringWhiteSpace.equalToIgnoringWhiteCase( "developerWorks") );
- 
+// equalToIgnoringWhiteSpace 匹配符表明如果测试的字符串testedString在忽略头尾的任意空格的情况下等于“developerWorks”,则测试通过，注意：字符串中间的空格不能被忽略
+assertThat( testedString , IsEqualIgnoringWhiteSpace.equalToIgnoringWhiteSpace( "developerWorks") );
+
 /*
  * 数值相关匹配符
  */
-/*
+ 
 Double testedDouble = Double.valueOf("83.4");
 // 测试的浮点型数testedDouble在20±0.5
 assertThat( testedDouble , closeTo( 20. , 0.5 ));
@@ -83,28 +84,28 @@ assertThat( testedDouble , lessThan( 16.0 ));
 assertThat( testedDouble , greaterThanOrEqualTo( 16.0 ));
 // 测试的浮点型数testedDouble <= 16.0
 assertThat( testedDouble , lessThanOrEqualTo( 16.0 ));
-*/
+ 
 /*
  * collection相关匹配符
  */
-/*
-Map mapObject = new HashMap();
+ 
+Map<String, String>  mapObject = new HashMap<String, String>();
 // hasEntry匹配符表明如果测试的Map对象mapObject含有一个键值为“key”对应的元素值为“value”的Entry，则测试通过
 assertThat( mapObject , hasEntry( "key" , "value" ) );
 // hasItem匹配符表明如果测试的迭代对象iterableObject含有元素“elemenet”项，则测试通过
-Map iterableObject = new HashMap();
+Map<String, String> iterableObject = new HashMap<String, String>();
 assertThat( iterableObject , hasItem( "element" ) );
 // hasKey匹配符表明测试的Map对象mapObject含有键值"key"则测试通过
 assertThat( mapObject , hasKey( "key" ) );
 // hasValue匹配符表明如果测试的Map对象mapObject含有元素值“value”，则测试通过
-assertThat( mapObject , hasValue( "value" ) );
-*/
+assertThat( mapObject , Matchers.hasValue( "value" ) );
+ 
 
 
 /*
  *还可以和Matcher匹配符联合起来达到更多目的，使用灵活
  */ 
-/*
+
  // 想要判断某个字符串s是否含有个子字符串“developer”或“Worker”中间的一个
  // JUnit 4.4 以前版本：assertTrue(s.indexOf("developer")>-1 || s.indexOf("Worker")>-1);
  // JUnit 4.4 匹配符anyOf 表示任何一个条件满足则成立，类似于逻辑或 “||”，匹配符containsString 表示是否含有参数子字符串
@@ -118,6 +119,6 @@ assertThat( mapObject , hasValue( "value" ) );
  // 联合匹配符anyOf和containsString表示“包含任意一个子字符串”
  assertThat(something , anyOf(containsString("developer") , containsString("Worker")));
 
- */
+ 
     } 
 } 
