@@ -6,17 +6,20 @@ import java.util.*;
 
 import static org.junit.Assert.assertEquals;
  
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+ 
+//import org.junit.Test;
+ 
  
 import   org.hamcrest.CoreMatchers; 
 import static org.hamcrest.Matchers.*;
+ 
 import   org.hamcrest.Matchers;
 import   org.hamcrest.text.IsEqualIgnoringWhiteSpace;
 import static org.hamcrest.MatcherAssert.assertThat; 
 
-//import org.junit.jupiter.api.Test; 
+import org.junit.jupiter.api.Test; 
+
+import org.assertj.core.api.SoftAssertions;
 
 public class HamcrestAssertThatDemo { 
 
@@ -38,7 +41,7 @@ public class HamcrestAssertThatDemo {
  /*
        * 一般匹配符
        */
-     Integer  testedNumber = Integer.valueOf("89");
+     Integer  testedNumber = Integer.valueOf("10");
 // allOf匹配符表明如果记下来的所有条件必须都成立测试才能通过，相当于“与”（&&）
 assertThat( testedNumber , allOf( greaterThan(8) , lessThan(16) ));
 // anyOf匹配符表名如果接下来的条件只要有一个成立，则测试通过，相当于“或”（||）
@@ -92,9 +95,11 @@ assertThat( testedDouble , lessThanOrEqualTo( 16.0 ));
 Map<String, String>  mapObject = new HashMap<String, String>();
 // hasEntry匹配符表明如果测试的Map对象mapObject含有一个键值为“key”对应的元素值为“value”的Entry，则测试通过
 assertThat( mapObject , hasEntry( "key" , "value" ) );
+
 // hasItem匹配符表明如果测试的迭代对象iterableObject含有元素“elemenet”项，则测试通过
-Map<String, String> iterableObject = new HashMap<String, String>();
+Set<String> iterableObject = new HashSet<String>();
 assertThat( iterableObject , hasItem( "element" ) );
+
 // hasKey匹配符表明测试的Map对象mapObject含有键值"key"则测试通过
 assertThat( mapObject , hasKey( "key" ) );
 // hasValue匹配符表明如果测试的Map对象mapObject含有元素值“value”，则测试通过
@@ -113,12 +118,12 @@ assertThat( mapObject , Matchers.hasValue( "value" ) );
  assertThat(s , anyOf(containsString("developer"),containsString("Worker")));
  // 联合匹配符not和equalTo表示“不等于”
  String something = "gg";
- assertThat(something , not(equqlTt("developer")));
+ assertThat(something , not(equalTo("developer")));
  // 联合匹配符not和containsString表示“不包含子字符串”
  assertThat(something , not(containsString("Worker")));
  // 联合匹配符anyOf和containsString表示“包含任意一个子字符串”
  assertThat(something , anyOf(containsString("developer") , containsString("Worker")));
-
  
+// SoftAssertions.assertAll();
     } 
 } 
