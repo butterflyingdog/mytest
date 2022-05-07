@@ -26,7 +26,7 @@ public class HamcrestAssertThatDemo {
 
 
  //   @Rule
-    SoftAssertions mJUnitSoftAssertions = new SoftAssertions();
+    
 
     @Test 
     public void assertWithHamcrestMatcher() {
@@ -126,6 +126,7 @@ public void collectionMatcher() {
  */
 @Test
 public void unionMatcher() {
+    SoftAssertions mJUnitSoftAssertions = new SoftAssertions();
     // 想要判断某个字符串s是否含有个子字符串“developer”或“Worker”中间的一个
     // JUnit 4.4 以前版本：assertTrue(s.indexOf("developer")>-1 || s.indexOf("Worker")>-1);
     // JUnit 4.4 匹配符anyOf 表示任何一个条件满足则成立，类似于逻辑或 “||”，匹配符containsString 表示是否含有参数子字符串
