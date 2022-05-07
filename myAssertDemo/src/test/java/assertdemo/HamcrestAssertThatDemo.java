@@ -4,18 +4,16 @@ import java.util.*;
 
 
 import static org.junit.Assert.assertEquals;
-  
-import   org.hamcrest.CoreMatchers; 
-import static org.hamcrest.Matchers.*;
+import org.junit.jupiter.api.Test; 
+
  
-import   org.hamcrest.Matchers;
+import static org.hamcrest.Matchers.*;
 import   org.hamcrest.text.IsEqualIgnoringWhiteSpace;
 import static org.hamcrest.MatcherAssert.assertThat; 
 
-import org.junit.jupiter.api.Test; 
+
  
 import org.assertj.core.api.JUnitSoftAssertions;
-
 import org.assertj.core.api.SoftAssertions;
 
 public class HamcrestAssertThatDemo { 
@@ -113,7 +111,7 @@ public void collectionMatcher() {
 // hasKey匹配符表明测试的Map对象mapObject含有键值"key"则测试通过
     assertThat(mapObject, hasKey("key"));
 // hasValue匹配符表明如果测试的Map对象mapObject含有元素值“value”，则测试通过
-    assertThat(mapObject, Matchers.hasValue("value"));
+    assertThat(mapObject, hasValue("value"));
 
 }
 
