@@ -23,12 +23,13 @@ public class JUnit4AssertDemo {
         assertEquals(Collections.EMPTY_LIST, list);
     }
 
+    /*
+     * 一般匹配符       
+     */
     @Test
     public void assertThatDemo() {
 
-        /*
-         * 一般匹配符
-         */
+
         Integer testedNumber = Integer.valueOf("10");
         
         // allOf匹配符表明如果记下来的所有条件必须都成立测试才能通过，相当于“与”（&&）
