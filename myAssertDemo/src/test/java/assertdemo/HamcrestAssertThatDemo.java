@@ -26,7 +26,7 @@ public class HamcrestAssertThatDemo {
 
 
  //   @Rule
- SoftAssertions mJUnitSoftAssertions = new SoftAssertions();
+    SoftAssertions mJUnitSoftAssertions = new SoftAssertions();
 
     @Test 
     public void assertWithHamcrestMatcher() {

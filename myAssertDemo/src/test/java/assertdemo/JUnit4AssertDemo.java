@@ -3,7 +3,7 @@ package assertdemo;
 import java.util.*; 
 
 
-import org.junit.internal.runners.JUnit4ClassRunner;
+import org.junit.runners.BlockJUnit4ClassRunner;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,7 +12,7 @@ import static org.junit.Assert.assertThat;
 
 import static org.hamcrest.Matchers.*;
 
-@RunWith(JUnit4ClassRunner.class)
+@RunWith(BlockJUnit4ClassRunner.class)
 public class JUnit4AssertDemo {
     @Test
     public void assertDemo() {
