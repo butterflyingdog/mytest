@@ -1,13 +1,12 @@
 package  assertdemo;
 
-import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
-
+import static org.junit.jupiter.api.Assertions.*;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat; 
 import static org.hamcrest.Matchers.*;
-import   org.hamcrest.text.IsEqualIgnoringWhiteSpace;
-
+import org.hamcrest.text.IsEqualIgnoringWhiteSpace;
+import  org.junit.jupiter.api.Assumptions;
 
   class JUnit5AssertionsDemo2 {
 
@@ -16,6 +15,16 @@ import   org.hamcrest.text.IsEqualIgnoringWhiteSpace;
    // @Description("查询部门")
   //  @DisplayName("查询部门")
     void listDepartment() {
+        Assumptions.assumeTrue("CI".equals(System.getenv("ENV")));
+        Assumptions.assumeTrue("DEV".equals(System.getenv("ENV")),
+                () -> "Aborting test: not on developer workstation");
+        Assumptions.assumingThat("CI".equals(System.getenv("ENV")),
+                () -> {
+                    // perform these assertions only on the CI server
+                    assertEquals(2, 2);
+                }); 
+
+
         // JUit5 使用assertAll 将所有assert结果
         assertAll("返回值校验",
                 ()->assertEquals("1", "1".toString())
