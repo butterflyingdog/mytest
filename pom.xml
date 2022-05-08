@@ -13,7 +13,7 @@
 		<module>mySpringBootDemo</module>
 		<module>myAOPDemo</module>
 		<module>myMockitoDemo</module>
-		<module>myAssertDemo</module>
+		<module>myUnitTestDemo</module>
 	</modules>
 	 
 <!--
