@@ -11,7 +11,7 @@ import static org.hamcrest.Matchers.*;
 import org.hamcrest.text.IsEqualIgnoringWhiteSpace;
 
 
-  class JUnit5AssertionsDemo2 {
+ public class JUnit5AssertionsDemo {
 
     @Test
     void assumTrue_Message_demo() {
