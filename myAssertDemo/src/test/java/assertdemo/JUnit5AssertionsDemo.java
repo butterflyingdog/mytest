@@ -10,20 +10,28 @@ import  org.junit.jupiter.api.Assumptions;
 
   class JUnit5AssertionsDemo2 {
 
-
+ 
     @Test
    // @Description("查询部门")
   //  @DisplayName("查询部门")
-    void listDepartment() {
-        Assumptions.assumeTrue("CI".equals(System.getenv("ENV")));
-        Assumptions.assumeTrue("DEV".equals(System.getenv("ENV")),
+    void JUnit5_assumpingThat_AssertAll_Demo() {
+       // Assumptions.assumeTrue("CI".equals(System.getenv("ENV")));
+        Assumptions.assumeTrue( "DEV".equals("DEV"),
                 () -> "Aborting test: not on developer workstation");
-        Assumptions.assumingThat("CI".equals(System.getenv("ENV")),
+        Assumptions.assumingThat( 1 == 1,
                 () -> {
                     // perform these assertions only on the CI server
+                    System.out.println("yes, 1==1");
                     assertEquals(2, 2);
-                }); 
-
+                }
+            ); 
+        Assumptions.assumingThat( 1 == 1,
+            () -> {
+                // perform these assertions only on the CI server
+                System.out.println("yes, 2==2");
+                assertEquals(2, 2);
+            }
+        ); 
 
         // JUit5 使用assertAll 将所有assert结果
         assertAll("返回值校验",
