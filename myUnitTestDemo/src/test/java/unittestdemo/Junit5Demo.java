@@ -11,7 +11,7 @@ import static org.hamcrest.Matchers.*;
 import org.hamcrest.text.IsEqualIgnoringWhiteSpace;
 
 
- public class JUnit5AssertionsDemo {
+ public class Junit5Demo {
 
     @Test
     void assumTrue_Message_demo() {
@@ -36,7 +36,7 @@ import org.hamcrest.text.IsEqualIgnoringWhiteSpace;
 
     @Test
     void assumeTrue_MessageSupplier_Demo() {
-         Assumptions.assumeTrue( true ,
+         Assumptions.assumeTrue( false ,
                  ()->{ 
                          System.out.println("不满足 assumeTrue 的条件，跳过测试");
                          return "不满足 assumeTrue 的条件，跳过测试" ; 
@@ -46,14 +46,14 @@ import org.hamcrest.text.IsEqualIgnoringWhiteSpace;
 
 
     @Test
-    void JUnit5_assumpingThat_AssertAll_Demo() {
+    void assumpingThat_AssertAll_Demo() {
 
         // assumingThat 用于在给定的条件成立的情况下，执行特定代码
         Assumptions.assumingThat( 1 == 1,
                 () -> {
                     // perform these assertions only on the CI server
-                    System.out.println("满足 assumeThat 条件，执行代码");
-                    Assertions.assertEquals(2, 2);
+                    System.out.println("满足 assumeThat 条件，设置环境变量");
+                    Assertions.assertEquals(2, 1);
                 }
         ); 
         // assumingThat 在给定的条件不成立时，不执行特定代码，但不影响案例继续运行
