@@ -1,12 +1,15 @@
 package  unittestdemo;
 
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+
+import  org.junit.jupiter.api.Assertions;
+import  org.junit.jupiter.api.Assumptions;
+
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat; 
 import static org.hamcrest.Matchers.*;
 import org.hamcrest.text.IsEqualIgnoringWhiteSpace;
-import  org.junit.jupiter.api.Assumptions;
+
 
   class JUnit5AssertionsDemo2 {
 
@@ -50,7 +53,7 @@ import  org.junit.jupiter.api.Assumptions;
                 () -> {
                     // perform these assertions only on the CI server
                     System.out.println("满足 assumeThat 条件，执行代码");
-                    assertEquals(2, 2);
+                    Assertions.assertEquals(2, 2);
                 }
         ); 
         // assumingThat 在给定的条件不成立时，不执行特定代码，但不影响案例继续运行
@@ -58,15 +61,15 @@ import  org.junit.jupiter.api.Assumptions;
             ()->{return false;},
             () -> {
                 System.out.println("满足 assumeThat 条件，执行代码");
-                assertEquals(2, 2);
+                Assertions.assertEquals(2, 2);
             }
         ); 
 
         // JUit5 使用assertAll 将所有assert结果
-        assertAll("返回值校验",
-                ()->assertEquals("1", "1".toString())
+        Assertions.assertAll("返回值校验",
+                ()->Assertions.assertEquals("1", "1".toString())
                 // JUnit5 不再提供assertThat方法，使用Hamcrest中的assetThat
-                ,()->assertThat( "1", equalTo("2")  )
+                ,()->org.hamcrest.MatcherAssert.assertThat( "1", equalTo("2")  )
                 //,()->assertEquals(createName+"1", listResponse.path("department.name[0]").toString())
                 //,()->assertEquals(createNameEn+"1", listResponse.path("department.name_en[0]").toString())
                 );
