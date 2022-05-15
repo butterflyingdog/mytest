@@ -29,7 +29,8 @@ public class Mockito_GrandChildRef {
     private PersonFacade personFacade;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp_by_MockitoAnnotations() throws Exception {
+        // 使用MockitoAnnotations初始化hmock
         MockitoAnnotations.openMocks(this);
 
         personFacade.setPersonService(personService);
