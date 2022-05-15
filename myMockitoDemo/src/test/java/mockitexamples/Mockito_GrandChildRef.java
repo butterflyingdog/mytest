@@ -40,30 +40,18 @@ public class Mockito_GrandChildRef {
         MockitoAnnotations.openMocks(this);
 
         personFacade.setPersonService(personService);
-        
-         when(mockedDao.getPerson(1)).thenReturn(new Person(1, "Person1"));
-    
 
     }
 
     @Test
     public void nonMockedData() throws Exception {
-    
-        org.junit.Assert.assertNull("result should be null", personFacade.getPerson(3));
-        org.junit.Assert.assertThat( personFacade.getPerson(3), is( nullValue() ));   
-        org.junit.Assert.assertThat("result should be null", personFacade.getPerson(3), is( nullValue() ) );
-       
-        org.hamcrest.MatcherAssert.assertThat("result should be null", personFacade.getPerson(3), is( nullValue() ) );
-       
-    }
-    @Test
-    public void mockedData() throws Exception {
-    
+        when(mockedDao.getPerson(1)).thenReturn(new Person(1, "Person1"));
+        
+        // Person(1) is Mocked
         assertNotNull("result should not be null", personFacade.getPerson(1));
-        org.junit.Assert.assertThat("result should be null", personFacade.getPerson(1), is( notNullValue() ) );
     
-        org.junit.Assert.assertThat("result should be null", personFacade.getPerson(1), is( notNullValue() ) );
-    
-        org.hamcrest.MatcherAssert.assertThat("result should be null", personFacade.getPerson(1), is( notNullValue() ) );
-    }
+        // Person(3) is not Mocked
+        assertNull("result should be null", personFacade.getPerson(3));
+      
+    } 
 }
