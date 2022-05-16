@@ -12,7 +12,6 @@
 	<modules>
 		<module>mySpringBootDemo</module>
 		<module>myAOPDemo</module>
-		<module>myMockitoDemo</module>
 		<module>myUnitTestDemo</module>
 	</modules>
 	 
