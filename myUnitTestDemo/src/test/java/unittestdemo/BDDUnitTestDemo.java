@@ -6,7 +6,7 @@ import org.assertj.core.api.SoftAssertions;
  
 import org.assertj.core.api.Assertions;
 //import static org.assertj.core.api.Assumptions;
-public class AssertJDemo{
+public class BDDUnitTestDemo{
 
  /*
 @Test
