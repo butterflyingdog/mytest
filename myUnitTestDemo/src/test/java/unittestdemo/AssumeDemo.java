@@ -11,10 +11,10 @@ import static org.hamcrest.Matchers.*;
 import org.hamcrest.text.IsEqualIgnoringWhiteSpace;
 
 
- public class Junit5Demo {
+ public class AssumeDemo {
 
     @Test
-    void assumTrue_Message_demo() {
+    void assumeTrue_Message_demo() {
         // 第一个参数中单条件不成立时，输出第二个参数中自定义的错误信息
         Assumptions.assumeTrue(3<5,
          "Aborting test: not on developer workstation");

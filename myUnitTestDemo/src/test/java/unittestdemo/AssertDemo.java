@@ -12,7 +12,9 @@ import static org.junit.Assert.assertThat;
 
 import static org.hamcrest.Matchers.*;
 
-@RunWith(BlockJUnit4ClassRunner.class)
+import org.assertj.core.api.SoftAssertions;
+
+//@RunWith(BlockJUnit4ClassRunner.class)
 public class AssertDemo {
     @Test
     public void assertDemo() {
@@ -46,6 +48,21 @@ public class AssertDemo {
         /*
          * AssertJ assertThat
          */
-        org.assertj.core.api.Assertions.assertThat(Integer.valueOf("10")).isNotZero();
+        org.assertj.core.api.Assertions.assertThat(Integer.valueOf("10"))
+                                       .isNotZero()
+                                       .isGreaterThan(9);
+    }
+
+    @Test
+    public void soft_assertion_assertj_test(){
+ 
+    // Assumptions.assumeThat("1").isNotEqualTo(1);
+
+        SoftAssertions softly = new SoftAssertions();
+        softly.assertThat("ff").isNotNull();
+        softly.assertThat("good").isEqualTo("Yuri");
+        softly.assertThat("good").isEqualTo("");
+        softly.assertThat("good").isEqualTo("bushnevyurigmail.com");
+        softly.assertAll();
     }
 }
