@@ -11,7 +11,8 @@ import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.hasItem;
 import static org.hamcrest.Matchers.not;
 import static org.hamcrest.Matchers.*;
-import org.hamcrest.text.IsEqualIgnoringWhiteSpace;
+
+import org.hamcrest.text.IsEqualCompressingWhiteSpace;
 import static org.hamcrest.MatcherAssert.assertThat; 
 
 
@@ -76,7 +77,8 @@ public void stringMatcher() {
 // equalToIgnoringCase匹配符表明如果测试的字符串testedString在忽略大小写的情况下等于“developerWorks”,则测试通过
     assertThat(testedString, equalToIgnoringCase("developerWorks"));
 // equalToIgnoringWhiteSpace 匹配符表明如果测试的字符串testedString在忽略头尾的任意空格的情况下等于“developerWorks”,则测试通过，注意：字符串中间的空格不能被忽略
-    assertThat(testedString, IsEqualIgnoringWhiteSpace.equalToIgnoringWhiteSpace("developerWorks"));
+    assertThat(testedString, IsEqualCompressingWhiteSpace.equalToCompressingWhiteSpace("developerWorks"));
+
 }
 /*
  * 数值相关匹配符
