@@ -6,9 +6,8 @@ import  org.junit.jupiter.api.Assertions;
 import  org.junit.jupiter.api.Assumptions;
 
 import static org.hamcrest.core.IsEqual.equalTo;
-import static org.hamcrest.MatcherAssert.assertThat; 
-import static org.hamcrest.Matchers.*;
-import org.hamcrest.text.IsEqualIgnoringWhiteSpace;
+
+ 
 
 
  public class AssumeDemo {
