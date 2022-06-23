@@ -160,7 +160,7 @@
         <version>4.0.0-M1</version>
         <configuration>
           <port>9000</port>
-          <tempWebappDirectory>${basedir}/target/site/tempdir</tempWebappDirectory>
+          <tempWebappDirectory>${basedir}/target/site/</tempWebappDirectory>
         </configuration>
       </plugin>
 
