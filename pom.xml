@@ -12,8 +12,8 @@
 	<modules>
 		<module>mySpringBootDemo</module>
 		<module>myAOPDemo</module>
-		<module>myJUnitDemo</module>
-		<module>myMockitoDemo</module>
+		<module>myUnitTestDemo/myJUnitDemo</module>
+		<module>myUnitTestDemo/myMockitoDemo</module>
 	</modules>
 	 
 <!--
