@@ -52,7 +52,7 @@ import static org.hamcrest.core.IsEqual.equalTo;
                 () -> {
                     // perform these assertions only on the CI server
                     System.out.println("满足 assumeThat 条件，设置环境变量");
-                    Assertions.assertEquals(2, 1);
+                 
                 }
         ); 
         // assumingThat 在给定的条件不成立时，不执行特定代码，但不影响案例继续运行
@@ -60,19 +60,9 @@ import static org.hamcrest.core.IsEqual.equalTo;
             ()->{return false;},
             () -> {
                 System.out.println("满足 assumeThat 条件，执行代码");
-                Assertions.assertEquals(2, 2);
+            
             }
         ); 
-
-        // JUit5 使用assertAll 将所有assert结果
-        Assertions.assertAll("返回值校验",
-                ()->Assertions.assertEquals("1", "1".toString())
-                // JUnit5 不再提供assertThat方法，使用Hamcrest中的assetThat
-                ,()->org.hamcrest.MatcherAssert.assertThat( "1", equalTo("2")  )
-                //,()->assertEquals(createName+"1", listResponse.path("department.name[0]").toString())
-                //,()->assertEquals(createNameEn+"1", listResponse.path("department.name_en[0]").toString())
-                );
-
     }
 
     @Test

@@ -5,7 +5,8 @@ import java.util.*;
 
 import org.junit.runners.BlockJUnit4ClassRunner;
 import org.junit.Before;
-import org.junit.Test;
+ 
+ 
 import org.junit.runner.RunWith;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
@@ -16,7 +17,7 @@ import org.assertj.core.api.SoftAssertions;
 
 //@RunWith(BlockJUnit4ClassRunner.class)
 public class AssertDemo {
-    @Test
+    @org.junit.Test
     public void assertDemo() {
 
         Map<String, Integer> map = new HashMap<>();
@@ -26,7 +27,7 @@ public class AssertDemo {
     }
 
     
-    @Test
+    @org.junit.Test
     public void assertThatDemo() {
 
         /*
@@ -51,12 +52,16 @@ public class AssertDemo {
         org.assertj.core.api.Assertions.assertThat(Integer.valueOf("10"))
                                        .isNotZero()
                                        .isGreaterThan(9);
+
+        
     }
 
-    @Test
+    @org.junit.Test
     public void soft_assertion_assertj_test(){
  
     // Assumptions.assumeThat("1").isNotEqualTo(1);
+
+
 
         SoftAssertions softly = new SoftAssertions();
         softly.assertThat("ff").isNotNull();
@@ -64,5 +69,20 @@ public class AssertDemo {
         softly.assertThat("good").isEqualTo("");
         softly.assertThat("good").isEqualTo("bushnevyurigmail.com");
         softly.assertAll();
+  
+    }
+   
+    @org.junit.jupiter.api.Test
+    public void junit5_AssertAll(){
+         /*
+        // JUit5 使用assertAll 将所有assert结果
+        org.junit.jupiter.api.Assertions.assertAll("返回值校验",
+            ()->org.junit.jupiter.api.Assertions.assertEquals("1", "1".toString())
+        // JUnit5 不再提供assertThat方法，使用Hamcrest中的assetThat
+            ,()->org.hamcrest.MatcherAssert.assertThat( "1", equalTo("2")  )
+            //,()->assertEquals(createName+"1", listResponse.path("department.name[0]").toString())
+            //,()->assertEquals(createNameEn+"1", listResponse.path("department.name_en[0]").toString())
+        ); 
+          */
     }
 }
