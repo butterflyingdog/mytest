@@ -4,17 +4,15 @@
 	<modelVersion>4.0.0</modelVersion>
 	 
 	<groupId>butterflyingdog</groupId>
-	<artifactId>myDemo</artifactId>
+	<artifactId>myUnitTestDemo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>myDemo</name>
-	<description>myDemo project for Spring Boot</description>
+	<name>myUnitTestDemo</name>
+	<description>myDemo project for unit test</description>
 	<packaging>pom</packaging>
 	<modules>
-		<module>mySpringBootDemo</module>
-		<module>myAOPDemo</module>
-		<module>myUnitTestDemo</module>
-		<!--module>myUnitTestDemo/myJUnitDemo</module>
-		<module>myUnitTestDemo/myMockitoDemo</module-->
+	 
+		<module>myJUnitDemo</module>
+		<module>myMockitoDemo</module>
 	</modules>
 	 
 <!--
