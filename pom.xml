@@ -14,7 +14,8 @@
 		<module>myAOPDemo</module>
 		<module>myUnitTestDemo</module>
 		<!--module>myUnitTestDemo/myJUnitDemo</module>
-		<module>myUnitTestDemo/myMockitoDemo</module-->
+		<module>myUnitTestDemo/myMockitoDemo</module>
+		<module>myUnitTestDemo/myPitestDemo</module-->
 	</modules>
 	 
 <!--
