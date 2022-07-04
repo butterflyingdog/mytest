@@ -8,6 +8,6 @@ public class MyPitestDemo {
     @Test
     public void testGreaterThan() {
 
-        Assert.verify(Calculator.greaterThan(5, 6), false);
+        Assert.assertFalse(Calculator.greaterThan(5, 6));
     }
 }

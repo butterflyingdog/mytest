@@ -140,10 +140,10 @@
         </executions>
         <configuration>
             <targetClasses>
-                <param>*</param>
+                <param>mycode.*</param>
             </targetClasses>
             <targetTests>
-                <param>*</param>
+                <param>pitestdemo.*</param>
             </targetTests>
             <avoidCallsTo>
                 <avoidCallsTo>java.util.logging</avoidCallsTo>
