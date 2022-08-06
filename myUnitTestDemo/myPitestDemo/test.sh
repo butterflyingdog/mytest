@@ -1,3 +1,3 @@
 # !/bin/shh
 
-mvn clean test site
+mvn clean test site 
