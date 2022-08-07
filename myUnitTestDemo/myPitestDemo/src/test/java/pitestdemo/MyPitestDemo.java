@@ -49,7 +49,7 @@ public class MyPitestDemo {
         Assert.assertTrue(NatureNumber.isNatureNumber(10));
     }
 
-    @Test
+    // @Test
     public void test_1_is_Nature_Number() {
 
         Assert.assertTrue(NatureNumber.isNatureNumber(1));
@@ -61,7 +61,7 @@ public class MyPitestDemo {
         Assert.assertTrue(NatureNumber.isNatureNumber(0));
     }
 
-    @Test
+    // @Test
     public void test_Negative1_Number_is_Not_Nature_Number() {
 
         Assert.assertFalse(NatureNumber.isNatureNumber(-1));
