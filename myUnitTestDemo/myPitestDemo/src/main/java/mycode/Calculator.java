@@ -2,10 +2,13 @@ package mycode;
 
 public class Calculator {
 
-    public static boolean greaterThan(int a, int b) {
-        if (a > b)
-            return true;
+    public static int greaterThan(int a, int b) {
+        if (a < b)
+            return a + b;
+        else if (a >= b && b != 0)
+            return a / b;
         else
-            return false;
+            return a;
     }
+
 }
