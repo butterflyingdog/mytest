@@ -153,7 +153,7 @@
                 <param>mycode.*</param>
             </targetClasses>
             <targetTests>
-                <param>pitestdemo.*</param>
+                <param>pitestdemo.BadTestCases</param>
             </targetTests>
             <avoidCallsTo>
                 <avoidCallsTo>java.util.logging</avoidCallsTo>
