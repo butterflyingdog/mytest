@@ -28,7 +28,7 @@ buildscript {
         classpath 'info.solidsoft.gradle.pitest:gradle-pitest-plugin:1.7.4'
     }
 }*/
-
+/*
 buildscript {
   repositories {
     maven {
@@ -38,10 +38,10 @@ buildscript {
   dependencies {
     classpath "info.solidsoft.gradle.pitest:gradle-pitest-plugin:1.7.4"
   }
-}
+}*/
 apply plugin: "java"
-apply plugin: "junit4"
-apply plugin: "info.solidsoft.pitest"
+//apply plugin: "junit4"
+//apply plugin: "info.solidsoft.pitest"
 /*
   plugins {
     id 'java'
@@ -54,11 +54,11 @@ pitest {
     testPlugin = 'junit5'
 }*/
 
- /*
+
 dependencies {
    
     testCompile group: 'junit', name: 'junit', version: '4.+'
-}*/
+}
 /*jacoco {
     applyTo run
 }*/
@@ -75,6 +75,7 @@ test {
         classDumpFile = file("$buildDir/jacoco/classpathdumps")
     }
 }  */
+/*
 build.dependsOn 'pitest'
 pitest {
     targetClasses = ['our.base.package.*']  //by default "${project.group}.*"
@@ -82,4 +83,4 @@ pitest {
     threads = 4
     outputFormats = ['XML', 'HTML']
     timestampedReports = false
-}
+}*/
