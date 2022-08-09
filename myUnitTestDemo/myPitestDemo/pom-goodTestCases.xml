@@ -68,7 +68,7 @@
         </plugin-->
         
 
-        <plugin>
+        <!--plugin>
           <artifactId>maven-surefire-plugin</artifactId>
           <version>2.22.2</version>
           <configuration><includes>
@@ -134,7 +134,7 @@
                   </goals>
               </execution>
           </executions>
-      </plugin> 
+      </plugin--> 
    
       <plugin>
         <groupId>org.pitest</groupId>
@@ -153,7 +153,7 @@
                 <param>mycode.*</param>
             </targetClasses>
             <targetTests>
-                <param>pitestdemo.BadTestCases</param>
+                <param>pitestdemo.GoodTestCases</param>
             </targetTests>
             <avoidCallsTo>
                 <avoidCallsTo>java.util.logging</avoidCallsTo>
@@ -161,7 +161,9 @@
                 <avoidCallsTo>org.slf4j</avoidCallsTo>
                 <avoidCallsTo>org.apache.commons.logging</avoidCallsTo>
             </avoidCallsTo>
+            <reportsDirectory>target/goodTestCasesReport</reportsDirectory>
         </configuration>
+       
     </plugin>
 
        <plugin>
@@ -182,7 +184,7 @@
           <artifactId>maven-deploy-plugin</artifactId>
           <version>2.8.2</version>
         </plugin-->
-        <plugin>
+        <!--plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-surefire-report-plugin</artifactId>
           <version>3.0.0-M5</version>
@@ -195,7 +197,7 @@
                 </goals>
             </execution>
           </executions>
-       </plugin>
+       </plugin-->
       </plugins>
      
     </pluginManagement>
@@ -203,7 +205,7 @@
   </build>
   <reporting>
     <plugins>
-       <plugin>
+       <!--plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-surefire-report-plugin</artifactId>
           <version>3.0.0-M5</version>
@@ -241,7 +243,7 @@
             </reports>
           </reportSet>
         </reportSets> 
-    </plugin>
+    </plugin-->
      
       <plugin>
           <groupId>org.pitest</groupId>
