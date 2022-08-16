@@ -43,7 +43,7 @@ buildscript {
 plugins {
     id 'java'
   
-    //id  "jacoco"  
+    id  "jacoco"  
     id 'info.solidsoft.pitest' version '1.7.4'
 } 
 
@@ -59,8 +59,14 @@ pitest {
 
 
 dependencies {
-    testCompile 'junit:junit:4.13'
+    testImplementation 'junit:junit:4.13'
+   // testImplementation 'org.junit.jupiter:junit-jupiter:5.5.2'
 
+}
+ 
+ 
+test {
+	useJUnitPlatform()
 }
 /*
 test {
@@ -92,6 +98,7 @@ test {
 
 //build.dependsOn 'pitest'
 pitest  {
+   // junit5PluginVersion = "0.15"
     targetClasses = ['mycode.*']  //by default "${project.group}.*"
     targetTests = ['pitestdemo.GoodTestCases']
     pitestVersion = '1.7.4' //not needed when a default PIT version should be used
