@@ -1,0 +1,10 @@
+*.bak
+*.class
+target
+
+build
+.gradle
+
+.project
+.settings
+
