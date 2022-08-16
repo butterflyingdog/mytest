@@ -39,26 +39,41 @@ buildscript {
     classpath "info.solidsoft.gradle.pitest:gradle-pitest-plugin:1.7.4"
   }
 }*/
-apply plugin: "java"
-//apply plugin: "junit4"
-//apply plugin: "info.solidsoft.pitest"
-/*
+
   plugins {
     id 'java'
     id  "jacoco"  
-    id 'info.solidsoft.pitest' version '1.7.4'
+   // id 'info.solidsoft.pitest' version '1.7.4'
   } 
- */
+ 
+//apply plugin: "junit4"
+//apply plugin: "info.solidsoft.pitest"
+ 
  /*
 pitest {
     testPlugin = 'junit5'
 }*/
+repositories {
+    mavenCentral() 
+}
 
+dependencies {
+    testCompile 'junit:junit:4.13'
 
+  //  api 'org.apache.commons:commons-math3:3.6.1' 
+
+   // implementation 'com.google.guava:guava:31.0.1-jre' 
+}
+test {
+    useJUnit()
+
+    maxHeapSize = '1G'
+}
+/*
 dependencies {
    
     compile group: 'junit', name: 'junit', version: '4.+'
-}
+}*/
 /*jacoco {
     applyTo run
 }*/
