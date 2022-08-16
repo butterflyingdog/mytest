@@ -40,35 +40,34 @@ buildscript {
   }
 }*/
 
-  plugins {
+plugins {
     id 'java'
-    id  "jacoco"  
-   // id 'info.solidsoft.pitest' version '1.7.4'
-  } 
+  
+    //id  "jacoco"  
+    id 'info.solidsoft.pitest' version '1.7.4'
+} 
+
+repositories {
+    mavenCentral() 
+}
  
-//apply plugin: "junit4"
-//apply plugin: "info.solidsoft.pitest"
  
  /*
 pitest {
     testPlugin = 'junit5'
 }*/
-repositories {
-    mavenCentral() 
-}
+
 
 dependencies {
     testCompile 'junit:junit:4.13'
 
-  //  api 'org.apache.commons:commons-math3:3.6.1' 
-
-   // implementation 'com.google.guava:guava:31.0.1-jre' 
 }
+/*
 test {
     useJUnit()
 
     maxHeapSize = '1G'
-}
+}*/
 /*
 dependencies {
    
@@ -90,12 +89,24 @@ test {
         classDumpFile = file("$buildDir/jacoco/classpathdumps")
     }
 }  */
-/*
-build.dependsOn 'pitest'
-pitest {
-    targetClasses = ['our.base.package.*']  //by default "${project.group}.*"
+
+//build.dependsOn 'pitest'
+pitest  {
+    targetClasses = ['mycode.*']  //by default "${project.group}.*"
+    targetTests = ['pitestdemo.GoodTestCases']
     pitestVersion = '1.7.4' //not needed when a default PIT version should be used
     threads = 4
     outputFormats = ['XML', 'HTML']
     timestampedReports = false
+   
+}
+/*
+pitest-bad {
+    targetClasses = ['mycode.*']  //by default "${project.group}.*"
+    targetTests = ['pitestdemo.BadTestCases']
+    pitestVersion = '1.7.4' //not needed when a default PIT version should be used
+    threads = 4
+    outputFormats = ['XML', 'HTML']
+    timestampedReports = false
+   
 }*/
