@@ -88,11 +88,7 @@
             <artifactId>pitest-junit5-plugin</artifactId>
             <version>1.0.0</version>
           </dependency>
-        <dependency>
-          <groupId>github.alexvictor</groupId>
-            <artifactId>pitest-cucumber-plugin</artifactId>
-            <version>0.10.0</version>
-          </dependency>
+        
         </dependencies>
     </plugin>
 
