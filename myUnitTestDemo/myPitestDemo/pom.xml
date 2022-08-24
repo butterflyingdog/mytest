@@ -24,9 +24,9 @@
     
  <dependency>
   <groupId>io.cucumber</groupId>
-  <artifactId>cucumber-bom</artifactId>
-  <version>7.5.0</version>
-  <type>pom</type>
+  <artifactId>cucumber-java</artifactId>
+  <version>5.7.0</version>
+  
   <scope>import</scope>
 </dependency>
 
@@ -39,7 +39,7 @@
   </dependency>
 
   </dependencies>
-</dependencyManagement> 
+</dependencyManagement>
 
 <dependencies>
 
@@ -49,18 +49,39 @@
   <version>4.13.1</version>
  </dependency-->
 
+  <dependency> 
+  <groupId>org.junit.vintage</groupId> 
+  <artifactId>junit-vintage-engine</artifactId> 
+  <scope>test</scope>
+ </dependency>
+
+<dependency>
+  <groupId>org.junit.platform</groupId>
+  <artifactId>junit-platform-suite</artifactId>
+  <scope>test</scope>
+</dependency>
+
+ 
+<dependency>
+  <groupId>io.cucumber</groupId>
+  <artifactId>cucumber-java</artifactId>
+  <version>5.7.0</version>
+  
+  <scope>import</scope>
+</dependency>
+
+<dependency>
+  <groupId>org.junit.jupiter</groupId>
+  <artifactId>junit-jupiter</artifactId>
+  <scope>test</scope>
+</dependency>
 
  
 
 </dependencies>
 
   <build>
-    <pluginManagement>
-      <plugins>
-     
-      </plugins>
-    </pluginManagement>
-
+    
        <plugins>
         <!--plugin>
           <artifactId>maven-clean-plugin</artifactId>
@@ -82,7 +103,13 @@
         </plugin-->
         
 
-       
+        <plugin>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>3.0.0-M7</version>
+          <configuration><includes>
+            <include>**/*.java</include>
+          </includes></configuration>
+        </plugin>
         <!--plugin>
           <groupId>org.jacoco</groupId>
           <artifactId>jacoco-maven-plugin</artifactId>
@@ -147,7 +174,7 @@
       <plugin>
         <groupId>org.pitest</groupId>
         <artifactId>pitest-maven</artifactId>
-        <version>1.5.1</version>
+        <version>1.4.5</version>
         <executions>
             <execution>
                 <phase>test</phase>

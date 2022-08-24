@@ -1,12 +1,12 @@
 package pitestdemo;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import mycode.Calculator;
 import mycode.NatureNumber;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
-public class GoodTestCases {
+public class GoodTestCases_with_Junit5 {
     @Test
     public void test_A_LessThan_B_And_B_isNot_0_should_plus() {
 

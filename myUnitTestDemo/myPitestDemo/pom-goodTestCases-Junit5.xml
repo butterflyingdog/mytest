@@ -25,13 +25,56 @@
 
   <dependencies>
       
+  <!--dependency> 
+    <groupId>org.junit.vintage</groupId> 
+    <artifactId>junit-vintage-engine</artifactId> 
+    <scope>test</scope>
+   </dependency-->
+  
+  <dependency>
+    <groupId>org.junit.platform</groupId>
+    <artifactId>junit-platform-suite</artifactId>
+    <scope>test</scope>
+  </dependency>
+  
+  <dependency>
+    <groupId>org.junit.jupiter</groupId>
+    <artifactId>junit-jupiter</artifactId>
+    <!--version>5.9.0</version-->
+    <scope>test</scope>
+  </dependency>
 
   </dependencies>
 
   <build>
     
        <plugins>
-         
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.10.1</version>
+          <configuration>
+            <testIncludes>
+              <testInclude>**/GoodTestCases*.java</testInclude>
+            </testIncludes>
+          <testExcludes>
+            <testExclude>**/BadTestCases*.java</testExclude>
+          </testExcludes>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>3.0.0-M7</version>
+          <configuration>
+            <includes>
+              <include>**/GoodTestCases*.java</include>
+            </includes>
+            <excludes>
+              <Exclude>**/BadTestCases*.java</Exclude>
+            </excludes>
+          </configuration>
+        </plugin>
         
 
         <!--plugin>
@@ -45,16 +88,22 @@
       <plugin>
         <groupId>org.pitest</groupId>
         <artifactId>pitest-maven</artifactId>
-       
+        <version>1.9.0</version>
         <configuration>
             
             <targetTests>
-                <param>pitestdemo.GoodTestCases</param>
+                <param>pitestdemo.GoodTestCases*</param>
             </targetTests>
             
             <reportsDirectory>target/goodTestCasesReport</reportsDirectory>
         </configuration>
-       
+        <dependencies>
+          <dependency>
+            <groupId>org.pitest</groupId>
+            <artifactId>pitest-junit5-plugin</artifactId>
+            <version>1.0.0</version>
+          </dependency>
+        </dependencies>
     </plugin>
 
       

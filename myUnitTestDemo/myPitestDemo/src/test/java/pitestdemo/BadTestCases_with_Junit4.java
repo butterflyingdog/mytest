@@ -4,7 +4,7 @@ import org.junit.Test;
 import mycode.Calculator;
 import mycode.NatureNumber;
 
-public class BadTestCases {
+public class BadTestCases_with_Junit4 {
 
     @Test
     public void test_A_LessThan_B_And_B_isNot_0_should_plus() {
