@@ -197,7 +197,7 @@
                 <avoidCallsTo>org.slf4j</avoidCallsTo>
                 <avoidCallsTo>org.apache.commons.logging</avoidCallsTo>
             </avoidCallsTo>
-            <reportsDirectory>target/CucumberTestCasesReport</reportsDirectory>
+            <reportsDirectory>target/Cucumber_Junit5_Report</reportsDirectory>
         </configuration>
         <dependencies>
           <dependency>
@@ -206,9 +206,9 @@
             <version>1.0.0</version>
           </dependency>
           <dependency>
-            <groupId>github.alexvictor</groupId>
+            <groupId>com.github.alexvictoor</groupId>
               <artifactId>pitest-cucumber-plugin</artifactId>
-              <version>0.10.0</version>
+              <version>0.10</version>
             </dependency>
         </dependencies>
     </plugin>
