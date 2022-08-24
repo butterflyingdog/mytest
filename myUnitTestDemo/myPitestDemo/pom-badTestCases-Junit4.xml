@@ -61,9 +61,7 @@
             <testIncludes>
               <testInclude>**/BadTestCases*.java</testInclude>
             </testIncludes>
-          <!--testExcludes>
-            <testExclude>**/GoodTestCases.java</testExclude>
-          </testExcludes-->
+          
           </configuration>
         </plugin>
         <plugin>
@@ -74,9 +72,7 @@
             <includes>
               <include>**/BadTestCases*.java</include>
             </includes>
-            <!--excludes>
-              <Exclude>**/GoodTestCases.java</Exclude>
-            </excludes-->
+           
           </configuration>
         </plugin>
         
