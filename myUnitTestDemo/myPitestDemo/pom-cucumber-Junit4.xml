@@ -92,7 +92,7 @@
                 <param>mycode.*</param>
             </targetClasses>
             <targetTests>
-                <param>pitestdemo.cucumber_junit4.*</param>
+                <param>pitestdemo.cucumber_junit4.Pitest_Cucumber_Junit4</param>
             </targetTests>
             <avoidCallsTo>
                 <avoidCallsTo>java.util.logging</avoidCallsTo>
