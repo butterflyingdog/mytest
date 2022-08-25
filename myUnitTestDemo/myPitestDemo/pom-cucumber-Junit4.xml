@@ -7,12 +7,12 @@
   <modelVersion>4.0.0</modelVersion>
 
 
-  <parent>
+  <!--parent>
     <groupId>com.butterflyingdog</groupId>
     <artifactId>myPitestDemo-parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <relativePath>./pom-parent.xml</relativePath>
-  </parent>
+  </parent-->
 
   <groupId>com.butterflyingdog</groupId>
   <artifactId>myPitest-Cucumber-Demo</artifactId>
@@ -24,24 +24,28 @@
   <dependency>
     <groupId>org.junit.platform</groupId>
     <artifactId>junit-platform-suite</artifactId>
+    <version>1.9.0</version>
     <scope>test</scope>
   </dependency>
    
   <dependency> 
     <groupId>org.junit.vintage</groupId> 
     <artifactId>junit-vintage-engine</artifactId> 
+    <version>5.9.0</version>
     <scope>test</scope>
    </dependency>
 
     <dependency>
         <groupId>io.cucumber</groupId>
         <artifactId>cucumber-java</artifactId>
+        <version>7.5.0</version>
         <scope>test</scope>
     </dependency>
 
     <dependency>
         <groupId>io.cucumber</groupId>
-        <artifactId>cucumber-junit-platform-engine</artifactId>
+        <artifactId>cucumber-junit</artifactId>
+        <version>7.5.0</version>
         <scope>test</scope>
     </dependency>
  
@@ -60,7 +64,7 @@
             <configuration>
        
                   <testIncludes>
-                    <testInclude>**/Pitest_Cucumber_Junit4.java</testInclude>
+                    <testInclude>pitestdemo/cucumber_junit4/*.java</testInclude>
                   </testIncludes>
               
             
@@ -72,17 +76,57 @@
             <version>3.0.0-M7</version>
             <configuration>
               <includes>
-                <include>**/Pitest_Cucumber_Junit4.java</include>
+                <include>pitestdemo/cucumber_junit4/*.java</include>
               </includes>
               <!--excludes>
                 <Exclude>**/BadTestCases*.java</Exclude>
               </excludes-->
             </configuration>
         </plugin>
-    </plugins>
- 
-    <pluginManagement> 
-       <plugins>
+
+
+      <!--plugin>
+        <groupId>org.pitest</groupId>
+        <artifactId>pitest-maven</artifactId>
+        <version>1.5.1</version>
+        <executions>
+            <execution>
+                <phase>test</phase>
+                <goals>
+                    <goal>mutationCoverage</goal>
+                </goals>
+            </execution>
+        </executions>
+        <configuration>
+            <targetClasses>
+                <param>mycode.*</param>
+            </targetClasses>
+            <targetTests>
+                <param>pitestdemo.Pitest_Cucumber_Junit4</param>
+            </targetTests>
+            <avoidCallsTo>
+                <avoidCallsTo>java.util.logging</avoidCallsTo>
+                <avoidCallsTo>org.apache.log4j</avoidCallsTo>
+                <avoidCallsTo>org.slf4j</avoidCallsTo>
+                <avoidCallsTo>org.apache.commons.logging</avoidCallsTo>
+            </avoidCallsTo>
+            <reportsDirectory>target/Cucumber_Junit4_Report</reportsDirectory>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>org.pitest</groupId>
+            <artifactId>pitest-junit5-plugin</artifactId>
+            <version>1.0.0</version>
+          </dependency>
+          <dependency>
+            <groupId>com.github.alexvictoor</groupId>
+              <artifactId>pitest-cucumber-plugin</artifactId>
+              <version>0.10</version>
+            </dependency>
+        </dependencies>
+    </plugin-->
+
+    
         <!--plugin>
           <artifactId>maven-clean-plugin</artifactId>
           <version>3.0.0</version>
@@ -171,46 +215,6 @@
           </executions>
       </plugin--> 
    
-      <plugin>
-        <groupId>org.pitest</groupId>
-        <artifactId>pitest-maven</artifactId>
-        <version>1.9.0</version>
-        <executions>
-            <execution>
-                <phase>test</phase>
-                <goals>
-                    <goal>mutationCoverage</goal>
-                </goals>
-            </execution>
-        </executions>
-        <configuration>
-            <targetClasses>
-                <param>mycode.*</param>
-            </targetClasses>
-            <targetTests>
-                <param>pitestdemo.Pitest_Cucumber_Junit4</param>
-            </targetTests>
-            <avoidCallsTo>
-                <avoidCallsTo>java.util.logging</avoidCallsTo>
-                <avoidCallsTo>org.apache.log4j</avoidCallsTo>
-                <avoidCallsTo>org.slf4j</avoidCallsTo>
-                <avoidCallsTo>org.apache.commons.logging</avoidCallsTo>
-            </avoidCallsTo>
-            <reportsDirectory>target/Cucumber_Junit4_Report</reportsDirectory>
-        </configuration>
-        <dependencies>
-          <dependency>
-            <groupId>org.pitest</groupId>
-            <artifactId>pitest-junit5-plugin</artifactId>
-            <version>1.0.0</version>
-          </dependency>
-          <dependency>
-            <groupId>com.github.alexvictoor</groupId>
-              <artifactId>pitest-cucumber-plugin</artifactId>
-              <version>0.10</version>
-            </dependency>
-        </dependencies>
-    </plugin>
 
        <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -245,8 +249,7 @@
           </executions>
        </plugin-->
       </plugins>
-     
-    </pluginManagement>
+ 
     
   </build>
   <reporting>

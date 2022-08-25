@@ -1,10 +1,10 @@
-package pitestdemo;
+package pitestdemo.cucumber_junit5;
 
 import io.cucumber.java.en.When;
 import mycode.Calculator;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class Pitest_Cucumber_Junit5 {
+public class Pitest_CucumberStep_Junit5 {
     @When("PiTestDemoStep")
     public void PiTestDemoStep() {
 
