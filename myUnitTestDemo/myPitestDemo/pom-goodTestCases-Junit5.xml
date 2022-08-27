@@ -85,6 +85,7 @@
                 <param>pitestdemo.GoodTestCases*</param>
             </targetTests>
             <reportsDirectory>target/goodTestCasesReport</reportsDirectory>
+            <timestampedReports>false</timestampedReports>
         </configuration>
         <dependencies>
           <dependency>

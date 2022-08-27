@@ -110,7 +110,8 @@
                 <avoidCallsTo>org.apache.commons.logging</avoidCallsTo>
             </avoidCallsTo>
             <reportsDirectory>target/Cucumber_Junit5_Report</reportsDirectory>
-        </configuration>
+            <timestampedReports>false</timestampedReports>
+          </configuration>
         <dependencies>
           <dependency>
             <groupId>org.pitest</groupId>

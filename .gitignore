@@ -1,3 +1,5 @@
 *.bak
 *.db
 .idea
+.classpath
+.project

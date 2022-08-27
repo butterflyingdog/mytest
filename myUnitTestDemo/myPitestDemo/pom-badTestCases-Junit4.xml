@@ -94,6 +94,8 @@
                 <param>pitestdemo.BadTestCases*</param>
             </targetTests>
             <reportsDirectory>target/BadTestCasesReport</reportsDirectory>
+            <timestampedReports>false</timestampedReports>
+
         </configuration>
         <!--dependencies>
           <dependency>
