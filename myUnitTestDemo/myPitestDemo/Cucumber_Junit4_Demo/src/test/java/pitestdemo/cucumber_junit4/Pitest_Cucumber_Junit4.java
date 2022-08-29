@@ -14,7 +14,7 @@ import org.junit.runner.RunWith;
         "json:target/Cucumber_Junit4_PiTest_Report/cucumber/report.json",
         "junit:target/Cucumber_Junit4_PiTest_Report/cucumber/report.xml",
         "pretty"
-}, features = { "features/PiTest.feature" }, glue = { "pitestdemo.cucumber_junit4" })
+}, features = { "../features/PiTest.feature" }, glue = { "pitestdemo.cucumber_junit4" })
 
 public class Pitest_Cucumber_Junit4 {
 
