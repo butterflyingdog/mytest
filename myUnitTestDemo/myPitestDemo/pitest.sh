@@ -6,7 +6,7 @@ mvn  clean  -f pom-cucumber-Junit4.xml
 
 
 ###########  PiTest-Cucumber-Junit4  ###########
-mvn  compiler:compile  compiler:testCompile  org.pitest:pitest-maven:mutationCoverage  -f pom-cucumber-Junit4.xml -e 
+#mvn  compiler:compile  compiler:testCompile  org.pitest:pitest-maven:mutationCoverage  -f pom-cucumber-Junit4.xml -e 
 #mvn  test     -f pom-cucumber-Junit4.xml -e 
 #mvn site -f  pom-cucumber-Junit4.xml -e 
 
@@ -20,3 +20,6 @@ mvn  compiler:compile  compiler:testCompile  org.pitest:pitest-maven:mutationCov
 
 # mvn  site -f pom-cucumber-Junit4.xml -e 
 # mvn   test org.pitest:pitest-maven:mutationCoverage  -f pom-cucumber-Junit5.xml -e
+
+cd Cucumber_Junit4_Demo
+mvn clean compiler:compile   

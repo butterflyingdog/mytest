@@ -31,6 +31,7 @@
 </dependencies>
 
 <build>
+  <sourceDirectory>../src/main/java/</sourceDirectory>
     <plugins>
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
@@ -38,7 +39,7 @@
             <version>3.10.1</version>
             <configuration>
               <includes>
-                <include>../src/main/java/**/*.java</include>
+                <include>mycode/**/*.java</include>
                 
             </includes>
               <testIncludes>
