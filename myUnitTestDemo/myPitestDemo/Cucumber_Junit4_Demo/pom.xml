@@ -85,7 +85,7 @@
                 <avoidCallsTo>org.slf4j</avoidCallsTo>
                 <avoidCallsTo>org.apache.commons.logging</avoidCallsTo>
             </avoidCallsTo>
-            <reportsDirectory>target/Cucumber_Junit4_PiTest_Report/pitest</reportsDirectory>
+            <!--reportsDirectory>target/Cucumber_Junit4_PiTest_Report/pitest</reportsDirectory-->
             <timestampedReports>false</timestampedReports>
             <verbose>true</verbose>
           </configuration>
@@ -125,7 +125,7 @@
           </goals>
           <configuration>
             <dataFile>target/jacoco.exec</dataFile>
-            <outputDirectory>target/Cucumber_Junit4_PiTest_Report/jacoco</outputDirectory>
+            <outputDirectory>target/jacoco</outputDirectory>
           </configuration>
         </execution>
         <execution>
