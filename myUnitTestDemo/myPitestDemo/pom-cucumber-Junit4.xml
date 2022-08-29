@@ -60,7 +60,7 @@
         <version>1.5.1</version>
         <executions>
             <execution>
-                <phase>test</phase>
+                <!--phase>test</phase-->
                 <goals>
                     <goal>mutationCoverage</goal>
                 </goals>
@@ -80,7 +80,7 @@
                 <avoidCallsTo>org.slf4j</avoidCallsTo>
                 <avoidCallsTo>org.apache.commons.logging</avoidCallsTo>
             </avoidCallsTo>
-            <reportsDirectory>target/Cucumber_Junit4_Report</reportsDirectory>
+            <reportsDirectory>target/Cucumber_Junit4_PiTest_Report/pitest</reportsDirectory>
             <timestampedReports>false</timestampedReports>
             <verbose>true</verbose>
           </configuration>
@@ -96,8 +96,8 @@
    
        
    
-        <!--
-        <plugin>
+
+        <!--plugin>
           <groupId>org.jacoco</groupId>
           <artifactId>jacoco-maven-plugin</artifactId>
           <version>0.8.8</version>
@@ -136,9 +136,9 @@
           </configuration>
           </execution>
           </executions>
-          </plugin>
+          </plugin-->
            
-        <plugin>
+        <!--plugin>
           <groupId>org.jacoco</groupId>
           <artifactId>jacoco-maven-plugin</artifactId>
           <version>0.8.8</version>
@@ -159,13 +159,20 @@
       </plugin--> 
    
 
-       <plugin>
+       <!--plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-site-plugin</artifactId>
         <version>4.0.0-M1</version>
-      </plugin>
+      </plugin-->
+     
+         
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-site-plugin</artifactId>
+        <version>3.7.1</version>
+    </plugin>
 
-       
+   
       
       </plugins>
  
@@ -173,8 +180,11 @@
   </build>
   <reporting>
     <plugins>
-      
- 
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-project-info-reports-plugin</artifactId>
+        <version>3.0.0</version>
+    </plugin>
     </plugins>
  </reporting>
 </project>

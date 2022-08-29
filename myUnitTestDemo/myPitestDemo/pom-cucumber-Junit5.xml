@@ -109,7 +109,7 @@
                 <avoidCallsTo>org.slf4j</avoidCallsTo>
                 <avoidCallsTo>org.apache.commons.logging</avoidCallsTo>
             </avoidCallsTo>
-            <reportsDirectory>target/Cucumber_Junit5_Report</reportsDirectory>
+            <reportsDirectory>target/Cucumber_Junit5_Pitest_Report</reportsDirectory>
             <timestampedReports>false</timestampedReports>
           </configuration>
         <dependencies>

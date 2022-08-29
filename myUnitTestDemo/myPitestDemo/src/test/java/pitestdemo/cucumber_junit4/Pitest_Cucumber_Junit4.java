@@ -9,10 +9,10 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(plugin = {
-                "pretty:target/cucumber/pretty-report.log",
-                "html:target/cucumber/report.html",
-                "json:target/cucumber/report.json",
-                "junit:target/cucumber/report.xml",
+                "pretty:target/Cucumber_Junit4_PiTest_Report/cucumber/pretty-report.log",
+                "html:target/Cucumber_Junit4_PiTest_Report/cucumber/report.html",
+                "json:target/Cucumber_Junit4_PiTest_Report/cucumber/report.json",
+                "junit:target/Cucumber_Junit4_PiTest_Report/cucumber/report.xml",
                 "pretty"
 }, features = { "src/test/resources/PiTest.feature" }, glue = { "pitestdemo.cucumber_junit4" })
 
