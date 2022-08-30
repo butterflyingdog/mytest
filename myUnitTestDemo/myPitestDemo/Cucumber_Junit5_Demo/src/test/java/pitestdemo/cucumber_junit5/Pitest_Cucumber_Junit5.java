@@ -9,11 +9,11 @@ import io.cucumber.junit.platform.engine.Cucumber;
 
 import static io.cucumber.junit.platform.engine.Constants.PLUGIN_PROPERTY_NAME;
 
-@Cucumber
-//@Suite
-///@IncludeEngines("cucumber")
-//@SelectClasspathResource("./")
-//@ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "pretty")
+//@Cucumber
+@Suite
+@IncludeEngines("cucumber")
+@SelectClasspathResource("./")
+@ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "pretty")
 
  
 public class Pitest_Cucumber_Junit5 {
