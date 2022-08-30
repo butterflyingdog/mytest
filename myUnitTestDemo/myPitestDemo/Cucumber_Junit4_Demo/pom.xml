@@ -11,7 +11,7 @@
   <groupId>com.butterflyingdog</groupId>
   <artifactId>myPitest-Cucumber-Junit4-Demo</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>myPitest-Cucumber-Demo</name> 
+  <name>myPitest-Cucumber-Junit4-Demo</name> 
 
 <dependencies>
     <dependency>

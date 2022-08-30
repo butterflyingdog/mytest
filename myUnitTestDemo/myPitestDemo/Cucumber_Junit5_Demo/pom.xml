@@ -11,7 +11,7 @@
   <groupId>com.butterflyingdog</groupId>
   <artifactId>myPitest-Cucumber-Junit5-Demo</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>myPitest-Cucumber-Demo</name> 
+  <name>myPitest-Cucumber-Junit5-Demo</name> 
  
   <dependencyManagement>
     <dependencies>
@@ -33,6 +33,12 @@
 </dependencyManagement>
 
 <dependencies>
+  <!--dependency>
+    <groupId>io.cucumber</groupId>
+    <artifactId>cucumber-java8</artifactId>
+    <version>7.5.0</version>
+    <scope>test</scope>
+</dependency-->
     <dependency>
         <groupId>io.cucumber</groupId>
         <artifactId>cucumber-java</artifactId>
@@ -61,16 +67,16 @@
 </dependencies>
 
 <build>  
-  <sourceDirectory>../src/main/java/</sourceDirectory>
+  <!--sourceDirectory>../src/main/java/</sourceDirectory-->
     <plugins>
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-compiler-plugin</artifactId>
             <version>3.10.1</version>
             <configuration>
-                  <testIncludes>
+                  <!--testIncludes>
                     <testInclude>pitestdemo/cucumber_junit5/*.java</testInclude>
-                  </testIncludes> 
+                  </testIncludes--> 
             </configuration>
         </plugin>
         <plugin>
@@ -78,18 +84,18 @@
             <artifactId>maven-surefire-plugin</artifactId>
             <version>3.0.0-M7</version>
             <configuration>
-              <includes>
+              <!--includes>
                 <include>pitestdemo/cucumber_junit5/*.java</include>
-              </includes>
-              <properties>
+              </includes-->
+              <!--properties>
                 <configurationParameters>
                     cucumber.junit-platform.naming-strategy=long;cucumber.features=../features/ 
                 </configurationParameters>
-            </properties>
+            </properties-->
             </configuration>
         </plugin>
 
-      <plugin>
+      <!--plugin>
         <groupId>org.pitest</groupId>
         <artifactId>pitest-maven</artifactId>
         <version>1.9.0</version>
@@ -130,7 +136,7 @@
               <version>0.10</version>
             </dependency>
         </dependencies>
-    </plugin>
+    </plugin-->
 
     
        
