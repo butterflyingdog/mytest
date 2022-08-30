@@ -33,12 +33,12 @@
 </dependencyManagement>
 
 <dependencies>
-  <!--dependency>
+  <dependency>
     <groupId>io.cucumber</groupId>
     <artifactId>cucumber-java8</artifactId>
     <version>7.5.0</version>
     <scope>test</scope>
-</dependency-->
+</dependency>
     <dependency>
         <groupId>io.cucumber</groupId>
         <artifactId>cucumber-java</artifactId>
@@ -68,15 +68,16 @@
 
 <build>  
   <sourceDirectory>../src/main/java/</sourceDirectory>
+  <testSourceDirectory>./src/test/java/</testSourceDirectory>
     <plugins>
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-compiler-plugin</artifactId>
             <version>3.10.1</version>
             <configuration>
-                  <!--testIncludes>
+                  <testIncludes>
                     <testInclude>pitestdemo/cucumber_junit5/*.java</testInclude>
-                  </testIncludes--> 
+                  </testIncludes> 
             </configuration>
         </plugin>
         <plugin>
@@ -84,14 +85,14 @@
             <artifactId>maven-surefire-plugin</artifactId>
             <version>3.0.0-M7</version>
             <configuration>
-              <!--includes>
+              <includes>
                 <include>pitestdemo/cucumber_junit5/*.java</include>
-              </includes-->
-              <!--properties>
-                <configurationParameters>
+              </includes>
+              <properties>
+                <!--configurationParameters>
                     cucumber.junit-platform.naming-strategy=long;cucumber.features=../features/ 
-                </configurationParameters>
-            </properties-->
+                </configurationParameters-->
+            </properties>
             </configuration>
         </plugin>
 
