@@ -1,4 +1,5 @@
 #!/bin/sh
 mvn clean
+
+mvn test-compile  org.pitest:pitest-maven:mutationCoverage 
 mvn test
-#mvn clean compiler:compile   compiler:testCompile  #org.pitest:pitest-maven:mutationCoverage test
