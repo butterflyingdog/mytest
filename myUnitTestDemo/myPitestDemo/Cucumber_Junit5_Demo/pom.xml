@@ -81,6 +81,11 @@
               <includes>
                 <include>pitestdemo/cucumber_junit5/*.java</include>
               </includes>
+              <properties>
+                <configurationParameters>
+                    cucumber.junit-platform.naming-strategy=long;cucumber.features=../features/ 
+                </configurationParameters>
+            </properties>
             </configuration>
         </plugin>
 

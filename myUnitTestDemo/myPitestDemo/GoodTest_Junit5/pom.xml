@@ -84,7 +84,7 @@
             <targetTests>
                 <param>pitestdemo.GoodTestCases*</param>
             </targetTests>
-            <reportsDirectory>target/goodTestCasesReport</reportsDirectory>
+            <!--reportsDirectory>target/goodTestCasesReport</reportsDirectory-->
             <timestampedReports>false</timestampedReports>
         </configuration>
         <dependencies>
@@ -93,15 +93,9 @@
             <artifactId>pitest-junit5-plugin</artifactId>
             <version>1.0.0</version>
           </dependency>
-        
         </dependencies>
     </plugin>
-
-      
-  
-      </plugins>
-     
-  
+   </plugins> 
   </build>
   <reporting>
     <plugins>
