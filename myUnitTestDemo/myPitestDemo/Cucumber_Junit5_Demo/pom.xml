@@ -121,11 +121,11 @@
             <artifactId>pitest-junit5-plugin</artifactId>
             <version>1.0.0</version>
           </dependency>
-          <dependency>
+          <!--dependency>
             <groupId>com.github.alexvictoor</groupId>
               <artifactId>pitest-cucumber-plugin</artifactId>
               <version>0.10</version>
-            </dependency>
+            </dependency-->
         </dependencies>
     </plugin>
 
