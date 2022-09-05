@@ -92,7 +92,7 @@
         <version>1.9.0</version>
         <executions>
             <execution>
-                <!--phase>test</phase-->
+                <phase>test</phase>
                 <goals>
                     <goal>mutationCoverage</goal>
                 </goals>
