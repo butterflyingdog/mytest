@@ -8,14 +8,11 @@ import org.junit.platform.suite.api.Suite;
 
 import static io.cucumber.junit.platform.engine.Constants.PLUGIN_PROPERTY_NAME;
 
-//@Cucumber
 @Suite
 @IncludeEngines("cucumber")
 @SelectClasspathResource("./")
 @ConfigurationParameters({
-
                 @ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "pretty:target/cucumber/pretty-report.log, html:target/cucumber/report.html,json:target/cucumber/report.json, junit:target/cucumber/report.xml, pretty")
-
 })
 
 public class Pitest_Cucumber_Junit5 {
