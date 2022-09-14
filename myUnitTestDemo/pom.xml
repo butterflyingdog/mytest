@@ -14,6 +14,7 @@
 		<module>myJUnitDemo</module>
 		<module>myMockitoDemo</module>
 		<module>myPitestDemo</module>
+		<module>myEvoSuiteDemo</module>
 	</modules>
 	 
 <!--

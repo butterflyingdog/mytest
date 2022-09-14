@@ -1,3 +1,2 @@
 #!/bin/sh
-mvn clean test evosuite:generate
-#mvn clean compiler:compile   compiler:testCompile  org.pitest:pitest-maven:mutationCoverage test
+mvn clean compile evosuite:generate evosuite:export  -DtargetFolder=target/generated-test-sources
