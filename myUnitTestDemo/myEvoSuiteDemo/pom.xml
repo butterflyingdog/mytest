@@ -7,10 +7,10 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.butterflyingdog</groupId>
-  <artifactId>myMockitoDemo</artifactId>
+  <artifactId>myEvoSuiteDemo</artifactId>
   <version>0.0.1-SNAPSHOT</version>
 
-  <name>myMockitoDemo</name>
+  <name>myEvoSuiteDemo</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
@@ -132,7 +132,11 @@
       -->
       
      
-       
+        <plugin>
+          <groupId>org.evosuite.plugins</groupId>
+          <artifactId>evosuite-maven-plugin</artifactId>
+          <version>1.0.6</version>
+        </plugin>
         <!--plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-surefire-report-plugin</artifactId>
