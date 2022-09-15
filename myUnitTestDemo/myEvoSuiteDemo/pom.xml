@@ -114,6 +114,31 @@
         </plugin>
 
         
+      <plugin>
+        <groupId>org.pitest</groupId>
+        <artifactId>pitest-maven</artifactId>
+        <version>1.9.0</version>
+        <executions>
+          <execution>
+              <phase>test</phase>
+              <goals>
+                  <goal>mutationCoverage</goal>
+              </goals>
+          </execution>
+        </executions>
+        <!--configuration>
+          <targetClasses>
+            <param>mycode.*</param>
+          </targetClasses>
+            <targetTests>
+                <param>pitestdemo.BadTestCases*</param>
+            </targetTests>
+          
+            <timestampedReports>false</timestampedReports>
+
+        </configuration-->
+  
+    </plugin> 
        <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-site-plugin</artifactId>
