@@ -126,17 +126,17 @@
               </goals>
           </execution>
         </executions>
-        <!--configuration>
-          <targetClasses>
+        <configuration>
+          <!--targetClasses>
             <param>mycode.*</param>
           </targetClasses>
             <targetTests>
                 <param>pitestdemo.BadTestCases*</param>
-            </targetTests>
+            </targetTests-->
           
             <timestampedReports>false</timestampedReports>
 
-        </configuration-->
+        </configuration>
   
     </plugin> 
        <plugin>
