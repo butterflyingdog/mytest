@@ -13,14 +13,34 @@ class PersonFacadeTest {
      */
     @Test
     void testConstructor() {
-        // TODO: Complete this test.
-        //   Reason: R002 Missing observers.
-        //   Diffblue Cover was unable to create an assertion.
-        //   Add getters for the following fields or make them package-private:
-        //     PersonFacade.mPersonService
+        // Arrange
+        // TODO: Populate arranged inputs
+        PersonService personService = null;
 
-        PersonFacade actualPersonFacade = new PersonFacade(new PersonService(null));
-        actualPersonFacade.setPersonService(new PersonService(null));
+        // Act
+        PersonFacade actualPersonFacade = new PersonFacade(personService);
+        PersonService personService1 = null;
+        actualPersonFacade.setPersonService(personService1);
+
+        // Assert
+        // TODO: Add assertions on result
+    }
+
+    /**
+     * Method under test: {@link PersonFacade#getPerson(int)}
+     */
+    @Test
+    void testGetPerson() {
+        // Arrange
+        // TODO: Populate arranged inputs
+        PersonFacade personFacade = null;
+        int id = 0;
+
+        // Act
+        Person actualPerson = personFacade.getPerson(id);
+
+        // Assert
+        // TODO: Add assertions on result
     }
 }
 
