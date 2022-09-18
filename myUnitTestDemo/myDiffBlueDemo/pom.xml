@@ -35,12 +35,8 @@
     <scope>test</scope>
 </dependency-->
 
- <!--dependency> 
-  <groupId>junit</groupId> 
-  <artifactId>junit</artifactId> 
-  <version>4.13.1</version>
- </dependency-->
-  <dependency> 
+
+  <dependency>
   <groupId>org.junit.vintage</groupId> 
   <artifactId>junit-vintage-engine</artifactId> 
   <version>5.8.1</version>
@@ -94,21 +90,28 @@
         <version>1.9.0</version>
         <executions>
           <execution>
-              <!--phase>test</phase-->
+              <phase>test</phase>
               <goals>
                   <goal>mutationCoverage</goal>
               </goals>
           </execution>
         </executions>
         <configuration>
-            <targetClasses>
+            <!--targetClasses>
             <param>mycode.*</param>
             </targetClasses>
             <targetTests>
                 <param>mycode.*</param>
-            </targetTests>
+            </targetTests-->
             <timestampedReports>false</timestampedReports>
         </configuration>
+          <dependencies>
+          <dependency>
+              <groupId>org.pitest</groupId>
+              <artifactId>pitest-junit5-plugin</artifactId>
+              <version>1.0.0</version>
+          </dependency>
+          </dependencies>
     </plugin> 
 
     <plugin>
