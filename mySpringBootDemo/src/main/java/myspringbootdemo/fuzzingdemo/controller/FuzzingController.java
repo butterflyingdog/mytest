@@ -44,7 +44,7 @@ public class FuzzingController {
     @Operation(summary = "Fuzzed Web API", description = "This web api is fuzzed.", tags = { "fuzzing" })
     //@ApiResponses(value = { @ApiResponse(description = "successful operation", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = User.class)), @Content(mediaType = "application/xml", schema = @Schema(implementation = User.class)) }) })
     @PostMapping("/fuzz")
-    public String addUser( @RequestParam("personname") String personname, @RequestBody String jsonString){
+    public String fuzz( @RequestParam("personname") String personname, @RequestBody String jsonString){
  
       int ret =  PersonService.addUser(personname);//.invokeDomainDoSth(param1);
       if(ret == 0)
