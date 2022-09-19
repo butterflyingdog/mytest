@@ -1,6 +1,9 @@
 package myspringbootdemo.servicemng.controller;
 
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,6 +24,7 @@ public class MyController {
     @Autowired
     private MyAppService autoWiredService;
 
+    @NotNull
     private MyAppService notAutowiredService_with_notInitializedDomain;
 
     private MyAppService notAutowiredService_with_InitializedDomain;
@@ -47,7 +51,7 @@ public class MyController {
      * 3、返回正确结果
      */
     @GetMapping("/invokeAutowiredService")
-    public String invokeAutowiredService(@RequestParam("param1") String param1){
+    public String invokeAutowiredService(@RequestParam("param1") @NotBlank String param1){
       String ret =  autoWiredService.invokeDomainDoSth(param1);
       if(ret.equalsIgnoreCase("domain failed"))
         return "controller failed";
