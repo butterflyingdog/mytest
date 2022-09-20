@@ -21,20 +21,7 @@
   </properties>
 
   <dependencies>
-    <!--dependency>
-       
-      <groupId>org.powermock</groupId>
-      <artifactId>powermock-module-junit4</artifactId>
-      <scope>test</scope>
-      <version>1.7.3</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.powermock</groupId>
-      <artifactId>powermock-api-mockito2</artifactId>
-      <scope>test</scope>
-      <version>1.7.3</version>
-    </dependency-->
+     
     <dependency>
       <groupId>org.mockito</groupId>
       <artifactId>mockito-core</artifactId>
@@ -47,12 +34,7 @@
     <version>2.2</version>
     <scope>test</scope>
 </dependency>
-
- <!--dependency> 
-  <groupId>junit</groupId> 
-  <artifactId>junit</artifactId> 
-  <version>4.13.1</version>
- </dependency-->
+ 
   <dependency> 
   <groupId>org.junit.vintage</groupId> 
   <artifactId>junit-vintage-engine</artifactId> 
@@ -72,12 +54,29 @@
     <version>3.10.0</version>
     <scope>test</scope>
 </dependency>
+<dependency>
+  <groupId>com.gitlab.javafuzz</groupId>
+  <artifactId>javafuzz-maven-plugin</artifactId>
+  <version>1.26</version>
+</dependency> 
+
 
   </dependencies>
 
   <build>
+     <plugins>
+    
+  </plugins>
+
+
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
+        <plugin>
+          <groupId>com.gitlab.javafuzz</groupId>
+          <artifactId>javafuzz-maven-plugin</artifactId>
+          <version>1.26</version>
+        </plugin>
+        
         <plugin>
           <artifactId>maven-clean-plugin</artifactId>
           <version>3.0.0</version>
@@ -201,6 +200,22 @@
     </pluginManagement>
     
   </build>
+
+  <repositories>
+    <repository>
+      <id>gitlab-maven</id>
+      <url>https://gitlab.com/api/v4/projects/19871573/packages/maven</url>
+    </repository>
+  </repositories>
+  
+  <pluginRepositories>
+    <pluginRepository>
+      <id>gitlab-maven</id>
+      <url>https://gitlab.com/api/v4/projects/19871573/packages/maven</url>
+    </pluginRepository>
+  </pluginRepositories>
+
+  
   <reporting>
     <plugins>
        <plugin>
