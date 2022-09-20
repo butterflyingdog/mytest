@@ -54,11 +54,7 @@
     <version>3.10.0</version>
     <scope>test</scope>
 </dependency>
-<dependency>
-  <groupId>com.gitlab.javafuzz</groupId>
-  <artifactId>javafuzz-maven-plugin</artifactId>
-  <version>1.26</version>
-</dependency> 
+ 
 
 
   </dependencies>
@@ -71,11 +67,7 @@
 
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
-        <plugin>
-          <groupId>com.gitlab.javafuzz</groupId>
-          <artifactId>javafuzz-maven-plugin</artifactId>
-          <version>1.26</version>
-        </plugin>
+       
         
         <plugin>
           <artifactId>maven-clean-plugin</artifactId>
@@ -201,19 +193,7 @@
     
   </build>
 
-  <repositories>
-    <repository>
-      <id>gitlab-maven</id>
-      <url>https://gitlab.com/api/v4/projects/19871573/packages/maven</url>
-    </repository>
-  </repositories>
-  
-  <pluginRepositories>
-    <pluginRepository>
-      <id>gitlab-maven</id>
-      <url>https://gitlab.com/api/v4/projects/19871573/packages/maven</url>
-    </pluginRepository>
-  </pluginRepositories>
+   
 
   
   <reporting>

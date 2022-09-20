@@ -1,0 +1,12 @@
+*.bak
+*.class
+target
+
+build
+.gradle
+
+.project
+.settings
+.evosuite
+jacocoagent.jar
+jacoco.exec
